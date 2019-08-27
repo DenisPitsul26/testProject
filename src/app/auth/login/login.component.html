@@ -1,0 +1,29 @@
+<article class="card-body mx-auto" style="max-width: 400px;">
+  <h4 class="card-title mt-3 text-center">Login</h4>
+  <p class="text-center">You have to login</p>
+  <p>
+    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+  </p>
+  <p class="divider-text">
+    <span class="bg-light">OR</span>
+  </p>
+  <form [formGroup]="form" (ngSubmit)="login()">
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+      </div>
+      <input name="email" class="form-control" formControlName="email" placeholder="Email" type="email">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+      </div>
+      <input name="password" class="form-control" formControlName="password" placeholder="Password" type="password">
+    </div> <!-- form-group// -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block"> Sign in  </button>
+    </div> <!-- form-group// -->
+    <p class="text-center">Have not an account? <a [routerLink]="'/registration'">Registration</a> </p>
+  </form>
+</article>

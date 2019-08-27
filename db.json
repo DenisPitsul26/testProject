@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "denia.pitsul@gmail.com",
+      "password": "denis26",
+      "name": "Администратор Денис",
+      "admin": 1,
+      "groupId": 0
+    }
+  ],
+  "groups": [
+    {
+      "group": "143",
+      "faculty": "IFTKN",
+      "id": 1
+    }
+  ]
+}
