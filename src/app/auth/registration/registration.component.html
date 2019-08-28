@@ -8,43 +8,77 @@
   <p class="divider-text">
     <span class="bg-light">OR</span>
   </p>
-  <form>
-    <div class="form-group input-group">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group input-group" [ngClass]="{'has-error': form.get('name').invalid && form.get('name').touched}">
       <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
       </div>
-      <input name="" class="form-control" placeholder="Full name" type="text">
+      <input formControlName="name" class="form-control" placeholder="Full name" type="text">
+      <span class="form-help-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+        Name can not be empty.
+      </span>
     </div> <!-- form-group// -->
-    <div class="form-group input-group">
+    <div class="form-group input-group" [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
       <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
       </div>
-      <input name="" class="form-control" placeholder="Email address" type="email">
+      <input class="form-control" placeholder="Email address" type="email" formControlName="email">
+      <span class="form-help-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+        <span *ngIf="form.get('email')['errors']['required']">Email can not be empty. </span>
+        <span *ngIf="form.get('email')['errors']['email']">Please enter a valid email. </span>
+        <span *ngIf="form.get('email')['errors']['forbiddenEmail']">Email is already busy. </span>
+      </span>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
       <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-building"></i> </span>
       </div>
-      <select class="form-control">
-        <option selected="">Number of group</option>
-        <option>143A</option>
-        <option>143B</option>
+      <select required [ngModel]="1" formControlName="numberOfGroup" id="numberOfGroup" class="form-control"
+              [ngClass]="{'has-error': form.get('numberOfGroup').invalid && form.get('numberOfGroup').touched}">
+        <option *ngFor="let g of groups" [value]="g.id">
+          {{g.group}}
+        </option>
       </select>
+      <span class="form-help-text" *ngIf="form.get('numberOfGroup').invalid && form.get('numberOfGroup').touched">
+        Group can not be empty.
+      </span>
     </div> <!-- form-group end.// -->
-    <div class="form-group input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-      </div>
-      <input class="form-control" placeholder="Create password" type="password">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-      </div>
-      <input class="form-control" placeholder="Repeat password" type="password">
-    </div> <!-- form-group// -->
+    <div formGroupName="passwordGroup">
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input class="form-control" formControlName="password" placeholder="Create password" type="password"
+               [ngClass]="{'has-error': form.get('passwordGroup.password').invalid && form.get('passwordGroup.password').touched}">
+        <span class="form-help-text" *ngIf="form.get('passwordGroup.password').invalid && form.get('passwordGroup.password').touched">
+        <span *ngIf="form.get('passwordGroup.password')['errors']['required']">Password can not be empty. </span>
+        <span *ngIf="form.get('passwordGroup.password')['errors']['minlength'] && form.get('passwordGroup.password')['errors']['minlength']['requiredLength']">
+          The password should beat more
+          {{ form.get('passwordGroup.password')['errors']['minlength']['requiredLength'] }}
+          characters. Now there are {{ form.get('passwordGroup.password')['errors']['minlength']['actualLength'] }}. </span>
+        </span>
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input class="form-control" formControlName="repeatPassword" placeholder="Repeat password" type="password"
+               [ngClass]="{'has-error': form.get('passwordGroup.repeatPassword').invalid && form.get('passwordGroup.repeatPassword').touched}">
+        <span class="form-help-text" *ngIf="form.get('passwordGroup.repeatPassword').invalid && form.get('passwordGroup.repeatPassword').touched">
+          <span *ngIf="form.get('passwordGroup.repeatPassword')['errors']['required']">Password can not be empty. </span>
+          <span *ngIf="form.get('passwordGroup.repeatPassword')['errors']['minlength']
+           && form.get('passwordGroup.repeatPassword')['errors']['minlength']['requiredLength']">
+            The password should beat more
+            {{ form.get('passwordGroup.repeatPassword')['errors']['minlength']['requiredLength'] }}
+            characters. Now there are {{ form.get('passwordGroup.repeatPassword')['errors']['minlength']['actualLength'] }}. </span>
+        </span>
+      </div> <!-- form-group// -->
+      <span class="form-help-text" *ngIf="errorMessage!==''">
+          Passwords do not match.
+      </span>
+    </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+      <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-block"> Create Account  </button>
     </div> <!-- form-group// -->
     <p class="text-center">Have an account? <a [routerLink]="'/login'">Log In</a> </p>
   </form>

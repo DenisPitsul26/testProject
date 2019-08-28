@@ -12,6 +12,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthGuard} from './auth/auth.guard';
 
 const config = {
   apiKey: 'YOUR_API_KEY',
@@ -31,9 +33,10 @@ const config = {
     BrowserModule,
     AuthModule,
     SystemModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

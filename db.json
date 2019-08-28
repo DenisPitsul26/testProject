@@ -7,13 +7,47 @@
       "name": "Администратор Денис",
       "admin": 1,
       "groupId": 0
+    },
+    {
+      "id": 2,
+      "email": "test@gmail.com",
+      "password": "testTest",
+      "name": "User",
+      "admin": 0,
+      "groupId": 1
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "111111",
+      "name": "sfsd",
+      "isAdmin": 0,
+      "groupId": 1,
+      "id": 3
+    },
+    {
+      "email": "test@mail.com",
+      "password": "111111",
+      "name": "test",
+      "isAdmin": 0,
+      "groupId": "3",
+      "id": 4
     }
   ],
   "groups": [
     {
-      "group": "143",
+      "group": "143A",
       "faculty": "IFTKN",
       "id": 1
+    },
+    {
+      "group": "143B",
+      "faculty": "IFTKN",
+      "id": 2
+    },
+    {
+      "group": "143C",
+      "faculty": "IFTKN",
+      "id": 3
     }
   ]
 }
