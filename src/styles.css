@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+
+div {
+  height: 100%;
+}
+
+div .input-group-prepend {
+  height: 38px;
+}
+span {
+  height: 100%;
+}
+
+app-login {
+  height: 100%;
+  bottom: 0vh;
+  top: 15vh;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-color: white;
+  margin-bottom: 0px;
+}
+
+app-registrotion {
+  height: 100%;
+  bottom: 0vh;
+  top: 15vh;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-color: white;
+  margin-bottom: 0px;
+}
+
+app-auth {
+  height: 100%;
+  border: 0px;
+}
+
+article {
+  height: 100%;
+  border: 0px;
+}
+
+app-root {
+  height: 100%;
+}/* You can add global styles to this file, and also import other style files */

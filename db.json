@@ -31,6 +31,14 @@
       "isAdmin": 0,
       "groupId": "3",
       "id": 4
+    },
+    {
+      "email": "dfd@gbrgfb",
+      "password": "ddddddd",
+      "name": "bdfv",
+      "isAdmin": 0,
+      "groupId": "2",
+      "id": 5
     }
   ],
   "groups": [

@@ -1,13 +1,16 @@
+<header id = "header">
+</header>
 <article class="card-body mx-auto" style="max-width: 400px;">
   <h4 class="card-title mt-3 text-center">Create Account</h4>
   <p class="text-center">Get started with your free account</p>
-  <p>
-    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-  </p>
-  <p class="divider-text">
-    <span class="bg-light">OR</span>
-  </p>
+<!--  <p>-->
+<!--    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>-->
+<!--    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>-->
+<!--  </p>-->
+<!--  <p class="divider-text">-->
+<!--    <span class="bg-light">OR</span>-->
+<!--  </p>-->
+  <hr>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group input-group" [ngClass]="{'has-error': form.get('name').invalid && form.get('name').touched}">
       <div class="input-group-prepend">
@@ -78,7 +81,7 @@
       </span>
     </div>
     <div class="form-group">
-      <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+      <button [disabled]="form.invalid" type="submit" class="btn btn-default btn-block"> Create Account  </button>
     </div> <!-- form-group// -->
     <p class="text-center">Have an account? <a [routerLink]="'/login'">Log In</a> </p>
   </form>
