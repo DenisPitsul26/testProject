@@ -24,12 +24,12 @@ export class LoginComponent implements OnInit {
     this.route.queryParams.subscribe((params: Params) => {
       if (params.nowCanLogin) {
         this.showMessage({
-          text: 'Тепер ви можете зайти в систему',
+          text: 'You can now log in',
           type: 'success'
         });
       } else if (params.accessDenied) {
         this.showMessage({
-          text: 'Для роботи с системой вам необходимо войти',
+          text: 'You need to be logged in to work with the system',
           type: 'warning'
         });
       }
