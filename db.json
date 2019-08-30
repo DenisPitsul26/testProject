@@ -1,20 +1,20 @@
 {
   "users": [
     {
-      "id": 1,
       "email": "denia.pitsul@gmail.com",
       "password": "denis26",
       "name": "Администратор Денис",
-      "admin": 1,
-      "groupId": 0
+      "isAdmin": 1,
+      "groupId": 1,
+      "id": 1
     },
     {
-      "id": 2,
       "email": "test@gmail.com",
       "password": "testTest",
       "name": "User",
-      "admin": 0,
-      "groupId": 1
+      "isAdmin": 0,
+      "groupId": 1,
+      "id": 2
     },
     {
       "email": "test@gmail.com",

@@ -13,6 +13,10 @@ export class UserService extends BaseApi {
     super(http);
   }
 
+  getAllUsers(): Observable<any> {
+    return this.get('users');
+  }
+
   getUserByEmail(email: string): Observable<any> {
     return this.get(`users?email=${email}`)
       .pipe(map((users: User[]) => {
