@@ -64,7 +64,11 @@ app-sidebar {
   display: block;
   float: left;
   margin: 0 0 0 0;
-  background-color: #fe5e3e;
+  background-color: rgba(254, 94, 62, 0.5);
   height: 100%;
   z-index: 3;
+}
+
+app-system {
+  height: 100%;
 }
