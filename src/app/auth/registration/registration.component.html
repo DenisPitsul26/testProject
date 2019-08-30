@@ -1,6 +1,6 @@
 
 <article class="card-body mx-auto" style="max-width: 400px;">
-  <h4 class="card-title mt-3 text-center">Create Account</h4>
+  <h4 class="card-title mt-3 text-center">Create an Account</h4>
   <p class="text-center">Get started with your free account</p>
 <!--  <p>-->
 <!--    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>-->
@@ -26,9 +26,9 @@
       </div>
       <input class="form-control" placeholder="Email address" type="email" formControlName="email">
       <span class="form-help-text" *ngIf="form.get('email').invalid && form.get('email').touched">
-        <span *ngIf="form.get('email')['errors']['required']">Email can not be empty. </span>
+        <span *ngIf="form.get('email')['errors']['required']"><p>Email can not be empty. </p></span>
         <span *ngIf="form.get('email')['errors']['email']">Please enter a valid email. </span>
-        <span *ngIf="form.get('email')['errors']['forbiddenEmail']">Email is already busy. </span>
+        <span *ngIf="form.get('email')['errors']['forbiddenEmail']">This Email is already taken. </span>
       </span>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
@@ -55,7 +55,7 @@
         <span class="form-help-text" *ngIf="form.get('passwordGroup.password').invalid && form.get('passwordGroup.password').touched">
         <span *ngIf="form.get('passwordGroup.password')['errors']['required']">Password can not be empty. </span>
         <span *ngIf="form.get('passwordGroup.password')['errors']['minlength'] && form.get('passwordGroup.password')['errors']['minlength']['requiredLength']">
-          The password should beat more
+          The password should contain more than
           {{ form.get('passwordGroup.password')['errors']['minlength']['requiredLength'] }}
           characters. Now there are {{ form.get('passwordGroup.password')['errors']['minlength']['actualLength'] }}. </span>
         </span>
@@ -70,7 +70,7 @@
           <span *ngIf="form.get('passwordGroup.repeatPassword')['errors']['required']">Password can not be empty. </span>
           <span *ngIf="form.get('passwordGroup.repeatPassword')['errors']['minlength']
            && form.get('passwordGroup.repeatPassword')['errors']['minlength']['requiredLength']">
-            The password should beat more
+            Password should contain more than
             {{ form.get('passwordGroup.repeatPassword')['errors']['minlength']['requiredLength'] }}
             characters. Now there are {{ form.get('passwordGroup.repeatPassword')['errors']['minlength']['actualLength'] }}. </span>
         </span>
