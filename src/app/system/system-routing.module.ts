@@ -7,7 +7,7 @@ import {ControlWorksComponent} from './control-works/control-works.component';
 import {GroupsComponent} from './groups/groups.component';
 
 const routes: Routes = [
-  {path: '', component: SystemComponent, children: [
+  {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
     {path: 'users', component: UsersComponent},
     {path: 'control_works', component: ControlWorksComponent},
     {path: 'groups', component: GroupsComponent}

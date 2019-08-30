@@ -9,9 +9,10 @@ import { GroupsComponent } from './groups/groups.component';
 import { ControlWorksComponent } from './control-works/control-works.component';
 import { DropdownDirective } from './directives/dropdown.directive';
 import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, SystemRoutingModule],
+  imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
   declarations: [
     SystemComponent,
     HeaderComponent,

@@ -1,15 +1,15 @@
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {SystemComponent} from './system/system.component';
-import {AuthGuard} from './auth/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'system', component: SystemComponent, canActivate: [AuthGuard]},
+  {path: 'system', loadChildren: './system/system.module#SystemModule'},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
