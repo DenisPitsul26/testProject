@@ -50,7 +50,6 @@
   border: 1px solid rgb(103, 103, 103);
   border-radius: 25px;
   position: relative;
-  top: 13vh;
 }
 
 .btn-default {
@@ -61,15 +60,6 @@
   color: #fff;
 }
 
-#header {
-  height: 8vh;
-  width: 100%;
-  background-color: #fe5e3e;
-  position: absolute;
-  z-index: 10;
-  top: 0px;
-  left: 0px;
 
-}
 
 

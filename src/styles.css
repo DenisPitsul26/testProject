@@ -28,6 +28,7 @@ app-login {
   background-color: white;
   border-color: white;
   margin-bottom: 0px;
+  align-items: center;
 }
 
 app-registrotion {
@@ -36,6 +37,7 @@ app-registrotion {
   top: 15vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: white;
   border-color: white;
   margin-bottom: 0px;
@@ -44,6 +46,7 @@ app-registrotion {
 app-auth {
   height: 100%;
   border: 0px;
+  align-items: center;
 }
 
 article {
@@ -54,3 +57,14 @@ article {
 app-root {
   height: 100%;
 }/* You can add global styles to this file, and also import other style files */
+
+
+app-sidebar {
+  width: 250px;
+  display: block;
+  float: left;
+  margin: 0 0 0 0;
+  background-color: #fe5e3e;
+  height: 100%;
+  z-index: 3;
+}

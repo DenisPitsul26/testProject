@@ -1,0 +1,27 @@
+li .profile {
+  list-style-type: none !important;
+  color: white;
+}
+
+ul .nav-profile {
+  position: absolute;
+  right: 0px !important;
+  top: 0px !important;
+}
+
+div {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  color: white;
+}
+
+header {
+  height: 15vh;
+  width: 100%;
+  background-color: rgba(254, 94, 62, 0.7);
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 250px;
+}
