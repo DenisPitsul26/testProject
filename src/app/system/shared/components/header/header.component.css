@@ -12,18 +12,18 @@ li.profile {
 
 div {
   position: fixed;
-  left: 250px;
+  left: 200px;
   color: white;
 }
 
 header {
   height: 15vh;
   width: 100%;
-  background-color: rgba(254, 94, 62, 0.3);
+  background-color: rgba(254, 94, 62, 0.4);
   position: absolute;
   z-index: 10;
   top: 0px;
-  left: 250px;
+  left: 200px;
   align-items: center;
 }
 

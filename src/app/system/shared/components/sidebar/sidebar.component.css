@@ -6,36 +6,55 @@ aside.sidebar {
   height: 100%;
 }
 
-div.sidebar-header {
-  height: 15vh;
-}
-
 nav.menu {
   height: 80vh;
   top: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(254, 94, 62, 0.5);
 }
 
 ul {
   height: 100%;
-  width: 250px;
+  width: 200px;
   top: 15vh;
   display: block;
   justify-content: center;
   align-items: center;
 }
 
-li.active {
+
+div.sidebar-header {
+  background-image: url("https://pbs.twimg.com/profile_images/875212307810230272/RsXnUQ-5.jpg");
+  height: 15vh;
+  background-size: 100% 100%;
+
+}
+
+li {
+  height: 75px;
+  padding-top: 10px;
+  padding-bottom: 15px;
   display: block;
   width: border-box;
 }
 
-div.brand {
-  background-image: url("/val.png");
-  height: 15vh;
-  background-size: contain;
+.metismenu a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+}
+
+.metismenu li:hover{
+  background-color: #d30d0e;
 
 }
+
+.metismenu a:hover{
+  color: #fea989;
+}
+
+
+

@@ -1,0 +1,13 @@
+article.dashboard-page {
+  position: absolute;
+  left: 200px;
+  top: 15vh;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  background-color: white;
+  text-align: left;
+}
+
