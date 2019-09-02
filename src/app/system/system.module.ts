@@ -10,6 +10,9 @@ import { ControlWorksComponent } from './control-works/control-works.component';
 import { DropdownDirective } from './directives/dropdown.directive';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TestingComponent } from './testing/testing.component';
+import { TestingDetailComponent } from './testing-detail/testing-detail.component';
+import { ControlWorkDetailComponent } from './control-work-detail/control-work-detail.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
@@ -20,7 +23,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     UsersComponent,
     GroupsComponent,
     ControlWorksComponent,
-    DropdownDirective
+    DropdownDirective,
+    TestingComponent,
+    TestingDetailComponent,
+    ControlWorkDetailComponent
   ]
 })
 export class SystemModule {}

@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-header bordered">
             <div class="header-block">
-              <h3 class="title">All users</h3>
+              <h3 class="title">Tests</h3>
             </div>
             <div class="form-inline pull-right m-r-2">
               <div class="form-group">
@@ -33,24 +33,16 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Is admin</th>
-                <th>Number of group</th>
+                <th>Question</th>
                 <th class="text-lg-center">Action</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let user of users let idx = index">
+              <tr *ngFor="let test of tests let idx = index">
                 <th scope="row">{{idx+1}}</th>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.password}}</td>
-                <td>{{user.isAdmin === 1 ? 'Yes' : 'No'}}</td>
-                <td>{{user.numberOfGroup}}</td>
+                <td>{{test.question}}</td>
                 <td class="text-lg-center">
-                  <a href="#" class="btn btn-primary-outline">Open</a>
+                  <a [routerLink]="['/tests', test.id]" class="btn btn-primary-outline">Open</a>
                 </td>
               </tr>
               </tbody>
@@ -61,3 +53,4 @@
     </div>
   </section>
 </div>
+

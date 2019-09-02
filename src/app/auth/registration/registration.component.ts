@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
-import {User} from '../../shared/models/User.model';
+import {User} from '../../shared/models/user.model';
 import {GroupService} from '../group.service';
 import {Group} from '../../shared/models/group.model';
 
@@ -64,7 +64,7 @@ export class RegistrationComponent implements OnInit {
     console.log('pass2', passwordGroup.repeatPassword);
     if (passwordGroup.password === passwordGroup.repeatPassword) {
       this.errorMessage = '';
-      const user = new User(email, passwordGroup.password, name, 0, numberOfGroup);
+      const user = new User(email, passwordGroup.password, name, 0, +numberOfGroup);
       this.usersService.createNewUser(user).subscribe(() => {
         this.router.navigate(['/login'], {
           queryParams: {

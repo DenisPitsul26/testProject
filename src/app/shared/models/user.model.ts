@@ -4,5 +4,7 @@ export class User {
               public name: string,
               public isAdmin: number,
               public groupId?: number,
-              public id?: number) {}
+              public numberOfGroup?: string,
+              public id?: number
+  ) {}
 }

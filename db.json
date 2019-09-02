@@ -29,7 +29,7 @@
       "password": "111111",
       "name": "test",
       "isAdmin": 0,
-      "groupId": "3",
+      "groupId": 3,
       "id": 4
     },
     {
@@ -37,7 +37,7 @@
       "password": "ddddddd",
       "name": "bdfv",
       "isAdmin": 0,
-      "groupId": "2",
+      "groupId": 2,
       "id": 5
     },
     {
@@ -45,7 +45,7 @@
       "password": "123456",
       "name": "z",
       "isAdmin": 0,
-      "groupId": "2",
+      "groupId": 2,
       "id": 6
     }
   ],
@@ -64,6 +64,113 @@
       "group": "143C",
       "faculty": "IFTKN",
       "id": 3
+    }
+  ],
+  "tests": [
+    {
+      "question": "РРМИРОиоиолиоио орилотлт?",
+      "answers": [
+        "111",
+        "222",
+        "333",
+        "444"
+      ],
+      "correctAnswers": [
+        2
+      ],
+      "id": 1
+    },
+    {
+      "question": "dfgegdfgfdgdf dfgdfgd?",
+      "answers": [
+        "1110001",
+        "2220002",
+        "3330003",
+        "4440004"
+      ],
+      "correctAnswers": [
+        3
+      ],
+      "id": 2
+    },
+    {
+      "question": "dkjlipiopop;.k, ?",
+      "answers": [
+        "11101",
+        "22202",
+        "33303",
+        "44404"
+      ],
+      "correctAnswers": [
+        4
+      ],
+      "id": 3
+    }
+  ],
+  "controlWorks": [
+    {
+      "theme": "main",
+      "tests": [
+        {
+          "question": "РРМИРОиоиолиоио орилотлт?",
+          "answers": [
+            "111",
+            "222",
+            "333",
+            "444"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "id": 1
+        },
+        {
+          "question": "dkjlipiopop;.k, ?",
+          "answers": [
+            "11101",
+            "22202",
+            "33303",
+            "44404"
+          ],
+          "correctAnswers": [
+            4
+          ],
+          "id": 3
+        }
+      ],
+      "id": 1
+    },
+    {
+      "theme": "main2",
+      "tests": [
+        {
+          "question": "dfgegdfgfdgdf grggtt hrthrthrthrt dfgdfgd?",
+          "answers": [
+            "1110001",
+            "2220002",
+            "3330003",
+            "4440004"
+          ],
+          "correctAnswers": [
+            3
+          ],
+          "id": 2
+        },
+        {
+          "question": "dkjlipiopop;.k, ?",
+          "answers": [
+            "11101",
+            "22202",
+            "33303",
+            "44404"
+          ],
+          "correctAnswers": [
+            4
+          ],
+          "id": 3
+        }
+      ],
+      "id": 2
     }
   ]
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Group} from '../shared/models/group.model';
+import {group} from '@angular/animations';
+import {GroupService} from '../auth/group.service';
 
 @Component({
   selector: 'app-system',
@@ -7,9 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SystemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private groupService: GroupService) { }
 
   ngOnInit() {
   }
-
 }

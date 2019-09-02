@@ -1,0 +1,42 @@
+<div class="text-center" *ngIf="!isLoaded">
+  Loading...
+</div>
+<div *ngIf="isLoaded">
+  <div class="title-block">
+    <h3 class="title">
+      <a [routerLink]="['/system/history']"><i class="fa fa-arrow-left"></i></a>
+      Test № {{controlWork.id}}
+      <span class="sparkline bar"></span>
+    </h3>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="card-success">
+          <div class="card-header">
+            <div class="header-block">
+              <p class="title">
+                Title
+              </p>
+            </div>
+          </div>
+          <div class="card-block">
+            <ul>
+              <li>Theme: <strong>{{controlWork.theme}}</strong></li>
+              <li *ngFor="let test of controlWork.tests">Question:
+                  <ul>
+                    <li>Question: <strong>{{test.question}}</strong></li>
+                    <li *ngFor="let answer of test.answers let idx = index">Answers:
+                      <strong>{{idx+1}}: {{answer}}</strong>
+                    </li>
+                    <li *ngFor="let correctAnswer of test.correctAnswers let idx = index">Correct answer:
+                      <strong>{{idx+1}}: {{correctAnswer}}</strong>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
