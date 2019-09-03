@@ -1,0 +1,54 @@
+<!--<div class="modal fade in">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <button type="button" class="close">-->
+<!--          <span>×</span>-->
+<!--        </button>-->
+<!--        <h4 class="modal-title">Фильтр</h4>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <div class="form-group input-group">-->
+<!--          <input class="form-control" placeholder="Question" type="text">-->
+<!--        </div>-->
+<!--        <div class="form-group input-group" *ngFor="let key of count | myCount">-->
+<!--          <input class="form-control" placeholder="Answer" type="text" [value]="key">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-sm-12 col-xs-12">
+      <form>
+        <div class="form-group">
+          <label>Question</label>
+          <input type="text" class="form-control" placeholder="Input question" id="question">
+        </div>
+        <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #answer>
+          <label>Answer #{{number}}</label>
+          <input type="text" class="form-control" placeholder="Input answer" [id]="number">
+        </div>
+        <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #correctAnswer>
+          <label>Correct answer #{{number}}</label>
+          <input type="checkbox" class="form-control" [id]="number+'c'">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="addAnswer()">Add answer</button>
+        <button type="button" class="btn btn-warning" (click)="deleteAnswer()">Delete answer</button>
+<!--        <div class="radio" *ngFor="let answer of answers">-->
+<!--          <label>-->
+<!--            <input type="radio" [value]="answer.type" name="answer" formControlName="answer"> {{answer.text}}-->
+<!--          </label>-->
+<!--        </div>-->
+        <button class="btn btn-success" type="submit" (click)="addTest()">Save</button>
+        <button class="btn btn-danger" type="submit" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+

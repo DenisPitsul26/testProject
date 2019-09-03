@@ -13,6 +13,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TestingComponent } from './testing/testing.component';
 import { TestingDetailComponent } from './testing-detail/testing-detail.component';
 import { ControlWorkDetailComponent } from './control-work-detail/control-work-detail.component';
+import { TestingAddComponent } from './testing/testing-add/testing-add.component';
+import { MyCountPipe } from './shared/pipes/my-count.pipe';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
@@ -26,7 +28,9 @@ import { ControlWorkDetailComponent } from './control-work-detail/control-work-d
     DropdownDirective,
     TestingComponent,
     TestingDetailComponent,
-    ControlWorkDetailComponent
+    ControlWorkDetailComponent,
+    TestingAddComponent,
+    MyCountPipe
   ]
 })
 export class SystemModule {}

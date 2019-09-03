@@ -2,7 +2,11 @@
   Loading...
 </div>
 <div *ngIf="isLoaded">
+  <div *ngIf="isAddFormVisible">
+    <app-testing-add (addFormIsVisible)="cancelForm($event)" (newTestAdded)="newTestAdded($event)"></app-testing-add>
+  </div>
   <section class="section">
+    <button class="btn btn-success" (click)="addTestForm()" *ngIf="!isAddFormVisible">Add</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

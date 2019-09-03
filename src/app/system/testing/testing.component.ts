@@ -12,6 +12,7 @@ export class TestingComponent implements OnInit, OnDestroy {
   isLoaded = false;
   tests: TestModel[];
   sub1: Subscription;
+  isAddFormVisible = false;
 
   constructor(private testsService: TestsService) { }
 
@@ -29,4 +30,17 @@ export class TestingComponent implements OnInit, OnDestroy {
     }
   }
 
+  addTestForm() {
+    this.isAddFormVisible = true;
+    console.log(this.isAddFormVisible);
+  }
+
+  cancelForm(flag: boolean) {
+    this.isAddFormVisible = flag;
+  }
+
+  newTestAdded(testModel) {
+    console.log('eeeeeeeeeeeeeeeeee', testModel);
+    this.tests.push(testModel);
+  }
 }

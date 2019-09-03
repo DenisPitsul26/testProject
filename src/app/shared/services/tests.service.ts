@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BaseApi} from '../../auth/base-api';
 import {Observable} from 'rxjs';
+import {TestModel} from '../models/test.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,8 @@ export class TestsService extends BaseApi {
   }
   getTestById(id: string): Observable<any> {
     return this.get(`tests/${id}`);
+  }
+  addTest(testModel: TestModel): Observable<any> {
+    return this.post('tests', testModel);
   }
 }
