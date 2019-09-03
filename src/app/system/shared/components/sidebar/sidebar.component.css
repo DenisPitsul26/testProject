@@ -1,14 +1,14 @@
-div.sidebar-container {
-  height: 100%;
-}
-
 aside.sidebar {
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
 }
 
 nav.menu {
-  height: 80vh;
-  top: 15vh;
+  height: 100%;
+  background-color: rgba(254, 94, 62, 0.65);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,9 +32,7 @@ div.sidebar-header {
 }
 
 li {
-  height: 75px;
-  padding-top: 10px;
-  padding-bottom: 15px;
+  height: 50px;
   display: block;
   width: border-box;
 }

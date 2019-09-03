@@ -62,9 +62,10 @@ app-sidebar {
   display: block;
   float: left;
   margin: 0 0 0 0;
-  background-color: rgba(254, 94, 62, 0.65);
   height: 100%;
-  z-index: 3;
+  position: absolute;
+  z-index: 1;
+  overflow-x: hidden;
 }
 
 app-system {
@@ -72,11 +73,11 @@ app-system {
 }
 
 app-users {
-
-  width: max-content;
-  height: max-content;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: left;
   align-items: center;
   background-color: white;
 }
+
