@@ -1,34 +1,30 @@
-li.profile {
-  position: fixed;
-  list-style-type: none !important;
-  color: white;
-  right: 0px !important;
-  top: 0px !important;
-  height: 15vh;
-  display: flex;
-  align-items: center;
-}
-
-
 div {
-  position: fixed;
-  left: 200px;
   color: white;
 }
 
 header {
   height: 15vh;
-  width: 100%;
   background-color: rgba(254, 94, 62, 0.4);
   position: absolute;
   z-index: 10;
-  top: 0px;
+  top: 0;
+  right: 0;
   left: 200px;
   align-items: center;
 }
 
 div.header-block-search {
   height: 15vh;
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  height: 15vh;
+  position: absolute;
+  width: max-content;
+  right: 10px;
   display: flex;
   align-items: center;
 }
