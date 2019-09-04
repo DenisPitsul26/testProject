@@ -3,7 +3,7 @@
 </div>
 <div *ngIf="isLoaded">
   <div *ngIf="isAddFormVisible">
-    <app-testing-add (addFormIsVisible)="cancelForm($event)" (newTestAdded)="newTestAdded($event)"></app-testing-add>
+    <app-testing-add [currentTest]="currentTest" (addFormIsVisible)="cancelForm($event)" (newTestAdded)="newTestAdded($event)"></app-testing-add>
   </div>
   <section class="section">
     <button class="btn btn-success" (click)="addTestForm()" *ngIf="!isAddFormVisible">Add</button>
@@ -45,6 +45,8 @@
               <tr *ngFor="let test of tests let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td>{{test.question}}</td>
+                <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateTestForm(test)"></i></button>
+                <button type="button" class="btn"><i class="fa fa-trash"></i></button>
                 <td class="text-lg-center">
                   <a [routerLink]="['/tests', test.id]" class="btn btn-primary-outline">Open</a>
                 </td>

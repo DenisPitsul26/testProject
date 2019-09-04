@@ -11,6 +11,7 @@ import {TestModel} from '../../shared/models/test.model';
 export class TestingComponent implements OnInit, OnDestroy {
   isLoaded = false;
   tests: TestModel[];
+  currentTest: TestModel;
   sub1: Subscription;
   isAddFormVisible = false;
 
@@ -32,7 +33,7 @@ export class TestingComponent implements OnInit, OnDestroy {
 
   addTestForm() {
     this.isAddFormVisible = true;
-    console.log(this.isAddFormVisible);
+    this.currentTest = undefined;
   }
 
   cancelForm(flag: boolean) {
@@ -42,5 +43,10 @@ export class TestingComponent implements OnInit, OnDestroy {
   newTestAdded(testModel) {
     console.log('eeeeeeeeeeeeeeeeee', testModel);
     this.tests.push(testModel);
+  }
+
+  updateTestForm(test: TestModel) {
+    this.isAddFormVisible = true;
+    this.currentTest = test;
   }
 }

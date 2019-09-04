@@ -10,7 +10,8 @@ import {TestingDetailComponent} from './testing-detail/testing-detail.component'
 import {ControlWorkDetailComponent} from './control-work-detail/control-work-detail.component';
 
 const routes: Routes = [
-  {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
+  // {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
+  {path: '', component: SystemComponent, children: [
     {path: 'users', component: UsersComponent},
     {path: 'control_works', component: ControlWorksComponent},
     {path: 'tests', component: TestingComponent},
