@@ -19,7 +19,7 @@ export class ControlWorkDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoaded = false;
-    this.route.params.pipe(mergeMap((params: Params) => this.controlWorksService.getControlWorkById(params.id)))
+    this.sub1 = this.route.params.pipe(mergeMap((params: Params) => this.controlWorksService.getControlWorkById(params.id)))
       .subscribe((controlWork: ControlWork) => {
         this.controlWork = controlWork;
         this.isLoaded = true;

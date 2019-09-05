@@ -4,8 +4,8 @@
 <div *ngIf="isLoaded">
   <div class="title-block">
     <h3 class="title">
-      <a [routerLink]="['/tests']"><i class="fa fa-arrow-left"></i></a>
-      Test № {{testModel.id}}
+      <a [routerLink]="['/groups']"><i class="fa fa-arrow-left"></i></a>
+      Group № {{currentGroup.group}}
       <span class="sparkline bar"></span>
     </h3>
   </div>
@@ -16,18 +16,20 @@
           <div class="card-header">
             <div class="header-block">
               <p class="title">
-                Test
+                Group
               </p>
             </div>
           </div>
           <div class="card-block">
             <ul>
-              <li>Question: <strong>{{testModel.question}}</strong></li>
-              <li *ngFor="let answer of testModel.answers let idx = index">Answers:
-                <strong>{{idx+1}}: {{answer}}</strong>
-              </li>
-              <li *ngFor="let correctAnswer of testModel.correctAnswers let idx = index">Correct answer:
-                <strong>{{correctAnswer}}</strong>
+              <li>Faculty: <strong>{{currentGroup.faculty}}</strong></li>
+              <li>Number of group: <strong>{{currentGroup.group}}</strong></li>
+              <li>Students:
+                <ul>
+                  <li *ngFor="let student of studentsOfCurrentGroup; let idx = index">
+                    {{idx+1}}: <strong>{{student.name}}</strong>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -36,7 +38,3 @@
     </div>
   </section>
 </div>
-
-
-
-

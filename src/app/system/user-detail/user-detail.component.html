@@ -1,0 +1,44 @@
+<div class="text-center" *ngIf="!isLoaded">
+  Loading...
+</div>
+<div *ngIf="isLoaded">
+  <div class="title-block">
+    <h3 class="title">
+      <a [routerLink]="['/users']"><i class="fa fa-arrow-left"></i></a>
+      User № {{user.id}}
+      <span class="sparkline bar"></span>
+    </h3>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="card-success">
+          <div class="card-header">
+            <div class="header-block">
+              <p class="title">
+                User
+              </p>
+            </div>
+          </div>
+          <div class="card-block">
+            <ul>
+              <li>Name: <strong>{{user.name}}</strong></li>
+              <li>Email: <strong>{{user.email}}</strong></li>
+              <li>Password: <strong>{{user.password}}</strong></li>
+              <li>isAdmin: <strong>{{user.isAdmin}}</strong></li>
+              <li>Group: <strong>{{user.numberOfGroup}}</strong></li>
+            </ul>
+          </div>
+          <div *ngIf="loginedUser.isAdmin === 1 && loginedUser.id !== user.id">
+            <button class="btn btn-success" (click)="makeOrDeleteAdmin()" *ngIf="user.isAdmin === 0">Make admin</button>
+            <button class="btn btn-danger" (click)="makeOrDeleteAdmin()" *ngIf="user.isAdmin === 1">Delete from admin</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+

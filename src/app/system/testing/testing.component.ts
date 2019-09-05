@@ -13,11 +13,15 @@ export class TestingComponent implements OnInit, OnDestroy {
   tests: TestModel[];
   currentTest: TestModel;
   sub1: Subscription;
+  sub2: Subscription;
   isAddFormVisible = false;
 
   constructor(private testsService: TestsService) { }
 
   ngOnInit() {
+    this.getTests();
+  }
+  getTests() {
     this.isLoaded = false;
     this.sub1 = this.testsService.getTests().subscribe((tests: TestModel[]) => {
       this.tests = tests;
@@ -29,6 +33,9 @@ export class TestingComponent implements OnInit, OnDestroy {
     if (this.sub1) {
       this.sub1.unsubscribe();
     }
+    if (this.sub2) {
+      this.sub2.unsubscribe();
+    }
   }
 
   addTestForm() {
@@ -36,17 +43,34 @@ export class TestingComponent implements OnInit, OnDestroy {
     this.currentTest = undefined;
   }
 
-  cancelForm(flag: boolean) {
-    this.isAddFormVisible = flag;
-  }
-
-  newTestAdded(testModel) {
-    console.log('eeeeeeeeeeeeeeeeee', testModel);
-    this.tests.push(testModel);
-  }
-
   updateTestForm(test: TestModel) {
     this.isAddFormVisible = true;
     this.currentTest = test;
+    this.getTests();
+  }
+
+  cancelForm(flag: boolean) {
+    this.isAddFormVisible = flag;
+    this.getTests();
+  }
+
+  newTestAdded(testModel) {
+    // console.log('eeeeeeeeeeeeeeeeee', testModel);
+    this.tests.push(testModel);
+    this.getTests();
+  }
+
+  currentTestUpdated(testModel) {
+    for (let i = 0; i < this.tests.length; i++) {
+      if (this.tests[i].id === testModel.id) {
+        this.tests[i] = testModel;
+      }
+    }
+  }
+
+  deleteTest(id: number) {
+    this.sub1 = this.testsService.deleteTest(id).subscribe(() => {
+      this.getTests();
+    });
   }
 }

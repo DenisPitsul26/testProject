@@ -20,4 +20,10 @@ export class TestsService extends BaseApi {
   addTest(testModel: TestModel): Observable<any> {
     return this.post('tests', testModel);
   }
+  updateTest(testModel: TestModel): Observable<any> {
+    return this.put(`tests/${testModel.id}`, testModel);
+  }
+  deleteTest(id: number): Observable<any> {
+    return this.delete(`tests/${id}`);
+  }
 }

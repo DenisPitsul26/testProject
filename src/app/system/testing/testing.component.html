@@ -3,7 +3,11 @@
 </div>
 <div *ngIf="isLoaded">
   <div *ngIf="isAddFormVisible">
-    <app-testing-add [currentTest]="currentTest" (addFormIsVisible)="cancelForm($event)" (newTestAdded)="newTestAdded($event)"></app-testing-add>
+    <app-testing-add [currentTest]="currentTest"
+                     (addFormIsVisible)="cancelForm($event)"
+                     (newTestAdded)="newTestAdded($event)"
+                     (currentTestUpdated)="currentTestUpdated($event)"
+    ></app-testing-add>
   </div>
   <section class="section">
     <button class="btn btn-success" (click)="addTestForm()" *ngIf="!isAddFormVisible">Add</button>
@@ -13,23 +17,6 @@
           <div class="card-header bordered">
             <div class="header-block">
               <h3 class="title">Tests</h3>
-            </div>
-            <div class="form-inline pull-right m-r-2">
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Finding...">
-              </div>
-              <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle ">
-                  Param
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-              </div>
             </div>
           </div>
           <div class="card-block">
@@ -46,7 +33,7 @@
                 <th scope="row">{{idx+1}}</th>
                 <td>{{test.question}}</td>
                 <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateTestForm(test)"></i></button>
-                <button type="button" class="btn"><i class="fa fa-trash"></i></button>
+                <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteTest(test.id)"></i></button>
                 <td class="text-lg-center">
                   <a [routerLink]="['/tests', test.id]" class="btn btn-primary-outline">Open</a>
                 </td>

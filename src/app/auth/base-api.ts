@@ -23,6 +23,10 @@ export class BaseApi {
   public put(url: string, data: any = {}): Observable<any> {
     return this.http.put(this.getUrl(url), data);
   }
+
+  public delete(url: string, data: any = {}): Observable<any> {
+    return this.http.delete(this.getUrl(url), data);
+  }
 }
 
 

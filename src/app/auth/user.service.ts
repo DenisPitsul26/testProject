@@ -23,8 +23,19 @@ export class UserService extends BaseApi {
         return users[0] ? users[0] : undefined;
       }));
   }
+  getUserById(id: number): Observable<any> {
+    return this.get(`users/${id}`);
+  }
+
+  getUsersByGroupId(groupId: number): Observable<any> {
+    return this.get(`users?groupId=${groupId}`);
+  }
 
   createNewUser(user: User): Observable<any> {
     return this.post('users', user);
+  }
+
+  updateUser(user: User) {
+    return this.put(`users/${user.id}`, user);
   }
 }

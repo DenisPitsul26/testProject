@@ -21,18 +21,21 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8 col-sm-12 col-xs-12">
-      <form>
-        <div class="form-group">
+      <form #form="ngForm">
+        <div class="form-group" #question>
           <label>Question</label>
-          <input type="text" class="form-control" placeholder="Input question" id="question">
+          <input type="text" class="form-control" placeholder="Input question" id="question"
+                 ngModel name="question" required>
         </div>
         <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #answer>
           <label>Answer #{{number}}</label>
-          <input type="text" class="form-control" placeholder="Input answer" [id]="number">
+          <input type="text" class="form-control" placeholder="Input answer" [id]="number"
+                 ngModel [name]="'answer'+number" required>
         </div>
         <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #correctAnswer>
           <label>Correct answer #{{number}}</label>
-          <input type="checkbox" class="form-control" [id]="number+'c'">
+          <input type="checkbox" class="form-control" [id]="number+'c'"
+                 ngModel [name]="'correctAnswer'+number">
         </div>
         <button type="button" class="btn btn-primary" (click)="addAnswer()">Add answer</button>
         <button type="button" class="btn btn-warning" (click)="deleteAnswer()">Delete answer</button>
@@ -41,8 +44,9 @@
 <!--            <input type="radio" [value]="answer.type" name="answer" formControlName="answer"> {{answer.text}}-->
 <!--          </label>-->
 <!--        </div>-->
-        <button class="btn btn-success" type="submit" (click)="addTest()">Save</button>
+        <button class="btn btn-success" type="submit" [disabled]="form.invalid" (click)="addUpdateTest()">Save</button>
         <button class="btn btn-danger" type="submit" (click)="cancel()">Cancel</button>
+        <p *ngIf="form.invalid">All field have not to be empty</p>
       </form>
     </div>
   </div>

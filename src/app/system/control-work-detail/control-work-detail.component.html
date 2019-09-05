@@ -4,8 +4,8 @@
 <div *ngIf="isLoaded">
   <div class="title-block">
     <h3 class="title">
-      <a [routerLink]="['/system/history']"><i class="fa fa-arrow-left"></i></a>
-      Test № {{controlWork.id}}
+      <a [routerLink]="['/control_works']"><i class="fa fa-arrow-left"></i></a>
+      Control work № {{controlWork.id}}
       <span class="sparkline bar"></span>
     </h3>
   </div>
@@ -16,14 +16,14 @@
           <div class="card-header">
             <div class="header-block">
               <p class="title">
-                Title
+                Control work
               </p>
             </div>
           </div>
           <div class="card-block">
             <ul>
               <li>Theme: <strong>{{controlWork.theme}}</strong></li>
-              <li *ngFor="let test of controlWork.tests">Question:
+              <li *ngFor="let test of controlWork.tests">
                   <ul>
                     <li>Question: <strong>{{test.question}}</strong></li>
                     <li *ngFor="let answer of test.answers let idx = index">Answers:

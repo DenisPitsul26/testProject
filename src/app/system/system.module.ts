@@ -7,7 +7,6 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { UsersComponent } from './users/users.component';
 import { GroupsComponent } from './groups/groups.component';
 import { ControlWorksComponent } from './control-works/control-works.component';
-import { DropdownDirective } from './directives/dropdown.directive';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TestingComponent } from './testing/testing.component';
@@ -15,6 +14,10 @@ import { TestingDetailComponent } from './testing-detail/testing-detail.componen
 import { ControlWorkDetailComponent } from './control-work-detail/control-work-detail.component';
 import { TestingAddComponent } from './testing/testing-add/testing-add.component';
 import { MyCountPipe } from './shared/pipes/my-count.pipe';
+import { GroupsAddComponent } from './groups/groups-add/groups-add.component';
+import {GroupDetailComponent} from './group-detail/group-detail.component';
+import { DropdownDirective } from './shared/directives/dropdown.directive';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
@@ -25,12 +28,15 @@ import { MyCountPipe } from './shared/pipes/my-count.pipe';
     UsersComponent,
     GroupsComponent,
     ControlWorksComponent,
-    DropdownDirective,
     TestingComponent,
     TestingDetailComponent,
     ControlWorkDetailComponent,
     TestingAddComponent,
-    MyCountPipe
+    MyCountPipe,
+    GroupsAddComponent,
+    GroupDetailComponent,
+    DropdownDirective,
+    UserDetailComponent
   ]
 })
 export class SystemModule {}
