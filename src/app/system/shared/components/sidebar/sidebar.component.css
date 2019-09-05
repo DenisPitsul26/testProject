@@ -17,7 +17,7 @@ nav.menu {
 ul {
   height: 100%;
   width: 200px;
-  top: 15vh;
+  top: 10vh;
   display: block;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ ul {
 
 div.sidebar-header {
   background-image: url("https://pbs.twimg.com/profile_images/875212307810230272/RsXnUQ-5.jpg");
-  height: 15vh;
+  height: 10vh;
   background-size: 100% 100%;
 
 }

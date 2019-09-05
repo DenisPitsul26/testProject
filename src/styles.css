@@ -9,6 +9,7 @@ html {
 
 div {
   height: 100%;
+  margin-left: 0;
 }
 
 div .input-group-prepend {
@@ -58,7 +59,7 @@ app-root {
 
 
 app-sidebar {
-  width: 200px;
+  width: 180px;
   display: block;
   float: left;
   margin: 0 0 0 0;
