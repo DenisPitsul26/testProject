@@ -22,10 +22,10 @@
           </div>
           <div class="card-block">
             <ul>
-              <li>Theme: <strong>{{controlWork.theme}}</strong></li>
-              <li *ngFor="let test of controlWork.tests">
+              <li>Topic: <strong>{{controlWork.theme}}</strong></li>
+              <li *ngFor="let test of controlWork.tests" class = "main">
                   <ul>
-                    <li>Question: <strong>{{test.question}}</strong></li>
+                    <li class = "question">Question: <strong>{{test.question}}</strong></li>
                     <li *ngFor="let answer of test.answers let idx = index">Answers:
                       <strong>{{idx+1}}: {{answer}}</strong>
                     </li>

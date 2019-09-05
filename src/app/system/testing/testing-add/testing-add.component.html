@@ -29,14 +29,16 @@
         </div>
         <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #answer>
           <label>Answer #{{number}}</label>
-          <input type="text" class="form-control" placeholder="Input answer" [id]="number"
-                 ngModel [name]="'answer'+number" required>
+          <div class="form-group correct-answer">
+            <label>Correct answer </label>
+            <input type="checkbox" class="form-control box" [id]="number+'c'">
+          </div>
+          <input type="text" class="form-control" placeholder="Input answer" [id]="number">
         </div>
-        <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #correctAnswer>
-          <label>Correct answer #{{number}}</label>
-          <input type="checkbox" class="form-control" [id]="number+'c'"
-                 ngModel [name]="'correctAnswer'+number">
-        </div>
+<!--        <div class="form-group correct-answer" *ngFor="let number of count | myCount; let idx = index" #correctAnswer>-->
+<!--          <label>Correct answer #{{number}}</label>-->
+<!--          <input type="checkbox" class="form-control box" [id]="number+'c'">-->
+<!--        </div>-->
         <button type="button" class="btn btn-primary" (click)="addAnswer()">Add answer</button>
         <button type="button" class="btn btn-warning" (click)="deleteAnswer()">Delete answer</button>
 <!--        <div class="radio" *ngFor="let answer of answers">-->

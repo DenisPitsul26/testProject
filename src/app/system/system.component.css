@@ -1,7 +1,7 @@
 article.dashboard-page {
   position: absolute;
   left: 200px;
-  top: 15vh;
+  top: 10vh;
   width: max-content;
   height: max-content;
   display: flex;

@@ -1,0 +1,22 @@
+ul {
+  display: inline-block;
+  align-content: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+li.question {
+  display: block;
+  align-self: center;
+  list-style-type: decimal !important;
+}
+
+li.main {
+  list-style-type: none;
+}
+
+.row{
+  margin-left: 0;
+}
+
+

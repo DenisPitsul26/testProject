@@ -3,25 +3,27 @@ div {
 }
 
 header {
-  height: 15vh;
+  height: 10vh;
   background-color: rgba(254, 94, 62, 0.4);
   position: absolute;
-  z-index: 10;
+  z-index: auto;
   top: 0;
   right: 0;
-  left: 200px;
+  padding-left: 200px;
   align-items: center;
+  width: 100%;
 }
 
 div.header-block-search {
-  height: 15vh;
+  height: 10vh;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 ul {
   list-style-type: none;
-  height: 15vh;
+  height: 10vh;
   position: absolute;
   width: max-content;
   right: 10px;
