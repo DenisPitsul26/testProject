@@ -12,7 +12,7 @@ import {Message} from '../../../shared/models/message.model';
 })
 export class GroupsAddComponent implements OnInit, OnDestroy {
 
-  @ViewChild('form') form1: NgForm;
+  @ViewChild('form', {static: false}) form1: NgForm;
   @Output() addFormIsVisible = new EventEmitter<boolean>();
   @Output() newGroupAdded = new EventEmitter<Group>();
   @Input() currentGroup: Group;
