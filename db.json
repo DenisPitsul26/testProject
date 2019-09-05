@@ -44,9 +44,10 @@
       "email": "evhenia.k.you@gmail.com",
       "password": "123456",
       "name": "z",
-      "isAdmin": 0,
+      "isAdmin": 1,
       "groupId": 2,
-      "id": 6
+      "id": 6,
+      "numberOfGroup": "143B"
     },
     {
       "email": "testing@gmail.com",
