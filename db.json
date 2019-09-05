@@ -6,22 +6,20 @@
       "name": "Администратор Денис",
       "isAdmin": 1,
       "groupId": 1,
-      "id": 1,
-      "numberOfGroup": "143A"
+      "id": 1
     },
     {
       "email": "test@gmail.com",
       "password": "testTest",
-      "name": "user",
+      "name": "User",
       "isAdmin": 0,
       "groupId": 1,
-      "id": 2,
-      "numberOfGroup": "143A"
+      "id": 2
     },
     {
       "email": "test@gmail.com",
       "password": "111111",
-      "name": "dfsd",
+      "name": "sfsd",
       "isAdmin": 0,
       "groupId": 1,
       "id": 3
@@ -40,17 +38,15 @@
       "name": "bdfv",
       "isAdmin": 0,
       "groupId": 2,
-      "id": 5,
-      "numberOfGroup": "143B"
+      "id": 5
     },
     {
       "email": "evhenia.k.you@gmail.com",
       "password": "123456",
       "name": "z",
-      "isAdmin": 1,
+      "isAdmin": 0,
       "groupId": 2,
-      "id": 6,
-      "numberOfGroup": "143B"
+      "id": 6
     },
     {
       "email": "testing@gmail.com",
@@ -92,30 +88,19 @@
       "group": "143C",
       "faculty": "IFTKN",
       "id": 3
-    },
-    {
-      "group": "144",
-      "faculty": "IFTKN",
-      "id": 4
-    },
-    {
-      "group": "133",
-      "faculty": "wfwef",
-      "id": 6
     }
   ],
   "tests": [
     {
-      "question": "РРМИРОиоиол?",
+      "question": "РРМИРОиоиолиоио орилотлт?",
       "answers": [
-        "1",
-        "2",
-        "3",
+        "111",
+        "222",
+        "333",
         "444"
       ],
       "correctAnswers": [
-        2,
-        3
+        2
       ],
       "id": 1
     },
@@ -146,19 +131,20 @@
       "id": 3
     },
     {
-      "question": "wwwe2",
+      "question": "www",
       "answers": [
-        "1010111",
+        "10101",
         "20202",
         "30303"
       ],
       "correctAnswers": [
+        1,
         3
       ],
       "id": 4
     },
     {
-      "question": "fgdf444",
+      "question": "fgdf",
       "answers": [
         "dfgd",
         "dfg"
@@ -179,120 +165,6 @@
         2
       ],
       "id": 6
-    },
-    {
-      "question": "wwwgbfgbgfbfg",
-      "answers": [
-        "fgbgbgf",
-        "eee",
-        "uuu"
-      ],
-      "correctAnswers": [
-        1
-      ],
-      "id": 7
-    },
-    {
-      "question": "w3e",
-      "answers": [
-        "dfd",
-        "fcdf"
-      ],
-      "correctAnswers": [
-        2
-      ],
-      "id": 9
-    },
-    {
-      "question": "555555",
-      "answers": [
-        "gfgf",
-        "sdf",
-        "bgbg"
-      ],
-      "correctAnswers": [
-        1,
-        2
-      ],
-      "id": 10
-    },
-    {
-      "question": "cvb3",
-      "answers": [
-        "cvbvc3",
-        "cvbc"
-      ],
-      "correctAnswers": [
-        1
-      ],
-      "id": 11
-    },
-    {
-      "question": "f5555",
-      "answers": [
-        "f"
-      ],
-      "correctAnswers": [
-        1
-      ],
-      "id": 12
-    },
-    {
-      "question": "fgbfg",
-      "answers": [
-        "nhgn",
-        "n"
-      ],
-      "correctAnswers": [
-        1
-      ],
-      "id": 13
-    },
-    {
-      "question": "hg",
-      "answers": [
-        "fdf"
-      ],
-      "correctAnswers": [
-        1
-      ],
-      "id": 14
-    },
-    {
-      "question": "55566",
-      "answers": [
-        "44456",
-        "rfgf"
-      ],
-      "correctAnswers": [
-        1
-      ],
-      "id": 15
-    },
-    {
-      "question": "www4",
-      "answers": [
-        "fddf",
-        "444"
-      ],
-      "correctAnswers": [
-        2
-      ],
-      "id": 16
-    },
-    {
-      "question": "rrrrrrrrrrrrrr",
-      "answers": [
-        "dfgfdg",
-        "dfg",
-        "gfg",
-        "fgfg"
-      ],
-      "correctAnswers": [
-        1,
-        3
-      ],
-      "id": 17
     }
   ],
   "controlWorks": [
