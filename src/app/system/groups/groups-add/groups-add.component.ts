@@ -37,7 +37,7 @@ export class GroupsAddComponent implements OnInit, OnDestroy {
     this.message = new Message('warning', '');
   }
 
-  addUpdateTest() {
+  addUpdateGroup() {
     if (this.currentGroup === undefined) {
       this.flag = false;
       this.group = new Group(this.form1.value.numberOfGroup, this.form1.value.faculty);

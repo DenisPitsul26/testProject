@@ -38,19 +38,19 @@ export class GroupsComponent implements OnInit, OnDestroy {
 
   addGroupForm() {
     this.isAddFormVisible = true;
+    this.currentGroup = undefined;
   }
 
   cancelForm(flag: boolean) {
     this.isAddFormVisible = flag;
   }
 
-  newGroupAdded(group1: Group) {
-    this.getGroups();
-  }
-
   updateGroupForm(group1: Group) {
     this.isAddFormVisible = true;
     this.currentGroup = group1;
+  }
+
+  newGroupAdded(group1: Group) {
     this.getGroups();
   }
 

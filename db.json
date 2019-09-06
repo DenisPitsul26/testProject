@@ -46,8 +46,7 @@
       "name": "z",
       "isAdmin": 1,
       "groupId": 2,
-      "id": 6,
-      "numberOfGroup": "143B"
+      "id": 6
     },
     {
       "email": "testing@gmail.com",
@@ -89,6 +88,11 @@
       "group": "143C",
       "faculty": "IFTKN",
       "id": 3
+    },
+    {
+      "group": "ret",
+      "faculty": "rete554545",
+      "id": 4
     }
   ],
   "tests": [
@@ -166,6 +170,40 @@
         2
       ],
       "id": 6
+    },
+    {
+      "question": "efre",
+      "answers": [
+        "10101",
+        "20202"
+      ],
+      "correctAnswers": [
+        1
+      ],
+      "id": 7
+    },
+    {
+      "question": "dfvfd",
+      "answers": [
+        "fgbfg",
+        "bbbb",
+        "sdf"
+      ],
+      "correctAnswers": [
+        2
+      ],
+      "id": 8
+    },
+    {
+      "question": "ww",
+      "answers": [
+        "10101",
+        "2222222222222"
+      ],
+      "correctAnswers": [
+        2
+      ],
+      "id": 9
     }
   ],
   "controlWorks": [
