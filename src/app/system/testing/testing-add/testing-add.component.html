@@ -24,7 +24,7 @@
       <form>
         <div class="form-group">
           <label>Question</label>
-          <input type="text" class="form-control" placeholder="Input question" id="question">
+          <input type="text" class="form-control" placeholder="Input question" id="question" required="true">
         </div>
         <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #answer>
           <label>Answer #{{number}}</label>

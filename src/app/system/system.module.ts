@@ -15,6 +15,7 @@ import { TestingDetailComponent } from './testing-detail/testing-detail.componen
 import { ControlWorkDetailComponent } from './control-work-detail/control-work-detail.component';
 import { TestingAddComponent } from './testing/testing-add/testing-add.component';
 import { MyCountPipe } from './shared/pipes/my-count.pipe';
+import { ControlAddComponent } from './control-works/control-add/control-add.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
@@ -30,7 +31,8 @@ import { MyCountPipe } from './shared/pipes/my-count.pipe';
     TestingDetailComponent,
     ControlWorkDetailComponent,
     TestingAddComponent,
-    MyCountPipe
+    MyCountPipe,
+    ControlAddComponent
   ]
 })
 export class SystemModule {}

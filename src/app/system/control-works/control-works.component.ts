@@ -14,10 +14,14 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   controlWorks: ControlWork[];
   sub1: Subscription;
   conWork: ControlWork;
+  isAddFormVisible = false;
 
   constructor(private controlWorksService: ControlWorksService, private testsService: TestsService) {}
 
   ngOnInit() {
+   this.getControlWorks();
+  }
+  getControlWorks() {
     this.isLoaded = false;
     this.sub1 = this.controlWorksService.getControlWorks().subscribe((controlWorks: ControlWork[]) => {
       this.controlWorks = controlWorks;
@@ -25,12 +29,18 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
     });
     this.conWork = new ControlWork('main4');
     this.conWork.tests = Array();
-    // this.conWork.theme = 'main4';
   }
+
   ngOnDestroy(): void {
     this.sub1.unsubscribe();
   }
   createControlWork() {
+    this.isAddFormVisible = true;
+    this.getControlWorks();
+  }
 
+  cancelForm(flag: boolean) {
+    this.getControlWorks();
+    this.isAddFormVisible = flag;
   }
 }
