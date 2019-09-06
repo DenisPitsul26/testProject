@@ -40,12 +40,26 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     this.isLoaded = false;
     if (this.user.isAdmin === 0) {
       this.user.isAdmin = 1;
-      this.sub1 = this.usersService.updateUser(this.user).subscribe((user: User) => {
+      this.sub1 = this.usersService.updateUser({
+        email: this.user.email,
+        password: this.user.password,
+        name: this.user.name,
+        isAdmin: this.user.isAdmin,
+        groupId: this.user.groupId,
+        id: this.user.id
+      }).subscribe((user: User) => {
         this.getUser();
       });
     } else if (this.user.isAdmin === 1) {
       this.user.isAdmin = 0;
-      this.sub1 = this.usersService.updateUser(this.user).subscribe((user: User) => {
+      this.sub1 = this.usersService.updateUser({
+        email: this.user.email,
+        password: this.user.password,
+        name: this.user.name,
+        isAdmin: this.user.isAdmin,
+        groupId: this.user.groupId,
+        id: this.user.id
+      }).subscribe((user: User) => {
         this.getUser();
       });
     }
