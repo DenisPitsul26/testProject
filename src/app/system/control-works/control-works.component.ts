@@ -18,11 +18,13 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   currentControlWork: ControlWork;
   isAddFormVisible = false;
 
-  constructor(private controlWorksService: ControlWorksService, private testsService: TestsService) {}
+  constructor(private controlWorksService: ControlWorksService, private testsService: TestsService) {
+  }
 
   ngOnInit() {
-   this.getControlWorks();
+    this.getControlWorks();
   }
+
   getControlWorks() {
     this.isLoaded = false;
     this.sub1 = this.controlWorksService.getControlWorks().subscribe((controlWorks: ControlWork[]) => {
@@ -36,6 +38,7 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub1.unsubscribe();
   }
+
   createControlWork() {
     this.currentControlWork = undefined;
     this.isAddFormVisible = true;
@@ -45,11 +48,13 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
     this.getControlWorks();
     this.isAddFormVisible = flag;
   }
+
   updateControlForm(control: ControlWork) {
     this.isAddFormVisible = true;
     this.currentControlWork = control;
     this.getControlWorks();
   }
+
   currentControlUpdated(controlModel) {
     for (let i = 0; i < this.controlWorks.length; i++) {
       if (this.controlWorks[i].id === controlModel.id) {
@@ -57,6 +62,7 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
       }
     }
   }
+
   deleteControl(id: number) {
     this.sub1 = this.controlWorksService.deleteControlWork(id).subscribe(() => {
       this.getControlWorks();

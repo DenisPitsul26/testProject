@@ -72,6 +72,15 @@
       "isAdmin": 0,
       "groupId": 1,
       "id": 9
+    },
+    {
+      "email": "mrdmand67@gmail.com",
+      "password": "cPWkz95YSRGuSNC",
+      "name": "Dmytro Andriichuk",
+      "isAdmin": 1,
+      "groupId": 1,
+      "id": 10,
+      "numberOfGroup": "143A"
     }
   ],
   "groups": [
@@ -424,41 +433,8 @@
       "id": 10
     },
     {
-      "theme": "control work name",
+      "theme": "control work ",
       "tests": [
-        {
-          "question": "fgdf",
-          "answers": [
-            "dfgd",
-            "dfg"
-          ],
-          "correctAnswers": [
-            1
-          ],
-          "id": 5
-        },
-        {
-          "question": "test?",
-          "answers": [
-            "test!",
-            "test&"
-          ],
-          "correctAnswers": [
-            1
-          ],
-          "id": 7
-        },
-        {
-          "question": "teest!!",
-          "answers": [
-            "testtest",
-            "tsettset"
-          ],
-          "correctAnswers": [
-            2
-          ],
-          "id": 8
-        },
         {
           "question": "fgdf",
           "answers": [
