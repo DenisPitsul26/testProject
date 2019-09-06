@@ -3,6 +3,7 @@ import {ControlWork} from '../../shared/models/controlWork.model';
 import {Subscription} from 'rxjs';
 import {ControlWorksService} from '../../shared/services/controlWorks.service';
 import {TestsService} from '../../shared/services/tests.service';
+import {TestModel} from '../../shared/models/test.model';
 
 @Component({
   selector: 'app-control-works',
@@ -14,6 +15,7 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   controlWorks: ControlWork[];
   sub1: Subscription;
   conWork: ControlWork;
+  currentControlWork: ControlWork;
   isAddFormVisible = false;
 
   constructor(private controlWorksService: ControlWorksService, private testsService: TestsService) {}
@@ -35,12 +37,29 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
     this.sub1.unsubscribe();
   }
   createControlWork() {
+    this.currentControlWork = undefined;
     this.isAddFormVisible = true;
-    this.getControlWorks();
   }
 
   cancelForm(flag: boolean) {
     this.getControlWorks();
     this.isAddFormVisible = flag;
+  }
+  updateControlForm(control: ControlWork) {
+    this.isAddFormVisible = true;
+    this.currentControlWork = control;
+    this.getControlWorks();
+  }
+  currentControlUpdated(controlModel) {
+    for (let i = 0; i < this.controlWorks.length; i++) {
+      if (this.controlWorks[i].id === controlModel.id) {
+        this.controlWorks[i] = controlModel;
+      }
+    }
+  }
+  deleteControl(id: number) {
+    this.sub1 = this.controlWorksService.deleteControlWork(id).subscribe(() => {
+      this.getControlWorks();
+    });
   }
 }

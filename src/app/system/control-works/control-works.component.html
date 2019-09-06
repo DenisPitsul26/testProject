@@ -3,7 +3,9 @@
 </div>
 <div *ngIf="isLoaded">
   <div *ngIf="isAddFormVisible">
-    <app-control-add (addFormIsVisible)="cancelForm($event)"></app-control-add>
+    <app-control-add (addFormIsVisible)="cancelForm($event)"
+                     [currentControlWork]="currentControlWork"
+                     (currentControlUpdated)="currentControlUpdated($event)"></app-control-add>
   </div>
   <section class="section">
     <button class="btn btn-success" (click)="createControlWork()" *ngIf="!isAddFormVisible">Create</button>
@@ -28,6 +30,8 @@
               <tr *ngFor="let controlWork of controlWorks let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td>{{controlWork.theme}}</td>
+                <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateControlForm(controlWork)"></i></button>
+                <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteControl(controlWork.id)"></i></button>
                 <td class="text-lg-center">
                   <a [routerLink]="['/control-work', controlWork.id]" class="btn btn-primary-outline">Open</a>
                 </td>

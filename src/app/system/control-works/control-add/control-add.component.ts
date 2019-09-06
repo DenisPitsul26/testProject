@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {forkJoin, Subscription} from 'rxjs';
 import {TestsService} from '../../../shared/services/tests.service';
 import {TestModel} from '../../../shared/models/test.model';
 import {formatI18nPlaceholderName} from '@angular/compiler/src/render3/view/i18n/util';
@@ -22,7 +22,10 @@ export class ControlAddComponent implements OnInit {
   checkId: number;
   checkedTest = false;
   cwName = '';
+  updateTestsLength: number;
   @Output() addFormIsVisible = new EventEmitter<boolean>();
+  @Input() currentControlWork: ControlWork;
+  @Output() currentControlUpdated = new EventEmitter<TestModel>();
   constructor(private testsService: TestsService, private controlService: ControlWorksService) { }
 
   ngOnInit() {
@@ -32,24 +35,66 @@ export class ControlAddComponent implements OnInit {
       this.isLoaded = true;
       this.checkId = this.tests.length;
     });
+    setTimeout(() => {
+      if (this.currentControlWork === undefined) {
+
+      } else {
+        this.updateTestsLength = this.currentControlWork.tests.length;
+        this.cwName = this.currentControlWork.theme;
+        // this.checkedTests = this.currentControlWork.tests;
+        // console.log(this.updateTestsLength);
+        // console.log(this.checkId);
+        console.log(this.tests);
+        console.log(this.currentControlWork.tests);
+        setTimeout(() => {
+          (document.getElementById('cwName') as HTMLInputElement).value = this.cwName;
+          for (let i = 0; i < this.updateTestsLength; i++) {
+            for (let j = 0; j < this.checkId; j++) {
+              if (this.tests[j].id === this.currentControlWork.tests[i].id) {
+                (document.getElementById((j + 1) + 'c') as HTMLInputElement).checked = true;
+              }
+            }
+          }
+        }, 1);
+      }
+    }, 10);
   }
   addTest() {
     setTimeout(() => {
-      for (let i = 1; i <= this.checkId; i++) {
-        this.check1 = (<HTMLInputElement> document.getElementById(i + 'c')).checked;
-        if (this.check1) {
-          this.checkedTests.push(this.tests[i - 1]);
-          this.checkedTest = true;
+      if (this.currentControlWork === undefined) {
+        for (let i = 1; i <= this.checkId; i++) {
+          this.check1 = (<HTMLInputElement> document.getElementById(i + 'c')).checked;
+          if (this.check1) {
+            this.checkedTests.push(this.tests[i - 1]);
+            this.checkedTest = true;
+          }
         }
-      }
-      this.cwName = (<HTMLInputElement> document.getElementById('cwName')).value;
-      if (this.cwName !== '' && this.checkedTest) {
-        this.controlModel = new ControlWork(this.cwName, this.checkedTests);
-        this.controlService.addControlWork(this.controlModel).subscribe((control: ControlWork) => {
-          this.cancel();
-        });
+        this.cwName = (<HTMLInputElement> document.getElementById('cwName')).value;
+        if (this.cwName !== '' && this.checkedTest) {
+          this.controlModel = new ControlWork(this.cwName, this.checkedTests);
+          this.controlService.addControlWork(this.controlModel).subscribe((control: ControlWork) => {
+            this.cancel();
+          });
+        } else {
+          alert('something went wrong');
+        }
       } else {
-        alert('something went wrong');
+        for (let i = 1; i <= this.checkId; i++) {
+          this.check1 = (<HTMLInputElement> document.getElementById(i + 'c')).checked;
+          if (this.check1) {
+            this.checkedTests.push(this.tests[i - 1]);
+            this.checkedTest = true;
+          }
+        }
+        this.cwName = (<HTMLInputElement> document.getElementById('cwName')).value;
+        if (this.cwName !== '' && this.checkedTest) {
+          this.controlModel = new ControlWork(this.cwName, this.checkedTests, this.currentControlWork.id);
+          this.controlService.updateControl(this.controlModel).subscribe((control: ControlWork) => {
+            this.cancel();
+          });
+        } else {
+          alert('something went wrong');
+        }
       }
     }, 1);
   }

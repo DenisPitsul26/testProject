@@ -3,6 +3,7 @@ import {BaseApi} from '../../auth/base-api';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ControlWork} from '../models/controlWork.model';
+import {TestModel} from '../models/test.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,11 @@ export class ControlWorksService extends BaseApi {
   }
   addControlWork(controlWork: ControlWork): Observable<any> {
     return this.post('controlWorks', controlWork);
+  }
+  deleteControlWork(id: number): Observable<any> {
+    return this.delete(`controlWorks/${id}`);
+  }
+  updateControl(controlModel: ControlWork): Observable<any> {
+    return this.put(`controlWorks/${controlModel.id}`, controlModel);
   }
 }
