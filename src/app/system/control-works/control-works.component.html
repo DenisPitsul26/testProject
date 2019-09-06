@@ -2,7 +2,11 @@
   Loading...
 </div>
 <div *ngIf="isLoaded">
+  <div *ngIf="isAddFormVisible">
+    <app-control-add (addFormIsVisible)="cancelForm($event)"></app-control-add>
+  </div>
   <section class="section">
+    <button class="btn btn-success" (click)="createControlWork()" *ngIf="!isAddFormVisible">Create</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -34,7 +38,6 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-success" (click)="createControlWork()">Create</button>
   </section>
 </div>
 

@@ -14,6 +14,7 @@ import { TestingDetailComponent } from './testing-detail/testing-detail.componen
 import { ControlWorkDetailComponent } from './control-work-detail/control-work-detail.component';
 import { TestingAddComponent } from './testing/testing-add/testing-add.component';
 import { MyCountPipe } from './shared/pipes/my-count.pipe';
+import { ControlAddComponent } from './control-works/control-add/control-add.component';
 import { GroupsAddComponent } from './groups/groups-add/groups-add.component';
 import {GroupDetailComponent} from './group-detail/group-detail.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
@@ -37,6 +38,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     GroupDetailComponent,
     DropdownDirective,
     UserDetailComponent
+    MyCountPipe,
+    ControlAddComponent
   ]
 })
 export class SystemModule {}
