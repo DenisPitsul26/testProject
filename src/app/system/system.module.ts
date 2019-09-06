@@ -37,7 +37,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     GroupsAddComponent,
     GroupDetailComponent,
     DropdownDirective,
-    UserDetailComponent
+    UserDetailComponent,
     MyCountPipe,
     ControlAddComponent
   ]
