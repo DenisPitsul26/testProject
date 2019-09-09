@@ -59,7 +59,7 @@ app-root {
 
 
 app-sidebar {
-  width: 180px;
+  width: 200px;
   display: block;
   float: left;
   margin: 0 0 0 0;
@@ -80,5 +80,9 @@ app-users {
   justify-content: left;
   align-items: center;
   background-color: white;
+}
+
+.row {
+  margin-left: 0;
 }
 
