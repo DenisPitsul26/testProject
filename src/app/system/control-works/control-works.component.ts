@@ -3,6 +3,7 @@ import {ControlWork} from '../../shared/models/controlWork.model';
 import {Subscription} from 'rxjs';
 import {ControlWorksService} from '../../shared/services/controlWorks.service';
 import {TestsService} from '../../shared/services/tests.service';
+import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-control-works',
@@ -14,6 +15,7 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   controlWorks: ControlWork[];
   sub1: Subscription;
   conWork: ControlWork;
+  loginedUser: User;
   currentControlWork: ControlWork;
   isAddFormVisible = false;
 
@@ -22,6 +24,7 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getControlWorks();
+    this.loginedUser = JSON.parse(localStorage.getItem('user'));
   }
 
   getControlWorks() {

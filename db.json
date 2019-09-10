@@ -17,7 +17,7 @@
       "id": 2
     },
     {
-      "email": "test@gmail.com",
+      "email": "test1@gmail.com",
       "password": "111111",
       "name": "sfsd",
       "isAdmin": 0,
@@ -89,6 +89,14 @@
       "isAdmin": 0,
       "groupId": 1,
       "id": 11
+    },
+    {
+      "email": "kill@gmail.com",
+      "password": "123456",
+      "name": "student",
+      "isAdmin": 0,
+      "groupId": 6,
+      "id": 12
     }
   ],
   "groups": [
@@ -121,6 +129,11 @@
       "group": "243",
       "faculty": "IFTKN",
       "id": 6
+    },
+    {
+      "group": "243(3)",
+      "faculty": "IFTKN",
+      "id": 7
     }
   ],
   "tests": [

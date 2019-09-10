@@ -16,7 +16,7 @@
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
           <a [routerLink]="['/system', 'users']"> <i class="fa fa-building-o"></i> Users </a>
         </li>
-        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">
+        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
           <a [routerLink]="['/system', 'control_works']"> <i class="fa fa-flash"></i> Control works </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">

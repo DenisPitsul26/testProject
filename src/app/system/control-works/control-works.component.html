@@ -8,7 +8,7 @@
                      (currentControlUpdated)="currentControlUpdated($event)"></app-control-add>
   </div>
   <section class="section">
-    <button class="btn btn-success" (click)="createControlWork()" *ngIf="!isAddFormVisible">Create</button>
+    <button class="btn btn-success" (click)="createControlWork()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Create</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -31,8 +31,8 @@
                 <th scope="row">{{idx+1}}</th>
                 <td>{{controlWork.theme}}</td>
                 <td>
-                <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateControlForm(controlWork)"></i></button>
-                <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteControl(controlWork.id)"></i></button>
+                <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateControlForm(controlWork)"></i></button>
+                <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-trash" (click)="deleteControl(controlWork.id)"></i></button>
                 </td>
                 <td class="text-lg-center">
                   <a [routerLink]="['/control-work', controlWork.id]" class="btn btn-primary-outline">Open</a>

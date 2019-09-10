@@ -86,3 +86,7 @@ app-users {
   margin-left: 0;
 }
 
+.input-group-text {
+  width: 45px;
+  justify-content: center;
+}
