@@ -4,12 +4,12 @@
     <div class="header-block header-block-nav">
       <ul class="nav-profile">
         <li class="profile dropdown" appDropdown [ngClass]="{'open': true}">
-          <a class="nav-link dropdown-toggle" role="button">
+         <!-- <a class="nav-link dropdown-toggle" role="button"> -->
             <span class="name">
               Hello, {{user.name}}
             </span>
             <button type="button" class="btn"><i class="fa fa-trash" (click)="onLogout()"></i></button>
-          </a>
+        <!--  </a> -->
           <div class="dropdown-menu profile-dropdown-menu">
             <a class="dropdown-item" [routerLink]="['/users']">
               <i class="fa fa-gear icon"></i>Сделать запись

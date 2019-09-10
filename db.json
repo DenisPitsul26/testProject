@@ -201,50 +201,6 @@
   ],
   "controlWorks": [
     {
-      "theme": "qazwsxedc",
-      "tests": [
-        {
-          "question": "РРМИРОиоиолиоио орилотлт?",
-          "answers": [
-            "111",
-            "222",
-            "333",
-            "444"
-          ],
-          "correctAnswers": [
-            2
-          ],
-          "id": 1
-        },
-        {
-          "question": "www",
-          "answers": [
-            "10101",
-            "20202",
-            "30303"
-          ],
-          "correctAnswers": [
-            1,
-            3
-          ],
-          "id": 4
-        },
-        {
-          "question": "wwwgbfgbgfbfg",
-          "answers": [
-            "fgbgbgf",
-            "eee",
-            "uuu"
-          ],
-          "correctAnswers": [
-            1
-          ],
-          "id": 7
-        }
-      ],
-      "id": 6
-    },
-    {
       "theme": "name",
       "tests": [
         {

@@ -23,15 +23,17 @@
               <tr>
                 <th>#</th>
                 <th>Question</th>
-                <th class="text-lg-center">Action</th>
+                <th class="text-lg-center" colspan="2">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let controlWork of controlWorks let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td>{{controlWork.theme}}</td>
+                <td>
                 <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateControlForm(controlWork)"></i></button>
                 <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteControl(controlWork.id)"></i></button>
+                </td>
                 <td class="text-lg-center">
                   <a [routerLink]="['/control-work', controlWork.id]" class="btn btn-primary-outline">Open</a>
                 </td>

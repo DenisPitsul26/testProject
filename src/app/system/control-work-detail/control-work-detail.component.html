@@ -16,7 +16,7 @@
           <div class="card-header">
             <div class="header-block">
               <p class="title">
-                Control work
+                Test
               </p>
             </div>
           </div>
@@ -26,8 +26,10 @@
               <li *ngFor="let test of controlWork.tests" class = "main">
                   <ul>
                     <li class = "question">Question: <strong>{{test.question}}</strong></li>
-                    <li *ngFor="let answer of test.answers let idx = index">Answers:
-                      <strong>{{idx+1}}: {{answer}}</strong>
+                    <li *ngFor="let answer of test.answers let idx = index">Answer
+                     <!-- <strong>{{idx+1}}: {{answer}}</strong> -->
+                      {{idx+1}}:
+                      <strong> {{answer}}</strong>
                     </li>
                     <li *ngFor="let correctAnswer of test.correctAnswers let idx = index">Correct answer:
                       <strong>{{idx+1}}: {{correctAnswer}}</strong>
