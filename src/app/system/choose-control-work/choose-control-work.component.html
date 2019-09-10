@@ -2,13 +2,7 @@
   Loading...
 </div>
 <div *ngIf="isLoaded">
-  <div *ngIf="isAddFormVisible">
-    <app-control-add (addFormIsVisible)="cancelForm($event)"
-                     [currentControlWork]="currentControlWork"
-                     (currentControlUpdated)="currentControlUpdated($event)"></app-control-add>
-  </div>
   <section class="section">
-    <button class="btn btn-success" (click)="createControlWork()" *ngIf="!isAddFormVisible">Create</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -23,17 +17,14 @@
               <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th class="text-lg-center">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let controlWork of controlWorks let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td>{{controlWork.theme}}</td>
-                <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateControlForm(controlWork)"></i></button>
-                <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteControl(controlWork.id)"></i></button>
                 <td class="text-lg-center">
-                  <a [routerLink]="['/control-work', controlWork.id]" class="btn btn-primary-outline">Open</a>
+                  <a (click)="logStart(controlWork)" class="btn btn-primary-outline">Start</a>
                 </td>
               </tr>
               </tbody>

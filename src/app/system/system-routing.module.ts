@@ -10,6 +10,7 @@ import {TestingDetailComponent} from './testing-detail/testing-detail.component'
 import {ControlWorkDetailComponent} from './control-work-detail/control-work-detail.component';
 import {GroupDetailComponent} from './group-detail/group-detail.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
+import {ChooseControlWorkComponent} from './choose-control-work/choose-control-work.component';
 
 const routes: Routes = [
   // {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path: 'tests/:id', component: TestingDetailComponent},
     {path: 'control-work/:id', component: ControlWorkDetailComponent},
     {path: 'group/:id', component: GroupDetailComponent},
-    {path: 'user/:id', component: UserDetailComponent}
+    {path: 'user/:id', component: UserDetailComponent},
+    {path: 'choose_control_work', component: ChooseControlWorkComponent}
     ]
   }
 ];

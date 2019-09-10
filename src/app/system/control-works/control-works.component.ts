@@ -3,7 +3,6 @@ import {ControlWork} from '../../shared/models/controlWork.model';
 import {Subscription} from 'rxjs';
 import {ControlWorksService} from '../../shared/services/controlWorks.service';
 import {TestsService} from '../../shared/services/tests.service';
-import {TestModel} from '../../shared/models/test.model';
 
 @Component({
   selector: 'app-control-works',

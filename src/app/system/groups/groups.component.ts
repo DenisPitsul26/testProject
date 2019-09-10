@@ -3,6 +3,7 @@ import {Group} from '../../shared/models/group.model';
 import {Subscription} from 'rxjs';
 import {GroupService} from '../../auth/group.service';
 import {group} from '@angular/animations';
+import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-groups',
@@ -16,11 +17,13 @@ export class GroupsComponent implements OnInit, OnDestroy {
   sub1: Subscription;
   isAddFormVisible = false;
   currentGroup: Group;
+  loginedUser: User;
 
   constructor(private groupService: GroupService) { }
 
   ngOnInit() {
     this.getGroups();
+    this.loginedUser = JSON.parse(localStorage.getItem('user'));
   }
   getGroups() {
     this.isLoaded = false;

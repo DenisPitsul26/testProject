@@ -13,17 +13,20 @@
     </div>
     <nav class="menu">
       <ul class="nav metismenu">
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
           <a [routerLink]="['/system', 'users']"> <i class="fa fa-building-o"></i> Users </a>
         </li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">
           <a [routerLink]="['/system', 'control_works']"> <i class="fa fa-flash"></i> Control works </a>
         </li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">
           <a [routerLink]="['/system', 'tests']"> <i class="fa fa-flash"></i> Tests </a>
         </li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
           <a [routerLink]="['/system', 'groups']"> <i class="fa fa-archive"></i> Groups </a>
+        </li>
+        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 0">
+          <a [routerLink]="['/system', 'choose_control_work']"> <i class="fa fa-archive"></i> Choose </a>
         </li>
       </ul>
     </nav>

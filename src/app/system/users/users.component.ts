@@ -5,6 +5,7 @@ import {log} from 'util';
 import {Group} from '../../shared/models/group.model';
 import {GroupService} from '../../auth/group.service';
 import {combineLatest, Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -17,10 +18,15 @@ export class UsersComponent implements OnInit, OnDestroy {
   groups: Group[];
   isLoaded = false;
   sub1: Subscription;
-
-  constructor(private userService: UserService, private groupService: GroupService) { }
+  loginedUser: User;
+  constructor(private userService: UserService, private groupService: GroupService, private router: Router) { }
 
   ngOnInit() {
+    this.loginedUser = JSON.parse(localStorage.getItem('user'));
+    if (this.loginedUser.isAdmin === 0) {
+      console.log('student');
+      this.router.navigate(['/system', 'choose_control_work']);
+    }
     this.isLoaded = false;
     this.sub1 = combineLatest(
       this.userService.getAllUsers(),

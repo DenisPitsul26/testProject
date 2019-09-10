@@ -24,14 +24,16 @@
             <ul>
               <li>Name: <strong>{{user.name}}</strong></li>
               <li>Email: <strong>{{user.email}}</strong></li>
-              <li>Password: <strong>{{user.password}}</strong></li>
-              <li>isAdmin: <strong>{{user.isAdmin}}</strong></li>
+              <li *ngIf="loginedUser.isAdmin === 1">Password: <strong>{{user.password}}</strong></li>
+              <li *ngIf="loginedUser.isAdmin === 1">isAdmin: <strong>{{user.isAdmin}}</strong></li>
               <li>Group: <strong>{{user.numberOfGroup}}</strong></li>
             </ul>
           </div>
           <div *ngIf="loginedUser.isAdmin === 1 && loginedUser.id !== user.id">
             <button class="btn btn-success" (click)="makeOrDeleteAdmin()" *ngIf="user.isAdmin === 0">Make admin</button>
             <button class="btn btn-danger" (click)="makeOrDeleteAdmin()" *ngIf="user.isAdmin === 1">Delete from admin</button>
+            <button class="btn btn-success" (click)="makeOrDeleteTeacher()" *ngIf="user.isAdmin === 0">Make 'teacher'</button>
+            <button class="btn btn-danger" (click)="makeOrDeleteTeacher()" *ngIf="user.isAdmin === 2">Delete from 'teacher'</button>
           </div>
         </div>
       </div>
