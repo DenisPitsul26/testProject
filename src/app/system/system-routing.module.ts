@@ -23,9 +23,9 @@ const routes: Routes = [
     {path: 'tests/:id', component: TestingDetailComponent},
     {path: 'control-work/:id', component: ControlWorkDetailComponent},
     {path: 'group/:id', component: GroupDetailComponent},
-    {path: 'user/:id', component: UserDetailComponent},
-    {path: 'choose_control_work', component: ChooseControlWorkComponent},
-    {path: 'write_control_work', component: WriteControlWorkComponent}
+      {path: 'user/:id', component: UserDetailComponent},
+      {path: 'write_control_work/:id', component: WriteControlWorkComponent},
+    {path: 'choose_control_work', component: ChooseControlWorkComponent}
     ]
   }
 ];

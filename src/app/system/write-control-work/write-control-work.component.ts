@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {ControlWork} from '../../shared/models/controlWork.model';
 import {ControlWorksService} from '../../shared/services/controlWorks.service';
 import {Subscription} from 'rxjs';
+import {mergeMap} from 'rxjs/operators';
+import {ActivatedRoute, Params} from '@angular/router';
+import {User} from '../../shared/models/user.model';
+import {Group} from '../../shared/models/group.model';
 
 @Component({
   selector: 'app-write-control-work',
@@ -23,33 +27,34 @@ export class WriteControlWorkComponent implements OnInit {
   userAnswers = [];
   required = false;
 
-  constructor(private controlWorkService: ControlWorksService) { }
+  constructor(private controlWorkService: ControlWorksService, private route: ActivatedRoute) { }
 
 
 
   ngOnInit() {
     this.isLoaded = false;
     this.completedTest = false;
-    this.sub1 = this.controlWorkService.getControlWorkById('1').subscribe((controlWork: ControlWork) => {
-      this.currentControlWork = controlWork;
-      this.numberOfTests = this.currentControlWork.tests.length;
-      this.question = this.currentControlWork.tests[this.count].question;
-      this.answers = this.currentControlWork.tests[this.count].answers;
-      this.isLoaded = true;
-      // document.getElementById('answer');
-      this.userAnswers = new Array(this.numberOfTests);
-      for (let i = 0; i < this.numberOfTests; i++) {
-        this.userAnswers[i] = new Array(this.currentControlWork.tests[i].answers.length);
-        for (let j = 0; j < this.currentControlWork.tests[i].answers.length; j++) {
-          this.userAnswers[i][j] = false;
+    this.sub1 = this.route.params.pipe(mergeMap((params: Params) => this.controlWorkService.getControlWorkById(params.id)))
+      .subscribe((controlWork: ControlWork) => {
+        this.currentControlWork = controlWork;
+        this.numberOfTests = this.currentControlWork.tests.length;
+        this.question = this.currentControlWork.tests[this.count].question;
+        this.answers = this.currentControlWork.tests[this.count].answers;
+        this.isLoaded = true;
+        // document.getElementById('answer');
+        this.userAnswers = new Array(this.numberOfTests);
+        for (let i = 0; i < this.numberOfTests; i++) {
+          this.userAnswers[i] = new Array(this.currentControlWork.tests[i].answers.length);
+          for (let j = 0; j < this.currentControlWork.tests[i].answers.length; j++) {
+            this.userAnswers[i][j] = false;
+          }
+          // tslint:disable-next-line:prefer-for-of
+          for (let j = 0; j < this.currentControlWork.tests[i].correctAnswers.length; j++) {
+            this.maxScore++;
+          }
         }
-        // tslint:disable-next-line:prefer-for-of
-        for (let j = 0; j < this.currentControlWork.tests[i].correctAnswers.length; j++) {
-          this.maxScore++;
-        }
-      }
-      console.log(this.maxScore);
-    });
+        console.log(this.maxScore);
+      });
   }
 
   Ok() {

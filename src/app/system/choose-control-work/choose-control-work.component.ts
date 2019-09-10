@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ControlWork} from '../../shared/models/controlWork.model';
 import {Subscription} from 'rxjs';
 import {ControlWorksService} from '../../shared/services/controlWorks.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-choose-control-work',
@@ -15,7 +16,7 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
   conWork: ControlWork;
   currentControlWork: ControlWork;
   isAddFormVisible = false;
-  constructor(private controlWorksService: ControlWorksService) { }
+  constructor(private controlWorksService: ControlWorksService, private router: Router) { }
 
   ngOnInit() {
     this.getControlWorks();
@@ -34,6 +35,6 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
     this.sub1.unsubscribe();
   }
   logStart(control: ControlWork) {
-    console.log(control);
+    this.router.navigate(['/write_control_work', control.id], { queryParams: { topic: control.theme } });
   }
 }

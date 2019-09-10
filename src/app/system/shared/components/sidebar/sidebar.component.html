@@ -28,9 +28,6 @@
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 0">
           <a [routerLink]="['/system', 'choose_control_work']"> <i class="fa fa-archive"></i> Choose </a>
         </li>
-        <li routerLinkActive="active">
-          <a [routerLink]="['/system', 'write_control_work']"> <i class="fa fa-archive"></i> Write control work </a>
-        </li>
       </ul>
     </nav>
   </div>
