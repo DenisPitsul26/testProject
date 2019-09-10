@@ -19,6 +19,8 @@ import { GroupsAddComponent } from './groups/groups-add/groups-add.component';
 import {GroupDetailComponent} from './group-detail/group-detail.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { WriteControlWorkComponent } from './write-control-work/write-control-work.component';
+import { ResultComponent } from './write-control-work/result/result.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
@@ -39,7 +41,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     DropdownDirective,
     UserDetailComponent,
     MyCountPipe,
-    ControlAddComponent
+    ControlAddComponent,
+    WriteControlWorkComponent,
+    ResultComponent
   ]
 })
 export class SystemModule {}
