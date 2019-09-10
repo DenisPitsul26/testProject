@@ -3,6 +3,8 @@ import {TestsService} from '../../../shared/services/tests.service';
 import {TestModel} from '../../../shared/models/test.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
+import {ControlWorksService} from '../../../shared/services/controlWorks.service';
+import {ControlWork} from '../../../shared/models/controlWork.model';
 
 @Component({
   selector: 'app-testing-add',
@@ -15,6 +17,7 @@ export class TestingAddComponent implements OnInit, OnDestroy {
   correctAnswers: number[] = [];
   answer = '';
   correctAnswer = false;
+  controlWorks: ControlWork[];
   sub1: Subscription;
   @Output() addFormIsVisible = new EventEmitter<boolean>();
   @Output() newTestAdded = new EventEmitter<TestModel>();
@@ -23,7 +26,7 @@ export class TestingAddComponent implements OnInit, OnDestroy {
   testModel: TestModel;
   @Input() currentTest: TestModel;
 
-  constructor(private testsService: TestsService) { }
+  constructor(private testsService: TestsService, private controlWorkService: ControlWorksService) { }
 
   ngOnInit() {
     if (this.currentTest === undefined) {
@@ -96,8 +99,21 @@ export class TestingAddComponent implements OnInit, OnDestroy {
     if (this.answers && this.correctAnswers && this.question) {
       this.testModel = new TestModel(this.question, this.answers, this.correctAnswers, this.currentTest.id);
       this.sub1 = this.testsService.updateTest(this.testModel).subscribe((test: TestModel) => {
-        this.newTestAdded.emit(test);
-        this.addFormIsVisible.emit(false);
+        this.controlWorkService.getControlWorks().subscribe((controls: ControlWork[]) => {
+          this.controlWorks = controls;
+          // tslint:disable-next-line:prefer-for-of
+          for (let i = 0; i < this.controlWorks.length; i++) {
+            for (let j = 0; j < this.controlWorks[i].tests.length; j++) {
+              if (this.controlWorks[i].tests[j].id === test.id) {
+                this.controlWorks[i].tests[j] = test;
+              }
+            }
+            this.controlWorkService.updateControl(this.controlWorks[i]).subscribe((control: ControlWork) => {
+              this.newTestAdded.emit(test);
+              this.addFormIsVisible.emit(false);
+            });
+          }
+        });
       });
     }
     this.answers = [];

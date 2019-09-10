@@ -20,6 +20,8 @@ import {GroupDetailComponent} from './group-detail/group-detail.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ChooseControlWorkComponent } from './choose-control-work/choose-control-work.component';
+import { WriteControlWorkComponent } from './write-control-work/write-control-work.component';
+import { ResultComponent } from './write-control-work/result/result.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
@@ -40,6 +42,9 @@ import { ChooseControlWorkComponent } from './choose-control-work/choose-control
     DropdownDirective,
     UserDetailComponent,
     MyCountPipe,
+    ControlAddComponent,
+    WriteControlWorkComponent,
+    ResultComponent,
     ControlAddComponent,
     ChooseControlWorkComponent
   ]
