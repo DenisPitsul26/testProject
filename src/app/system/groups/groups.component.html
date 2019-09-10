@@ -26,7 +26,7 @@
                 <th>#</th>
                 <th>Faculty</th>
                 <th>Group</th>
-                <th class="text-lg-center" >Action</th>
+                <th class="text-lg-center" colspan="2">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -34,8 +34,9 @@
                 <th scope="row">{{idx+1}}</th>
                 <td>{{group.faculty}}</td>
                 <td>{{group.group}}</td>
-                <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateGroupForm(group) "></i></button>
+                <td><button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateGroupForm(group) "></i></button>
                 <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-trash" (click)="deleteGroup(group.id)"></i></button>
+                </td>
                 <td class="text-lg-center" >
                   <a [routerLink]="['/group', group.id]" class="btn btn-primary-outline">Open</a>
                 </td>

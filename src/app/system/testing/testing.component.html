@@ -24,15 +24,17 @@
               <tr>
                 <th>#</th>
                 <th>Question</th>
-                <th class="text-lg-center">Action</th>
+                <th class="text-lg-center" colspan="2">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let test of tests let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td>{{test.question}}</td>
+                <td>
                 <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateTestForm(test)"></i></button>
                 <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteTest(test.id)"></i></button>
+                </td>
                 <td class="text-lg-center">
                   <a [routerLink]="['/tests', test.id]" class="btn btn-primary-outline">Open</a>
                 </td>

@@ -1,0 +1,8 @@
+.card-block {
+  width: max-content;
+  height: max-content;
+  border: solid rgb(87, 87, 87) 1px;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px;
+}
