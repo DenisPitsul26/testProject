@@ -26,6 +26,8 @@ export class WriteControlWorkComponent implements OnInit {
   userAnswer: boolean;
   userAnswers = [];
   required = false;
+  counter: number;
+  switchBtn = false;
 
   constructor(private controlWorkService: ControlWorksService, private route: ActivatedRoute) { }
 
@@ -110,11 +112,19 @@ export class WriteControlWorkComponent implements OnInit {
     console.log(this.userScore);
   }
 
-  onFilterChange($event: Event) {
+  onTestChecked($event: Event) {
+    this.counter = 0;
+    this.switchBtn = false;
     this.required = false;
     for (let i = 1; i <= this.currentControlWork.tests[this.count].answers.length; i++) {
       if ((document.getElementById(String(i)) as HTMLInputElement).checked) {
         this.required = true;
+        this.counter++;
+        this.switchBtn = false;
+      }
+      if (this.currentControlWork.tests[this.count].correctAnswers.length <= this.counter - 1) {
+        this.required = false;
+        this.switchBtn = true;
       }
     }
   }

@@ -6,7 +6,7 @@
     <div class="card-block">
       <div class="form-group horizontal">
         <div style="margin: 8px" *ngFor="let number of numberOfTests | myCount; let idx = index">
-          <button (click)="changeQuestion(number-1)">{{number}}</button>
+          <button [disabled]="switchBtn" (click)="changeQuestion(number-1)">{{number}}</button>
         </div>
         <hr>
       </div>
@@ -25,14 +25,14 @@
         <tr *ngFor="let answer of answers let idx = index">
           <th scope="row">{{idx+1}}</th>
           <td>{{answer}}</td>
-          <td><input (change)="onFilterChange($event)" type="checkbox" class="form-check" [id]="(idx+1)"></td>
+          <td><input (change)="onTestChecked($event)" type="checkbox" class="form-check" [id]="(idx+1)"></td>
           <td class="text-lg-center">
           </td>
         </tr>
         </tbody>
       </table>
       <button class="btn btn-primary" type="submit" id="answer" [disabled]="!required" (click)="Ok()">Answer</button>
-      <button style="margin-left: 10px" class="btn btn-success" type="submit" (click)="completeTest()">Сomplete</button>
+      <button style="margin-left: 10px" class="btn btn-success" type="submit" [disabled]="!required" (click)="completeTest()">Сomplete</button>
     <!--  <button class="btn btn-danger" type="submit" (click)="cancel()">Cancel</button>-->
     </div>
   </div>
