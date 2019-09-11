@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TestsService} from '../../shared/services/tests.service';
 import {TestModel} from '../../shared/models/test.model';
-import {ControlWorksService} from '../../shared/services/controlWorks.service';
+import {ControlWorksService} from '../../shared/services/control-works.service';
 import {ControlWork} from '../../shared/models/controlWork.model';
 
 @Component({

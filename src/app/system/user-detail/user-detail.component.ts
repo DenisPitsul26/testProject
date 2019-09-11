@@ -4,8 +4,8 @@ import {Subscription} from 'rxjs';
 import {mergeMap} from 'rxjs/operators';
 import {ActivatedRoute, Params, Route, Router} from '@angular/router';
 import {TestModel} from '../../shared/models/test.model';
-import {UserService} from '../../auth/user.service';
-import {GroupService} from '../../auth/group.service';
+import {UserService} from '../../shared/services/user.service';
+import {GroupService} from '../../shared/services/group.service';
 import {Group} from '../../shared/models/group.model';
 
 @Component({

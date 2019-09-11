@@ -1,9 +1,9 @@
 import {AfterContentInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {User} from '../../shared/models/user.model';
-import {UserService} from '../../auth/user.service';
+import {UserService} from '../../shared/services/user.service';
 import {log} from 'util';
 import {Group} from '../../shared/models/group.model';
-import {GroupService} from '../../auth/group.service';
+import {GroupService} from '../../shared/services/group.service';
 import {combineLatest, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 

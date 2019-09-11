@@ -3,7 +3,7 @@ import {ControlWork} from '../../shared/models/controlWork.model';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params} from '@angular/router';
 import {mergeMap} from 'rxjs/operators';
-import {ControlWorksService} from '../../shared/services/controlWorks.service';
+import {ControlWorksService} from '../../shared/services/control-works.service';
 
 @Component({
   selector: 'app-control-work-detail',

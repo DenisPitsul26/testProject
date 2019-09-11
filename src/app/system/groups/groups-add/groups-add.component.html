@@ -1,22 +1,52 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-sm-12 col-xs-12">
-      <div class="alert alert-{{message.type}}" *ngIf="message.text">{{message.text}}</div>
-      <form #form="ngForm">
-        <div class="form-group">
-          <label>Faculty</label>
-          <input type="text" class="form-control" placeholder="Input faculty" id="question"
-                 ngModel name="faculty" required #faculty="ngModel">
-        </div>
-        <div class="form-group">
-          <label>Group</label>
-          <input type="text" class="form-control" placeholder="Input group" id="group"
-                 ngModel name="numberOfGroup" required #group="ngModel">
-        </div>
-        <button class="btn btn-success" type="submit" [disabled]="form.invalid" (click)="addUpdateGroup()">Save</button>
-        <button class="btn btn-danger" type="submit" (click)="cancel()">Cancel</button>
-        <p *ngIf="form.invalid">All field have not to be empty</p>
-      </form>
+<div *ngIf="!isLoaded">
+  Loading...
+</div>
+<div *ngIf="isLoaded">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="alert alert-{{message.type}}" *ngIf="message.text">{{message.text}}</div>
+        <form #form="ngForm">
+          <div class="form-group">
+            <label>Faculty</label>
+            <input type="text" class="form-control" placeholder="Input faculty" id="question"
+                   ngModel name="faculty" required #faculty="ngModel">
+          </div>
+          <div class="form-group">
+            <label>Group</label>
+            <input type="text" class="form-control" placeholder="Input group" id="group"
+                   ngModel name="numberOfGroup" required #group="ngModel">
+          </div>
+          <div *ngIf="!isAppointedControlWorksEmpty" class="form-group">
+            <div class="card-block">
+              <div class="form-group">
+                <label>Appoint control work for {{currentGroup.group}} group</label>
+              </div>
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Topic</th>
+                  <th class="text-lg-center">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let control of appointedControlWorks let idx = index">
+                  <th scope="row">{{idx+1}}</th>
+                  <td>{{control.theme}}</td>
+                  <button type="button" class="btn"><i class="fa fa-trash" (click)="delete(idx)"></i></button>
+                  <td class="text-lg-center">
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button class="btn btn-success" type="submit" [disabled]="form.invalid" (click)="addUpdateGroup()">Save</button>
+          <button class="btn btn-danger" type="submit" (click)="cancel()">Cancel</button>
+          <p *ngIf="form.invalid">All field have not to be empty</p>
+        </form>
+      </div>
     </div>
   </div>
 </div>

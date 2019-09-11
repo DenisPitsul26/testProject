@@ -1,9 +1,9 @@
 import {HttpClient} from '@angular/common/http';
-import {BaseApi} from './base-api';
+import {BaseApi} from '../models/base-api';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Group} from '../shared/models/group.model';
+import {Group} from '../models/group.model';
 import {group} from '@angular/animations';
 
 @Injectable({

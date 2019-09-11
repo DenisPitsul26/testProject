@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ControlWork} from '../../shared/models/controlWork.model';
-import {ControlWorksService} from '../../shared/services/controlWorks.service';
+import {ControlWorksService} from '../../shared/services/control-works.service';
 import {Subscription} from 'rxjs';
 import {mergeMap} from 'rxjs/operators';
 import {ActivatedRoute, Params} from '@angular/router';

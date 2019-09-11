@@ -5,7 +5,10 @@
   <section class="section">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
+        <div *ngIf="isExpectedControlWorkEmpty" style="margin: 10px">
+          <h2>There isn`t any control works in close time.</h2>
+        </div>
+        <div class="card" *ngIf="!isExpectedControlWorkEmpty">
           <div class="card-header bordered">
             <div class="header-block">
               <h3 class="title">Control works</h3>
@@ -24,7 +27,7 @@
                 <th scope="row">{{idx+1}}</th>
                 <td>{{controlWork.theme}}</td>
                 <td class="text-lg-center">
-                  <a (click)="logStart(controlWork)" class="btn btn-primary-outline">Start</a>
+                  <a (click)="start(controlWork)" class="btn btn-primary-outline">Start</a>
                 </td>
               </tr>
               </tbody>
