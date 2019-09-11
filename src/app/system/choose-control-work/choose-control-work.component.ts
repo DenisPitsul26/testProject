@@ -42,6 +42,7 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
     } else if (this.loginedUser.isAdmin === 1) {
       this.sub1 = this.controlWorksService.getControlWorks().subscribe((controlWorks: ControlWork[]) => {
         this.controlWorks = controlWorks;
+        this.isExpectedControlWorkEmpty = false;
         this.isLoaded = true;
       });
     }
