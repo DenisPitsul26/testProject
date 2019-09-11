@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Group} from '../../shared/models/group.model';
 import {Subscription} from 'rxjs';
-import {GroupService} from '../../auth/group.service';
+import {GroupService} from '../../shared/services/group.service';
 import {group} from '@angular/animations';
 import {User} from '../../shared/models/user.model';
 
@@ -16,6 +16,7 @@ export class GroupsComponent implements OnInit, OnDestroy {
   groups: Group[];
   sub1: Subscription;
   isAddFormVisible = false;
+  isAppointFormVisible = false;
   currentGroup: Group;
   loginedUser: User;
 
@@ -61,5 +62,18 @@ export class GroupsComponent implements OnInit, OnDestroy {
     this.sub1 = this.groupService.deleteGroup(id).subscribe(() => {
       this.getGroups();
     });
+  }
+
+  toAppointForm(group1: Group) {
+    this.isAppointFormVisible = true;
+    this.currentGroup = group1;
+  }
+
+  cancelAppointForm(flag: boolean) {
+    this.isAppointFormVisible = flag;
+  }
+
+  groupAppointed(group1: Group) {
+    this.getGroups();
   }
 }

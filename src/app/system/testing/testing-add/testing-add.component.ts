@@ -3,7 +3,7 @@ import {TestsService} from '../../../shared/services/tests.service';
 import {TestModel} from '../../../shared/models/test.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
-import {ControlWorksService} from '../../../shared/services/controlWorks.service';
+import {ControlWorksService} from '../../../shared/services/control-works.service';
 import {ControlWork} from '../../../shared/models/controlWork.model';
 
 @Component({

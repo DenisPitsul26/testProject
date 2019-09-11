@@ -1,11 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Group} from '../../shared/models/group.model';
-import {GroupService} from '../../auth/group.service';
+import {GroupService} from '../../shared/services/group.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {mergeMap} from 'rxjs/operators';
 import {ControlWork} from '../../shared/models/controlWork.model';
-import {UserService} from '../../auth/user.service';
+import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/models/user.model';
 
 @Component({

@@ -9,6 +9,13 @@
                     (newGroupAdded)="newGroupAdded($event)"
     ></app-groups-add>
   </div>
+  <div *ngIf="isAppointFormVisible">
+    <app-appoint-control-work [groups]="groups"
+                    [currentGroup]="currentGroup"
+                    (appointFormIsVisible)="cancelAppointForm($event)"
+                    (groupAppointed)="groupAppointed($event)"
+    ></app-appoint-control-work>
+  </div>
   <section class="section">
     <button class="btn btn-success" (click)="addGroupForm()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Add</button>
     <div class="row">
@@ -36,6 +43,9 @@
                 <td>{{group.group}}</td>
                 <td><button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateGroupForm(group) "></i></button>
                 <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-trash" (click)="deleteGroup(group.id)"></i></button>
+                </td>
+                <td class="text-lg-center" >
+                  <button *ngIf="loginedUser.isAdmin === 1" (click)="toAppointForm(group)" class="btn btn-primary-outline">Appoint</button>
                 </td>
                 <td class="text-lg-center" >
                   <a [routerLink]="['/group', group.id]" class="btn btn-primary-outline">Open</a>

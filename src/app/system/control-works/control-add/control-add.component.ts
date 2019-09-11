@@ -3,7 +3,7 @@ import {forkJoin, Subscription} from 'rxjs';
 import {TestsService} from '../../../shared/services/tests.service';
 import {TestModel} from '../../../shared/models/test.model';
 import {formatI18nPlaceholderName} from '@angular/compiler/src/render3/view/i18n/util';
-import {ControlWorksService} from '../../../shared/services/controlWorks.service';
+import {ControlWorksService} from '../../../shared/services/control-works.service';
 import {ControlWork} from '../../../shared/models/controlWork.model';
 
 @Component({
@@ -32,13 +32,10 @@ export class ControlAddComponent implements OnInit {
     this.isLoaded = false;
     this.sub1 = this.testsService.getTests().subscribe((tests: TestModel[]) => {
       this.tests = tests;
-      this.isLoaded = true;
       this.checkId = this.tests.length;
     });
     setTimeout(() => {
-      if (this.currentControlWork === undefined) {
-
-      } else {
+      if (this.currentControlWork !== undefined) {
         this.updateTestsLength = this.currentControlWork.tests.length;
         this.cwName = this.currentControlWork.theme;
         // this.checkedTests = this.currentControlWork.tests;
@@ -57,6 +54,7 @@ export class ControlAddComponent implements OnInit {
           }
         }, 1);
       }
+      this.isLoaded = true;
     }, 10);
   }
   addTest() {

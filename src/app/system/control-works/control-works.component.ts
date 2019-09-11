@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ControlWork} from '../../shared/models/controlWork.model';
 import {Subscription} from 'rxjs';
-import {ControlWorksService} from '../../shared/services/controlWorks.service';
+import {ControlWorksService} from '../../shared/services/control-works.service';
 import {TestsService} from '../../shared/services/tests.service';
 import {User} from '../../shared/models/user.model';
 

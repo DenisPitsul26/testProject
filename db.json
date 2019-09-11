@@ -19,7 +19,7 @@
     {
       "email": "test1@gmail.com",
       "password": "111111",
-      "name": "sfsd",
+      "name": "sfsd111",
       "isAdmin": 0,
       "groupId": 1,
       "id": 3
@@ -103,37 +103,162 @@
     {
       "group": "143A",
       "faculty": "IFTKN",
+      "expectedControlWorks": [
+        {
+          "theme": "control1",
+          "tests": [
+            {
+              "question": "test1",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 1
+            },
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            },
+            {
+              "question": "test3",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1,
+                2
+              ],
+              "id": 3
+            }
+          ],
+          "id": 1
+        },
+        {
+          "theme": "control4",
+          "tests": [
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            }
+          ],
+          "id": 4
+        }
+      ],
       "id": 1
     },
     {
       "group": "143B",
       "faculty": "IFTKN",
+      "expectedControlWorks": [
+        {
+          "theme": "control2",
+          "tests": [
+            {
+              "question": "test1",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 1
+            },
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            },
+            {
+              "question": "test3",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1,
+                2
+              ],
+              "id": 3
+            }
+          ],
+          "id": 2
+        }
+      ],
       "id": 2
     },
     {
       "group": "143C",
       "faculty": "IFTKN",
+      "expectedControlWorks": [],
       "id": 3
     },
     {
       "group": "243(1)",
       "faculty": "IFTKN",
+      "expectedControlWorks": [],
       "id": 4
     },
     {
       "group": "243(2)",
       "faculty": "IFTKN",
+      "expectedControlWorks": [],
       "id": 5
     },
     {
       "group": "243",
       "faculty": "IFTKN",
+      "expectedControlWorks": [],
       "id": 6
     },
     {
       "group": "243(3)",
       "faculty": "IFTKN",
+      "expectedControlWorks": [],
       "id": 7
+    },
+    {
+      "group": "Admins",
+      "faculty": "IFTKN",
+      "expectedControlWorks": [],
+      "id": 8
+    },
+    {
+      "group": "Teachers",
+      "faculty": "IFTKN",
+      "expectedControlWorks": [],
+      "id": 9
     }
   ],
   "tests": [
@@ -222,6 +347,18 @@
     {
       "theme": "control2",
       "tests": [
+        {
+          "question": "test1",
+          "answers": [
+            "1",
+            "2",
+            "3"
+          ],
+          "correctAnswers": [
+            3
+          ],
+          "id": 1
+        },
         {
           "question": "test2",
           "answers": [

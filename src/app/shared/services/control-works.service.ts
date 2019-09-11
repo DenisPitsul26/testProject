@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BaseApi} from '../../auth/base-api';
+import {BaseApi} from '../models/base-api';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ControlWork} from '../models/controlWork.model';

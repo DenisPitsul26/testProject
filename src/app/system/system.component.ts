@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Group} from '../shared/models/group.model';
 import {group} from '@angular/animations';
-import {GroupService} from '../auth/group.service';
+import {GroupService} from '../shared/services/group.service';
 
 @Component({
   selector: 'app-system',

@@ -4,28 +4,27 @@
 <div *ngIf="isLoaded">
   <div class="card-block">
     <div class="form-group">
-      <label>Control work name</label>
-      <input type="text" class="form-control" placeholder="Input control work name" id="cwName" required="true">
+      <label>Appoint control work for {{currentGroup.group}} group</label>
     </div>
     <table class="table table-striped">
       <thead>
       <tr>
         <th>#</th>
-        <th>Question</th>
-        <th class="text-lg-center">Include</th>
+        <th>Topic</th>
+        <th class="text-lg-center">Appoint</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let test of tests let idx = index">
+      <tr *ngFor="let control of controlWorks let idx = index">
         <th scope="row">{{idx+1}}</th>
-        <td>{{test.question}}</td>
-        <td><input type="checkbox" class="form-check" [id]="(idx+1) + 'c'"></td>
+        <td>{{control.theme}}</td>
+        <td><input type="checkbox" class="form-check" [id]="(idx+1)"></td>
         <td class="text-lg-center">
         </td>
       </tr>
       </tbody>
     </table>
-    <button class="btn btn-success" type="submit" (click)="addTest()">Save</button>
+    <button class="btn btn-success" type="submit" (click)="toAppoint()">Save</button>
     <button class="btn btn-danger" type="submit" (click)="cancel()">Cancel</button>
   </div>
 </div>
