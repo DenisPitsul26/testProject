@@ -64,7 +64,7 @@ export class RegistrationComponent implements OnInit {
     console.log('pass2', passwordGroup.repeatPassword);
     if (passwordGroup.password === passwordGroup.repeatPassword) {
       this.errorMessage = '';
-      const user = new User(email, passwordGroup.password, name, 0, +numberOfGroup);
+      const user = new User(email, passwordGroup.password, name, 0, +numberOfGroup, []);
       this.usersService.createNewUser(user).subscribe(() => {
         this.router.navigate(['/login'], {
           queryParams: {

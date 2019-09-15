@@ -54,5 +54,10 @@ li {
   color: #fea989;
 }
 
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 
 

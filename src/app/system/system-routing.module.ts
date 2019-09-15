@@ -12,10 +12,11 @@ import {GroupDetailComponent} from './group-detail/group-detail.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {ChooseControlWorkComponent} from './choose-control-work/choose-control-work.component';
 import {WriteControlWorkComponent} from './write-control-work/write-control-work.component';
+import {ScoresComponent} from './scores/scores.component';
 
 const routes: Routes = [
   // {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
-  {path: '', component: SystemComponent, children: [
+  {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
     {path: 'users', component: UsersComponent},
     {path: 'control_works', component: ControlWorksComponent},
     {path: 'tests', component: TestingComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
     {path: 'group/:id', component: GroupDetailComponent},
       {path: 'user/:id', component: UserDetailComponent},
       {path: 'write_control_work/:id', component: WriteControlWorkComponent},
-    {path: 'choose_control_work', component: ChooseControlWorkComponent}
+    {path: 'choose_control_work', component: ChooseControlWorkComponent},
+    {path: 'scores', component: ScoresComponent}
     ]
   }
 ];
