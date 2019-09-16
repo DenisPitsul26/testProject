@@ -26,6 +26,7 @@ import {AppointControlWorkComponent} from './groups/appoint-control-work/appoint
 import { ScoresComponent } from './scores/scores.component';
 import { ScoreComponent } from './scores/score/score.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NumberToTimePipe } from './shared/pipes/number-to-time.pipe';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
@@ -54,7 +55,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AppointControlWorkComponent,
     UserProfileComponent,
     ScoresComponent,
-    ScoreComponent
+    ScoreComponent,
+    NumberToTimePipe
   ]
 })
 export class SystemModule {}

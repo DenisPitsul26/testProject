@@ -9,6 +9,8 @@ import {Group} from '../../shared/models/group.model';
 import {ResultOfControlWork} from '../../shared/models/result-of-control-work';
 import {UserService} from '../../shared/services/user.service';
 import {log} from 'util';
+import {take, map} from 'rxjs/operators';
+import {Observable, timer} from 'rxjs';
 
 @Component({
   selector: 'app-write-control-work',
@@ -34,11 +36,24 @@ export class WriteControlWorkComponent implements OnInit {
   updatedUser: User;
   private loginedUser: User;
   resultsOfControlWorks: ResultOfControlWork[];
-
+  counterTime$: Observable<number>;
+  countTime = 120;
+  countTimeMinutes = 30;
+  countTimeMinutesCheck = this.countTimeMinutes;
   constructor(private controlWorkService: ControlWorksService,
               private usersService: UserService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+      // --this.countTimeMinutes;
+      this.counterTime$ = timer(0, 1000).pipe(
+        take(this.countTime),
+        map(() => --this.countTime)
+        );
+      // if (this.countTime <= 0) {
+      //   --this.countTimeMinutes;
+      //   this.countTime = 60;
+      // }
+  }
 
 
 
@@ -72,6 +87,26 @@ export class WriteControlWorkComponent implements OnInit {
           }
         });
     }, 1000);
+    setTimeout( () => {
+      if (this.switchBtn) {
+        for (let i = 1; i <= this.currentControlWork.tests[this.count].answers.length; i++) {
+          (document.getElementById(String(i)) as HTMLInputElement).checked = false;
+        }
+      }
+      this.completeTest();
+      if (this.loginedUser.isAdmin === 0) {
+        this.loginedUser.resultsOfControlWorks.push({
+          controlWork: this.currentControlWork,
+          score: this.userScore,
+          maxScore: this.maxScore
+        });
+        setTimeout(() => {
+          this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
+            // console.log(user);
+          });
+        }, 1000);
+      }
+    }, this.countTime * 1000);
   }
 
   Ok() {
