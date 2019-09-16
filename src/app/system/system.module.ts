@@ -23,6 +23,8 @@ import { ChooseControlWorkComponent } from './choose-control-work/choose-control
 import { WriteControlWorkComponent } from './write-control-work/write-control-work.component';
 import { ResultComponent } from './write-control-work/result/result.component';
 import {AppointControlWorkComponent} from './groups/appoint-control-work/appoint-control-work.component';
+import { ScoresComponent } from './scores/scores.component';
+import { ScoreComponent } from './scores/score/score.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
@@ -50,7 +52,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ControlAddComponent,
     ChooseControlWorkComponent,
     AppointControlWorkComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ScoresComponent,
+    ScoreComponent
   ]
 })
 export class SystemModule {}

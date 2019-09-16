@@ -29,7 +29,11 @@
           <a [routerLink]="['/system', 'groups']"> <i class="fa fa-archive"></i> Groups </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 0">
-          <a [routerLink]="['/system', 'choose_control_work']"> <i class="fa fa-archive"></i> Choose </a>
+          <a [class.disabled]="isWriteControlWork ? true: null"
+             [routerLink]="['/system', 'choose_control_work']"> <i class="fa fa-archive"></i> Choose </a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/system', 'scores']"> <i class="fa fa-archive"></i> Scores </a>
         </li>
       </ul>
     </nav>

@@ -3,9 +3,12 @@ import {ControlWork} from '../../shared/models/controlWork.model';
 import {ControlWorksService} from '../../shared/services/control-works.service';
 import {Subscription} from 'rxjs';
 import {mergeMap} from 'rxjs/operators';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {User} from '../../shared/models/user.model';
 import {Group} from '../../shared/models/group.model';
+import {ResultOfControlWork} from '../../shared/models/result-of-control-work';
+import {UserService} from '../../shared/services/user.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-write-control-work',
@@ -28,35 +31,47 @@ export class WriteControlWorkComponent implements OnInit {
   required = false;
   counter: number;
   switchBtn = false;
+  updatedUser: User;
+  private loginedUser: User;
+  resultsOfControlWorks: ResultOfControlWork[];
 
-  constructor(private controlWorkService: ControlWorksService, private route: ActivatedRoute) { }
+  constructor(private controlWorkService: ControlWorksService,
+              private usersService: UserService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
 
 
   ngOnInit() {
+    this.loginedUser = JSON.parse(localStorage.getItem('user'));
     this.isLoaded = false;
     this.completedTest = false;
-    this.sub1 = this.route.params.pipe(mergeMap((params: Params) => this.controlWorkService.getControlWorkById(params.id)))
-      .subscribe((controlWork: ControlWork) => {
-        this.currentControlWork = controlWork;
-        this.numberOfTests = this.currentControlWork.tests.length;
-        this.question = this.currentControlWork.tests[this.count].question;
-        this.answers = this.currentControlWork.tests[this.count].answers;
-        this.isLoaded = true;
-        // document.getElementById('answer');
-        this.userAnswers = new Array(this.numberOfTests);
-        for (let i = 0; i < this.numberOfTests; i++) {
-          this.userAnswers[i] = new Array(this.currentControlWork.tests[i].answers.length);
-          for (let j = 0; j < this.currentControlWork.tests[i].answers.length; j++) {
-            this.userAnswers[i][j] = false;
+    setTimeout(() => {
+      this.sub1 = this.route.params.pipe(mergeMap((params: Params) => this.controlWorkService.getControlWorkById(params.id)))
+        .subscribe((controlWork: ControlWork) => {
+          this.usersService.getUserById(this.loginedUser.id).subscribe((user: User) => {
+            this.loginedUser = user;
+            // this.resultsOfControlWorks = this.loginedUser.resultsOfControlWorks.map(x => Object.assign({}, x));
+          });
+          this.currentControlWork = controlWork;
+          this.numberOfTests = this.currentControlWork.tests.length;
+          this.question = this.currentControlWork.tests[this.count].question;
+          this.answers = this.currentControlWork.tests[this.count].answers;
+          this.isLoaded = true;
+          // document.getElementById('answer');
+          this.userAnswers = new Array(this.numberOfTests);
+          for (let i = 0; i < this.numberOfTests; i++) {
+            this.userAnswers[i] = new Array(this.currentControlWork.tests[i].answers.length);
+            for (let j = 0; j < this.currentControlWork.tests[i].answers.length; j++) {
+              this.userAnswers[i][j] = false;
+            }
+            // tslint:disable-next-line:prefer-for-of
+            for (let j = 0; j < this.currentControlWork.tests[i].correctAnswers.length; j++) {
+              this.maxScore++;
+            }
           }
-          // tslint:disable-next-line:prefer-for-of
-          for (let j = 0; j < this.currentControlWork.tests[i].correctAnswers.length; j++) {
-            this.maxScore++;
-          }
-        }
-        console.log(this.maxScore);
-      });
+        });
+    }, 1000);
   }
 
   Ok() {
@@ -66,6 +81,12 @@ export class WriteControlWorkComponent implements OnInit {
       this.loadQuestion();
     } else {
       this.completeTest();
+      this.loginedUser.resultsOfControlWorks.push({controlWork: this.currentControlWork, score: this.userScore, maxScore: this.maxScore});
+      setTimeout(() => {
+        this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
+        // console.log(user);
+        });
+      }, 1000);
     }
   }
   loadQuestion() {
@@ -95,7 +116,6 @@ export class WriteControlWorkComponent implements OnInit {
   completeTest() {
     this.saveAnswer();
     this.completedTest = true;
-    console.log(this.userAnswers);
     for (let i = 0; i < this.userAnswers.length; i++) {
       for (let j = 0; j < this.userAnswers.length; j++) {
         if (this.userAnswers[i][j]) {
@@ -108,8 +128,8 @@ export class WriteControlWorkComponent implements OnInit {
         }
       }
     }
-
-    console.log(this.userScore);
+    // window.localStorage.setItem('user', JSON.stringify(this.loginedUser));
+    // console.log(this.userScore);
   }
 
   onTestChecked($event: Event) {

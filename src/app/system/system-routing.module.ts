@@ -13,6 +13,9 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
 import {ChooseControlWorkComponent} from './choose-control-work/choose-control-work.component';
 import {WriteControlWorkComponent} from './write-control-work/write-control-work.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {ScoresComponent} from './scores/scores.component';
+import {AccessRoutingStudentGuard} from '../shared/services/access-routing-student.guard';
+import {AccessRoutingTeacherGuard} from '../shared/services/access-routing-teacher.guard';
 
 const routes: Routes = [
   // {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
@@ -27,7 +30,8 @@ const routes: Routes = [
       {path: 'user/:id', component: UserDetailComponent},
       {path: 'write_control_work/:id', component: WriteControlWorkComponent},
     {path: 'choose_control_work', component: ChooseControlWorkComponent},
-    {path: 'user_profile', component: UserProfileComponent}
+    {path: 'user_profile', component: UserProfileComponent},
+      {path: 'scores', component: ScoresComponent}
     ]
   }
 ];

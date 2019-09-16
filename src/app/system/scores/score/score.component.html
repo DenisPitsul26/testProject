@@ -1,0 +1,27 @@
+ <div class="card-header bordered">
+    <div class="header-block">
+      <h3 class="title">{{groupOfLoginedUser.group}}</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th *ngFor="let controlWork of groupOfLoginedUser.expectedControlWorks; let idx = index">
+          {{controlWork.theme}}: {{maxScores[idx]}}
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users let idx = index">
+        <th scope="row">{{idx+1}}</th>
+        <td>{{user.name}}</td>
+        <td *ngFor="let controlWork of groupOfLoginedUser.expectedControlWorks; let idx1 = index">
+          {{scoresForAllControlWorksOfAllUsers[idx][idx1] === -1 ? 'no score' : scoresForAllControlWorksOfAllUsers[idx][idx1]}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>

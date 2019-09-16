@@ -1,0 +1,15 @@
+<div *ngIf="!isLoaded" class="text-center">
+  Loading...
+</div>
+<div style="margin: 10px" *ngIf="isLoaded">
+  <section class="section">
+    <div class="row">
+      <div *ngFor="let group of groups">
+        <div class="card">
+          <app-score [group]="group"></app-score>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

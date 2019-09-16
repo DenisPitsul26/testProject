@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {VerifyEmailComponent} from './verify-email/verify-email.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {path: '', component: AuthComponent, children: [
