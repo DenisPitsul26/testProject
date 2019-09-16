@@ -6,6 +6,7 @@ import {mergeMap} from 'rxjs/operators';
 import {ControlWorksService} from '../../shared/services/control-works.service';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-control-work-detail',
   templateUrl: './control-work-detail.component.html',

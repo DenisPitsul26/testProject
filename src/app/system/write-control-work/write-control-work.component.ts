@@ -13,6 +13,7 @@ import {take, map} from 'rxjs/operators';
 import {Observable, timer} from 'rxjs';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-write-control-work',
   templateUrl: './write-control-work.component.html',
@@ -39,7 +40,7 @@ export class WriteControlWorkComponent implements OnInit {
   private loginedUser: User;
   resultsOfControlWorks: ResultOfControlWork[];
   counterTime$: Observable<number>;
-  countTime = 120;
+  countTime = 70;
   countTimeMinutes = 30;
   countTimeMinutesCheck = this.countTimeMinutes;
   constructor(private controlWorkService: ControlWorksService,

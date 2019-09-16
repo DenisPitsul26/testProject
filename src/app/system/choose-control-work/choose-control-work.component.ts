@@ -9,6 +9,7 @@ import {Group} from '../../shared/models/group.model';
 import {UserService} from '../../shared/services/user.service';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-choose-control-work',
   templateUrl: './choose-control-work.component.html',

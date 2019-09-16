@@ -7,6 +7,7 @@ import {ControlWorksService} from '../../../shared/services/control-works.servic
 import {ControlWork} from '../../../shared/models/controlWork.model';
 import {fadeStateTrigger} from '../../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-testing-add',
   templateUrl: './testing-add.component.html',

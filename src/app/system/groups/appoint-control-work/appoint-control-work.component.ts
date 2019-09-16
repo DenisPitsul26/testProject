@@ -6,6 +6,7 @@ import {Subscription} from 'rxjs';
 import {GroupService} from '../../../shared/services/group.service';
 import {fadeStateTrigger} from '../../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-appoint-control-work',
   templateUrl: './appoint-control-work.component.html',

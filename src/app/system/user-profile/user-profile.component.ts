@@ -7,6 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 import {loggedIn} from '@angular/fire/auth-guard';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',

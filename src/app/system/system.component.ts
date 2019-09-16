@@ -4,6 +4,7 @@ import {group} from '@angular/animations';
 import {GroupService} from '../shared/services/group.service';
 import {fadeStateTrigger} from '../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-system',
   templateUrl: './system.component.html',

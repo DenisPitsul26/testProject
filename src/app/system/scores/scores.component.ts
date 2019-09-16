@@ -6,6 +6,7 @@ import {UserService} from '../../shared/services/user.service';
 import {Group} from '../../shared/models/group.model';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-scores',
   templateUrl: './scores.component.html',

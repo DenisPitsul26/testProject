@@ -6,6 +6,7 @@ import {group} from '@angular/animations';
 import {User} from '../../shared/models/user.model';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-groups',
   templateUrl: './groups.component.html',

@@ -6,6 +6,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {mergeMap} from 'rxjs/operators';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-testing-detail',
   templateUrl: './testing-detail.component.html',

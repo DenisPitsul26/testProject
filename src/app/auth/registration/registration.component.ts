@@ -5,11 +5,13 @@ import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {User} from '../../shared/models/user.model';
 import {GroupService} from '../../shared/services/group.service';
 import {Group} from '../../shared/models/group.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-registrotion',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class RegistrationComponent implements OnInit {
 

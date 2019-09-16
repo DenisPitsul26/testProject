@@ -9,6 +9,7 @@ import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/models/user.model';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
+
 @Component({
   selector: 'app-group-detail',
   templateUrl: './group-detail.component.html',

@@ -6,25 +6,31 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NumberToTimePipe implements PipeTransform {
 
   transform(value: number, args?: any): string {
+    let totalSeconds = value;
 
-    const hours: number = Math.floor(value / 60);
-    const minutes: number = (value - hours * 60);
+    const hours = Math.floor(totalSeconds / 3600);
+    totalSeconds %= 3600;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
 
-    if (hours < 10 && minutes < 10) {
-      return '0' + hours + ' : 0' + (value - hours * 60);
+    let str = '';
+
+    if (hours < 10) {
+      str = str + '0' + hours;
+    } else {
+      str = str + '' + hours;
     }
-    if (hours > 10 && minutes > 10) {
-      return '0' + hours + ' : ' + (value - hours * 60);
+    if (minutes < 10) {
+      str = str + ':0' + minutes;
+    } else {
+      str = str + ':' + minutes;
     }
-    if (hours > 10 && minutes < 10) {
-      return hours + ' : 0' + (value - hours * 60);
+    if (seconds < 10) {
+      str = str + ':0' + seconds;
+    } else {
+      str = str + ':' + seconds;
     }
-    if (minutes > 10) {
-      return '0' + hours + ' : ' + (value - hours * 60);
-    }
-    if (minutes === 10) {
-      return '0' + hours + ' : ' + 10;
-    }
+    return str;
   }
 
 }
