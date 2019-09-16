@@ -13,20 +13,22 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
 import {ChooseControlWorkComponent} from './choose-control-work/choose-control-work.component';
 import {WriteControlWorkComponent} from './write-control-work/write-control-work.component';
 import {ScoresComponent} from './scores/scores.component';
+import {AccessRoutingStudentGuard} from '../shared/services/access-routing-student.guard';
+import {AccessRoutingTeacherGuard} from '../shared/services/access-routing-teacher.guard';
 
 const routes: Routes = [
   // {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
   {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
-    {path: 'users', component: UsersComponent},
-    {path: 'control_works', component: ControlWorksComponent},
-    {path: 'tests', component: TestingComponent},
-    {path: 'groups', component: GroupsComponent},
-    {path: 'tests/:id', component: TestingDetailComponent},
-    {path: 'control-work/:id', component: ControlWorkDetailComponent},
-    {path: 'group/:id', component: GroupDetailComponent},
-      {path: 'user/:id', component: UserDetailComponent},
-      {path: 'write_control_work/:id', component: WriteControlWorkComponent},
-    {path: 'choose_control_work', component: ChooseControlWorkComponent},
+    {path: 'users', canActivate: [AccessRoutingStudentGuard], component: UsersComponent},
+    {path: 'control_works', canActivate: [AccessRoutingStudentGuard], component: ControlWorksComponent},
+    {path: 'tests', canActivate: [AccessRoutingStudentGuard], component: TestingComponent},
+    {path: 'groups', canActivate: [AccessRoutingStudentGuard], component: GroupsComponent},
+    {path: 'tests/:id', canActivate: [AccessRoutingStudentGuard], component: TestingDetailComponent},
+    {path: 'control-work/:id', canActivate: [AccessRoutingStudentGuard], component: ControlWorkDetailComponent},
+    {path: 'group/:id', canActivate: [AccessRoutingStudentGuard], component: GroupDetailComponent},
+      {path: 'user/:id', canActivate: [AccessRoutingStudentGuard], component: UserDetailComponent},
+      {path: 'write_control_work/:id', canActivate: [AccessRoutingTeacherGuard], component: WriteControlWorkComponent},
+    {path: 'choose_control_work', canActivate: [AccessRoutingTeacherGuard], component: ChooseControlWorkComponent},
     {path: 'scores', component: ScoresComponent}
     ]
   }

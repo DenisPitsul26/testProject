@@ -14,6 +14,9 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './auth/auth.guard';
+import {AccessRoutingStudentGuard} from './shared/services/access-routing-student.guard';
+import {AccessRoutingTeacherGuard} from './shared/services/access-routing-teacher.guard';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const config = {
   apiKey: 'YOUR_API_KEY',
@@ -26,7 +29,8 @@ const config = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     RouterModule,
@@ -36,7 +40,7 @@ const config = {
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AccessRoutingStudentGuard, AccessRoutingTeacherGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
