@@ -1,4 +1,46 @@
 .horizontal div {
   float: left;
   clear: none;
+  display: inline;
+}
+
+.switch {
+  width: 10px;
+  height: 10px;
+}
+
+.card-block {
+  width: max-content;
+  height: max-content;
+  border: solid rgb(87, 87, 87) 1px;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 10px auto;
+}
+
+h2 {
+  margin: 0;
+  bottom: 0;
+}
+
+.form-group {
+  display: inline-block;
+}
+
+.card-header {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+div.buttons {
+  justify-content: center;
+}
+
+
+.btn-primary {
+  margin-left: 10px;
+}
+
+.btn-success {
+  margin-left: 0px !important;
 }
