@@ -1,7 +1,7 @@
-<div class="text-center" *ngIf="!isLoaded">
-  Loading...
+<div class="text-center1" *ngIf="!isLoaded">
+  <app-loader></app-loader>
 </div>
-<div *ngIf="isLoaded">
+<div @fade *ngIf="isLoaded">
   <div class="title-block">
     <h3 class="title">
       <a [routerLink]="['/control_works']"><i class="fa fa-arrow-left"></i></a>

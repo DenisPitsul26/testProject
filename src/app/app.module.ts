@@ -17,6 +17,9 @@ import {AuthGuard} from './auth/auth.guard';
 import {AccessRoutingStudentGuard} from './shared/services/access-routing-student.guard';
 import {AccessRoutingTeacherGuard} from './shared/services/access-routing-teacher.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AccessControlWorkGuard} from './shared/services/access-control-work.guard';
 
 const config = {
   apiKey: 'YOUR_API_KEY',
@@ -38,9 +41,10 @@ const config = {
     AuthModule,
     SystemModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
-  providers: [AuthGuard, AccessRoutingStudentGuard, AccessRoutingTeacherGuard],
+  providers: [AuthGuard, AccessRoutingStudentGuard, AccessRoutingTeacherGuard, AccessControlWorkGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

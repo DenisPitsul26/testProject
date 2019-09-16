@@ -9,11 +9,13 @@ import {Group} from '../../shared/models/group.model';
 import {ResultOfControlWork} from '../../shared/models/result-of-control-work';
 import {UserService} from '../../shared/services/user.service';
 import {log} from 'util';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-write-control-work',
   templateUrl: './write-control-work.component.html',
-  styleUrls: ['./write-control-work.component.css']
+  styleUrls: ['./write-control-work.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class WriteControlWorkComponent implements OnInit {
   currentControlWork: ControlWork;

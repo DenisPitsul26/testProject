@@ -4,11 +4,13 @@ import {Subscription} from 'rxjs';
 import {ControlWorksService} from '../../shared/services/control-works.service';
 import {TestsService} from '../../shared/services/tests.service';
 import {User} from '../../shared/models/user.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-control-works',
   templateUrl: './control-works.component.html',
-  styleUrls: ['./control-works.component.css']
+  styleUrls: ['./control-works.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class ControlWorksComponent implements OnInit, OnDestroy {
   isLoaded = false;

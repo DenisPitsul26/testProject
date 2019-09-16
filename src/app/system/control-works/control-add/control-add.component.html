@@ -1,7 +1,7 @@
-<div *ngIf="!isLoaded">
-  Loading...
+<div *ngIf="!isLoaded" class="text-center1">
+  <app-loader></app-loader>
 </div>
-<div *ngIf="isLoaded">
+<div @fade *ngIf="isLoaded">
   <div class="card-block">
     <div class="form-group">
       <label>Control work name</label>

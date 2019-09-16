@@ -5,11 +5,13 @@ import {Subscription} from 'rxjs';
 import {GroupService} from '../../../shared/services/group.service';
 import {Message} from '../../../shared/models/message.model';
 import {ControlWork} from '../../../shared/models/controlWork.model';
+import {fadeStateTrigger} from '../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-groups-add',
   templateUrl: './groups-add.component.html',
-  styleUrls: ['./groups-add.component.css']
+  styleUrls: ['./groups-add.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class GroupsAddComponent implements OnInit, OnDestroy {
 

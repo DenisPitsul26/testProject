@@ -5,11 +5,13 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {ControlWorksService} from '../../../shared/services/control-works.service';
 import {ControlWork} from '../../../shared/models/controlWork.model';
+import {fadeStateTrigger} from '../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-testing-add',
   templateUrl: './testing-add.component.html',
-  styleUrls: ['./testing-add.component.css']
+  styleUrls: ['./testing-add.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class TestingAddComponent implements OnInit, OnDestroy {
   count = 1;

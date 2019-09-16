@@ -7,11 +7,13 @@ import {TestModel} from '../../shared/models/test.model';
 import {UserService} from '../../shared/services/user.service';
 import {GroupService} from '../../shared/services/group.service';
 import {Group} from '../../shared/models/group.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  styleUrls: ['./user-detail.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class UserDetailComponent implements OnInit, OnDestroy {
   isLoaded = false;

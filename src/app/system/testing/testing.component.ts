@@ -4,11 +4,13 @@ import {TestsService} from '../../shared/services/tests.service';
 import {TestModel} from '../../shared/models/test.model';
 import {ControlWorksService} from '../../shared/services/control-works.service';
 import {ControlWork} from '../../shared/models/controlWork.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-testing',
   templateUrl: './testing.component.html',
-  styleUrls: ['./testing.component.css']
+  styleUrls: ['./testing.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class TestingComponent implements OnInit, OnDestroy {
   isLoaded = false;

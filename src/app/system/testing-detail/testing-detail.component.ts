@@ -4,11 +4,13 @@ import {Subscription} from 'rxjs';
 import {TestsService} from '../../shared/services/tests.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {mergeMap} from 'rxjs/operators';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-testing-detail',
   templateUrl: './testing-detail.component.html',
-  styleUrls: ['./testing-detail.component.css']
+  styleUrls: ['./testing-detail.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class TestingDetailComponent implements OnInit, OnDestroy {
   isLoaded = false;

@@ -4,11 +4,13 @@ import {Subscription} from 'rxjs';
 import {GroupService} from '../../shared/services/group.service';
 import {group} from '@angular/animations';
 import {User} from '../../shared/models/user.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-groups',
   templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.css']
+  styleUrls: ['./groups.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class GroupsComponent implements OnInit, OnDestroy {
 

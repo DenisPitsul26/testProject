@@ -4,11 +4,13 @@ import {ControlWork} from '../../../shared/models/controlWork.model';
 import {ControlWorksService} from '../../../shared/services/control-works.service';
 import {Subscription} from 'rxjs';
 import {GroupService} from '../../../shared/services/group.service';
+import {fadeStateTrigger} from '../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-appoint-control-work',
   templateUrl: './appoint-control-work.component.html',
-  styleUrls: ['./appoint-control-work.component.css']
+  styleUrls: ['./appoint-control-work.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class AppointControlWorkComponent implements OnInit {
   @Output() appointFormIsVisible = new EventEmitter<boolean>();

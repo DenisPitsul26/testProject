@@ -26,9 +26,10 @@ import {AppointControlWorkComponent} from './groups/appoint-control-work/appoint
 import { ScoresComponent } from './scores/scores.component';
 import { ScoreComponent } from './scores/score/score.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule, SharedModule],
   declarations: [
     SystemComponent,
     HeaderComponent,
