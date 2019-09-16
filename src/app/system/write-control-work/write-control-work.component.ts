@@ -81,12 +81,18 @@ export class WriteControlWorkComponent implements OnInit {
       this.loadQuestion();
     } else {
       this.completeTest();
-      this.loginedUser.resultsOfControlWorks.push({controlWork: this.currentControlWork, score: this.userScore, maxScore: this.maxScore});
-      setTimeout(() => {
-        this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
-        // console.log(user);
+      if (this.loginedUser.isAdmin === 0) {
+        this.loginedUser.resultsOfControlWorks.push({
+          controlWork: this.currentControlWork,
+          score: this.userScore,
+          maxScore: this.maxScore
         });
-      }, 1000);
+        setTimeout(() => {
+          this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
+            // console.log(user);
+          });
+        }, 1000);
+      }
     }
   }
   loadQuestion() {

@@ -329,7 +329,55 @@
       "name": "rrr",
       "isAdmin": 0,
       "groupId": 3,
-      "resultsOfControlWorks": [],
+      "resultsOfControlWorks": [
+        {
+          "controlWork": {
+            "theme": "control2",
+            "tests": [
+              {
+                "question": "test🤣",
+                "answers": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "correctAnswers": [
+                  3
+                ],
+                "id": 1
+              },
+              {
+                "question": "test2",
+                "answers": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "correctAnswers": [
+                  1
+                ],
+                "id": 2
+              },
+              {
+                "question": "test3",
+                "answers": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "correctAnswers": [
+                  1,
+                  2
+                ],
+                "id": 3
+              }
+            ],
+            "id": 2
+          },
+          "score": 2,
+          "maxScore": 4
+        }
+      ],
       "id": 13
     }
   ],
@@ -627,7 +675,94 @@
     {
       "group": "143C",
       "faculty": "IFTKN",
-      "expectedControlWorks": [],
+      "expectedControlWorks": [
+        {
+          "theme": "control2",
+          "tests": [
+            {
+              "question": "test🤣",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 1
+            },
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            },
+            {
+              "question": "test3",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1,
+                2
+              ],
+              "id": 3
+            }
+          ],
+          "id": 2
+        },
+        {
+          "theme": "control3",
+          "tests": [
+            {
+              "question": "test🤣",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 1
+            },
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            },
+            {
+              "question": "test3",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1,
+                2
+              ],
+              "id": 3
+            }
+          ],
+          "id": 3
+        }
+      ],
       "id": 3
     },
     {
@@ -669,7 +804,7 @@
   ],
   "tests": [
     {
-      "question": "test1",
+      "question": "test🤣",
       "answers": [
         "1",
         "2",
@@ -736,7 +871,7 @@
       "theme": "control1",
       "tests": [
         {
-          "question": "test1",
+          "question": "test🤣",
           "answers": [
             "1",
             "2",
@@ -779,7 +914,7 @@
       "theme": "control2",
       "tests": [
         {
-          "question": "test1",
+          "question": "test🤣",
           "answers": [
             "1",
             "2",
@@ -822,7 +957,7 @@
       "theme": "control3",
       "tests": [
         {
-          "question": "test1",
+          "question": "test🤣",
           "answers": [
             "1",
             "2",
@@ -883,7 +1018,7 @@
       "theme": "jhbjhbjh",
       "tests": [
         {
-          "question": "test1",
+          "question": "test🤣",
           "answers": [
             "1",
             "2",
@@ -938,7 +1073,7 @@
       "theme": "ggfdgdfgd",
       "tests": [
         {
-          "question": "test1",
+          "question": "test🤣",
           "answers": [
             "1",
             "2",
