@@ -16,6 +16,7 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.isWriteControlWork = false;
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
     if (this.router.url.includes('/write_control_work')) {
      this.isWriteControlWork = true;

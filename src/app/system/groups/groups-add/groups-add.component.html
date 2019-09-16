@@ -1,7 +1,7 @@
-<div *ngIf="!isLoaded">
-  Loading...
+<div *ngIf="!isLoaded" class="text-center1">
+  <app-loader></app-loader>
 </div>
-<div *ngIf="isLoaded">
+<div @fade *ngIf="isLoaded">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8 col-sm-12 col-xs-12">

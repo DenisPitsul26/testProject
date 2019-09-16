@@ -1,7 +1,7 @@
-<div *ngIf="!isLoaded" class="text-center">
-  Loading...
+<div *ngIf="!isLoaded" class="text-center1">
+  <app-loader></app-loader>
 </div>
-<div *ngIf="isLoaded">
+<div @fade *ngIf="isLoaded">
   <div *ngIf="isAddFormVisible">
     <app-control-add (addFormIsVisible)="cancelForm($event)"
                      [currentControlWork]="currentControlWork"

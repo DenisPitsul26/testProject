@@ -90,3 +90,9 @@ app-users {
   width: 45px;
   justify-content: center;
 }
+
+.text-center1 {
+  justify-content: center;
+  margin: 10px 550px;
+  /*text-align: center;*/
+}

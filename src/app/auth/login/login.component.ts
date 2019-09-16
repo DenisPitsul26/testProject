@@ -5,11 +5,13 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/models/user.model';
 import {Message} from '../../shared/models/message.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;

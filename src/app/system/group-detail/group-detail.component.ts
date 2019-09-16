@@ -7,11 +7,13 @@ import {mergeMap} from 'rxjs/operators';
 import {ControlWork} from '../../shared/models/controlWork.model';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/models/user.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-group-detail',
   templateUrl: './group-detail.component.html',
-  styleUrls: ['./group-detail.component.css']
+  styleUrls: ['./group-detail.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class GroupDetailComponent implements OnInit, OnDestroy {
   isLoaded = false;

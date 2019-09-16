@@ -4,11 +4,13 @@ import {GroupService} from '../../shared/services/group.service';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../shared/services/user.service';
 import {Group} from '../../shared/models/group.model';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-scores',
   templateUrl: './scores.component.html',
-  styleUrls: ['./scores.component.css']
+  styleUrls: ['./scores.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class ScoresComponent implements OnInit, OnDestroy {
   isLoaded = false;

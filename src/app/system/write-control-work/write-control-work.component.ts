@@ -11,11 +11,13 @@ import {UserService} from '../../shared/services/user.service';
 import {log} from 'util';
 import {take, map} from 'rxjs/operators';
 import {Observable, timer} from 'rxjs';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-write-control-work',
   templateUrl: './write-control-work.component.html',
-  styleUrls: ['./write-control-work.component.css']
+  styleUrls: ['./write-control-work.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class WriteControlWorkComponent implements OnInit {
   currentControlWork: ControlWork;

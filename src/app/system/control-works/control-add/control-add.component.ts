@@ -5,11 +5,13 @@ import {TestModel} from '../../../shared/models/test.model';
 import {formatI18nPlaceholderName} from '@angular/compiler/src/render3/view/i18n/util';
 import {ControlWorksService} from '../../../shared/services/control-works.service';
 import {ControlWork} from '../../../shared/models/controlWork.model';
+import {fadeStateTrigger} from '../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-control-add',
   templateUrl: './control-add.component.html',
-  styleUrls: ['./control-add.component.css']
+  styleUrls: ['./control-add.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class ControlAddComponent implements OnInit {
   isLoaded = false;

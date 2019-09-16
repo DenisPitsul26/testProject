@@ -5,11 +5,13 @@ import {UserService} from '../../shared/services/user.service';
 import {GroupService} from '../../shared/services/group.service';
 import {ActivatedRoute} from '@angular/router';
 import {loggedIn} from '@angular/fire/auth-guard';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  styleUrls: ['./user-profile.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
   isLoaded = false;

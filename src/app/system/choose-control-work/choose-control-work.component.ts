@@ -7,11 +7,13 @@ import {User} from '../../shared/models/user.model';
 import {GroupService} from '../../shared/services/group.service';
 import {Group} from '../../shared/models/group.model';
 import {UserService} from '../../shared/services/user.service';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-choose-control-work',
   templateUrl: './choose-control-work.component.html',
-  styleUrls: ['./choose-control-work.component.css']
+  styleUrls: ['./choose-control-work.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class ChooseControlWorkComponent implements OnInit, OnDestroy {
   isLoaded = false;

@@ -6,11 +6,13 @@ import {Group} from '../../shared/models/group.model';
 import {GroupService} from '../../shared/services/group.service';
 import {combineLatest, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
+  animations: [fadeStateTrigger]
 })
 export class UsersComponent implements OnInit, OnDestroy {
 

@@ -27,9 +27,10 @@ import { ScoresComponent } from './scores/scores.component';
 import { ScoreComponent } from './scores/score/score.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NumberToTimePipe } from './shared/pipes/number-to-time.pipe';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule, SharedModule],
   declarations: [
     SystemComponent,
     HeaderComponent,
