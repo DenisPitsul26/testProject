@@ -97,6 +97,14 @@
       "isAdmin": 0,
       "groupId": 6,
       "id": 12
+    },
+    {
+      "email": "testTest@gmail.com",
+      "password": "testTest",
+      "name": "Test",
+      "isAdmin": 0,
+      "groupId": 1,
+      "id": 13
     }
   ],
   "groups": [

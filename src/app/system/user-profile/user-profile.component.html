@@ -1,0 +1,50 @@
+<div class="text-center" *ngIf="!isLoaded">
+  Loading...
+</div>
+<div *ngIf="isLoaded">
+  <div class="title-block">
+    <h3 class="title">
+      <a [routerLink]="['/users']"><i class="fa fa-arrow-left"></i></a>
+      User № {{loginedUser.id}}
+      <span class="sparkline bar"></span>
+    </h3>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="card-success">
+          <div class="card-header">
+            <div class="header-block">
+              <p class="title">
+                User
+              </p>
+            </div>
+          </div>
+          <div class="card-block">
+            <ul>
+              <li>Name: <strong>{{loginedUser.name}}</strong></li>
+              <li>Email: <strong>{{loginedUser.email}}</strong></li>
+              <li>Password: <strong class="checked">{{loginedUser.password}}</strong></li>
+              <li >isAdmin: <strong>{{loginedUser.isAdmin}}</strong></li>
+              <li>Group: <strong>{{loginedUser.numberOfGroup}}</strong></li>
+            </ul>
+          </div>
+            <button *ngIf="!isAddFormVisible" class="btn btn-success" (click)="changePassword()">Change Password</button>
+          <div *ngIf="isAddFormVisible">
+            <div class="form-group">
+              <label>Current password:</label>
+              <input type="text" class="form-control" placeholder="Input your current password" id="userOldPassword" required="true">
+            </div>
+            <div class="form-group">
+              <label>New password:</label>
+              <input type="text" class="form-control" placeholder="Input your new password" id="userNewPassword" required="true">
+              <span *ngIf="errorMessage !== ''">{{errorMessage}}</span>
+            </div>
+            <button class="btn btn-success" (click)="savePassword()"> Save </button>
+            <button class="btn btn-danger" (click)="cancel()"> Cancel </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
