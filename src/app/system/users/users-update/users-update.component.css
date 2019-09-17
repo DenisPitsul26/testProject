@@ -1,0 +1,18 @@
+form {
+  width: max-content;
+  height: max-content;
+  border: solid rgb(87, 87, 87) 1px;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px auto;
+}
+
+
+input.form-control.box {
+  padding: 0;
+  display: inline;
+  width: 15px;
+  bottom: 0;
+  margin-left: 5px;
+  float: right;
+}

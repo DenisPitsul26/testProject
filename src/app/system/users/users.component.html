@@ -3,6 +3,13 @@
 </div>
 <div @fade *ngIf="isLoaded">
   <section class="section">
+    <div *ngIf="isUpdateFormVisible">
+      <app-users-update [users]="users"
+                        [currentUser]="currentUser"
+                        (updateFormIsVisible)="cancelForm($event)"
+                        (userUpdated)="userUpdated($event)"
+      ></app-users-update>
+    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -33,21 +40,25 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th *ngIf="loginedUser.isAdmin === 1">Role</th>
-                <th>Group number</th>
-                <th class="text-lg-center">Action</th>
+                <th colspan="1">Name</th>
+                <th colspan="1">Email</th>
+                <th colspan="1" *ngIf="loginedUser.isAdmin === 1">Role</th>
+                <th colspan="1">Group number</th>
+                <th colspan="2" class="text-lg-center">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let user of users let idx = index">
                 <th scope="row">{{idx+1}}</th>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td *ngIf="loginedUser.isAdmin === 1">{{user.isAdmin === 1 ? 'Admin' : user.isAdmin === 2 ? 'Teacher': 'Student'}}</td>
-                <td>{{user.numberOfGroup}}</td>
-                <td class="text-lg-center">
+                <td colspan="1">{{user.name}}</td>
+                <td colspan="1">{{user.email}}</td>
+                <td colspan="1" *ngIf="loginedUser.isAdmin === 1">{{user.isAdmin === 1 ? 'Admin' : user.isAdmin === 2 ? 'Teacher': 'Student'}}</td>
+                <td colspan="1">{{user.numberOfGroup}}</td>
+                <td colspan="1">
+                  <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateUserForm(user)"></i></button>
+                  <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteUser(user.id)"></i></button>
+                </td>
+                <td colspan="1" class="text-lg-center">
                   <a [routerLink]="['/user', user.id]" class="btn btn-primary-outline">Open</a>
                 </td>
               </tr>

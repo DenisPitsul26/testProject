@@ -38,4 +38,8 @@ export class UserService extends BaseApi {
   updateUser(user: User) {
     return this.put(`users/${user.id}`, user);
   }
+
+  deleteUser(id: number) {
+    return this.delete(`users/${id}`);
+  }
 }

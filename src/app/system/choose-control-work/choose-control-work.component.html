@@ -27,7 +27,7 @@
               <tr *ngFor="let controlWork of controlWorks let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td colspan="1">{{controlWork.theme}}</td>
-                <td colspan="1">{{controlWork.executionTime}}</td>
+                <td align="center" colspan="1">{{controlWork.executionTime}}</td>
                 <td colspan="1" class="text-lg-center">
                   <a (click)="start(controlWork)" class="btn btn-primary-outline">Start</a>
                 </td>

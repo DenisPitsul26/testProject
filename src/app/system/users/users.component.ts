@@ -22,6 +22,9 @@ export class UsersComponent implements OnInit, OnDestroy {
   isLoaded = false;
   sub1: Subscription;
   loginedUser: User;
+  currentUser: User;
+  isUpdateFormVisible = false;
+
   constructor(private userService: UserService, private groupService: GroupService, private router: Router) { }
 
   ngOnInit() {
@@ -31,6 +34,10 @@ export class UsersComponent implements OnInit, OnDestroy {
       this.router.navigate(['/system', 'choose_control_work']);
     }
     this.isLoaded = false;
+    this.getUsers();
+  }
+
+  getUsers() {
     this.sub1 = combineLatest(
       this.userService.getAllUsers(),
       this.groupService.getGroups()
@@ -38,7 +45,9 @@ export class UsersComponent implements OnInit, OnDestroy {
       this.users = data[0];
       this.groups = data[1];
       if (this.groups !== undefined || this.users !== undefined) {
+        // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.users.length; i++) {
+          // tslint:disable-next-line:prefer-for-of
           for (let j = 0; j < this.groups.length; j++) {
             if (this.users[i].groupId === this.groups[j].id) {
               this.users[i].numberOfGroup = this.groups[j].group;
@@ -49,6 +58,25 @@ export class UsersComponent implements OnInit, OnDestroy {
       }
       this.isLoaded = true;
     });
+  }
+
+  updateUserForm(user: User) {
+    this.isUpdateFormVisible = true;
+    this.currentUser = user;
+  }
+
+  deleteUser(id: number) {
+    this.sub1 = this.userService.deleteUser(id).subscribe((user: User) => {
+      this.getUsers();
+    });
+  }
+
+  userUpdated(user: User) {
+    this.getUsers();
+  }
+
+  cancelForm(flag: boolean) {
+    this.isUpdateFormVisible = flag;
   }
 
   ngOnDestroy(): void {

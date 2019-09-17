@@ -24,124 +24,7 @@
       "name": "sfsd111",
       "isAdmin": 0,
       "groupId": 1,
-      "resultsOfControlWorks": [
-        {
-          "controlWork": {
-            "theme": "control2",
-            "tests": [
-              {
-                "question": "test1",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 1
-              },
-              {
-                "question": "test2",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1
-                ],
-                "id": 2
-              },
-              {
-                "question": "test3",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1,
-                  2
-                ],
-                "id": 3
-              }
-            ],
-            "id": 2
-          },
-          "score": 3,
-          "maxScore": 4
-        },
-        {
-          "controlWork": {
-            "theme": "control4",
-            "tests": [
-              {
-                "question": "test2",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1
-                ],
-                "id": 2
-              }
-            ],
-            "id": 4
-          },
-          "score": 1,
-          "maxScore": 1
-        },
-        {
-          "controlWork": {
-            "theme": "ggfdgdfgd",
-            "tests": [
-              {
-                "question": "test1",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 1
-              },
-              {
-                "question": "bjhbjhbjh",
-                "answers": [
-                  "bhjh",
-                  "yujbjhb",
-                  "bjjnjkbj"
-                ],
-                "correctAnswers": [
-                  2
-                ],
-                "id": 4
-              },
-              {
-                "question": "hdhdfhfdhfdhdfhd",
-                "answers": [
-                  "111",
-                  "222",
-                  "333",
-                  "444"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 5
-              }
-            ],
-            "id": 6
-          },
-          "score": 1,
-          "maxScore": 3
-        }
-      ],
+      "resultsOfControlWorks": [],
       "id": 3
     },
     {
@@ -150,55 +33,7 @@
       "name": "test",
       "isAdmin": 0,
       "groupId": 2,
-      "resultsOfControlWorks": [
-        {
-          "controlWork": {
-            "theme": "control2",
-            "tests": [
-              {
-                "question": "test1",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 1
-              },
-              {
-                "question": "test2",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1
-                ],
-                "id": 2
-              },
-              {
-                "question": "test3",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1,
-                  2
-                ],
-                "id": 3
-              }
-            ],
-            "id": 2
-          },
-          "score": 1,
-          "maxScore": 4
-        }
-      ],
+      "resultsOfControlWorks": [],
       "id": 4
     },
     {
@@ -206,14 +41,15 @@
       "password": "ddddddd",
       "name": "bdfv",
       "isAdmin": 0,
-      "groupId": 2,
+      "groupId": 4,
       "resultsOfControlWorks": [],
-      "id": 5
+      "id": 5,
+      "numberOfGroup": "143C"
     },
     {
       "email": "evhenia.k.you@gmail.com",
       "password": "123456",
-      "name": "z",
+      "name": "evhenia",
       "isAdmin": 1,
       "groupId": 8,
       "resultsOfControlWorks": [],
@@ -234,9 +70,10 @@
       "password": "123456",
       "name": "xcvbnkl;",
       "isAdmin": 0,
-      "groupId": 1,
+      "groupId": 2,
       "resultsOfControlWorks": [],
-      "id": 8
+      "id": 8,
+      "numberOfGroup": "143A"
     },
     {
       "email": "test2@gmail.com",
@@ -244,55 +81,7 @@
       "name": "wedgh",
       "isAdmin": 0,
       "groupId": 1,
-      "resultsOfControlWorks": [
-        {
-          "controlWork": {
-            "theme": "control2",
-            "tests": [
-              {
-                "question": "test1",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 1
-              },
-              {
-                "question": "test2",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1
-                ],
-                "id": 2
-              },
-              {
-                "question": "test3",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1,
-                  2
-                ],
-                "id": 3
-              }
-            ],
-            "id": 2
-          },
-          "score": 2,
-          "maxScore": 4
-        }
-      ],
+      "resultsOfControlWorks": [],
       "id": 9
     },
     {
@@ -310,9 +99,10 @@
       "password": "cPWkz95YSRGuSNC",
       "name": "qwerty",
       "isAdmin": 0,
-      "groupId": 1,
+      "groupId": 3,
       "resultsOfControlWorks": [],
-      "id": 11
+      "id": 11,
+      "numberOfGroup": "143A"
     },
     {
       "email": "kill@gmail.com",
@@ -329,115 +119,7 @@
       "name": "rrr",
       "isAdmin": 0,
       "groupId": 3,
-      "resultsOfControlWorks": [
-        {
-          "controlWork": {
-            "theme": "control2",
-            "tests": [
-              {
-                "question": "test🤣",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 1
-              },
-              {
-                "question": "test2",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1
-                ],
-                "id": 2
-              },
-              {
-                "question": "test3",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1,
-                  2
-                ],
-                "id": 3
-              }
-            ],
-            "id": 2
-          },
-          "score": 2,
-          "maxScore": 4
-        },
-        {
-          "controlWork": {
-            "theme": "ggfdgdfgd",
-            "tests": [
-              {
-                "question": "test🤣",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 1
-              },
-              {
-                "question": "bjhbjhbjh",
-                "answers": [
-                  "bhjh",
-                  "yujbjhb",
-                  "bjjnjkbj"
-                ],
-                "correctAnswers": [
-                  2
-                ],
-                "id": 4
-              },
-              {
-                "question": "hdhdfhfdhfdhdfhd",
-                "answers": [
-                  "111",
-                  "222",
-                  "333",
-                  "444"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 5
-              },
-              {
-                "question": "jbjhbjkbddf",
-                "answers": [
-                  "111",
-                  "2266",
-                  "333",
-                  "443"
-                ],
-                "correctAnswers": [
-                  2
-                ],
-                "id": 6
-              }
-            ],
-            "id": 6
-          },
-          "score": 1,
-          "maxScore": 4
-        }
-      ],
+      "resultsOfControlWorks": [],
       "id": 13
     }
   ],
@@ -450,11 +132,12 @@
           "theme": "control1",
           "tests": [
             {
-              "question": "test1",
+              "question": "test🤣",
               "answers": [
                 "1",
                 "2",
-                "3"
+                "3",
+                "4"
               ],
               "correctAnswers": [
                 3
@@ -487,13 +170,14 @@
               "id": 3
             }
           ],
+          "executionTime": 45,
           "id": 1
         },
         {
           "theme": "control2",
           "tests": [
             {
-              "question": "test1",
+              "question": "test🤣",
               "answers": [
                 "1",
                 "2",
@@ -530,13 +214,14 @@
               "id": 3
             }
           ],
+          "executionTime": 45,
           "id": 2
         },
         {
           "theme": "control3",
           "tests": [
             {
-              "question": "test1",
+              "question": "test🤣",
               "answers": [
                 "1",
                 "2",
@@ -573,6 +258,7 @@
               "id": 3
             }
           ],
+          "executionTime": 45,
           "id": 3
         },
         {
@@ -591,50 +277,8 @@
               "id": 2
             }
           ],
+          "executionTime": 20,
           "id": 4
-        },
-        {
-          "theme": "ggfdgdfgd",
-          "tests": [
-            {
-              "question": "test1",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 1
-            },
-            {
-              "question": "bjhbjhbjh",
-              "answers": [
-                "bhjh",
-                "yujbjhb",
-                "bjjnjkbj"
-              ],
-              "correctAnswers": [
-                2
-              ],
-              "id": 4
-            },
-            {
-              "question": "hdhdfhfdhfdhdfhd",
-              "answers": [
-                "111",
-                "222",
-                "333",
-                "444"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 5
-            }
-          ],
-          "id": 6
         }
       ],
       "id": 1
@@ -644,6 +288,51 @@
       "faculty": "IFTKN",
       "expectedControlWorks": [
         {
+          "theme": "control1",
+          "tests": [
+            {
+              "question": "test🤣",
+              "answers": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 1
+            },
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            },
+            {
+              "question": "test3",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1,
+                2
+              ],
+              "id": 3
+            }
+          ],
+          "executionTime": 45,
+          "id": 1
+        },
+        {
           "theme": "control2",
           "tests": [
             {
@@ -686,69 +375,6 @@
           ],
           "executionTime": 45,
           "id": 2
-        },
-        {
-          "theme": "control3",
-          "tests": [
-            {
-              "question": "test🤣",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 1
-            },
-            {
-              "question": "test2",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1
-              ],
-              "id": 2
-            },
-            {
-              "question": "test3",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1,
-                2
-              ],
-              "id": 3
-            }
-          ],
-          "executionTime": 45,
-          "id": 3
-        },
-        {
-          "theme": "control4",
-          "tests": [
-            {
-              "question": "test2",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1
-              ],
-              "id": 2
-            }
-          ],
-          "executionTime": 20,
-          "id": 4
         }
       ],
       "id": 2
@@ -758,14 +384,15 @@
       "faculty": "IFTKN",
       "expectedControlWorks": [
         {
-          "theme": "control2",
+          "theme": "control1",
           "tests": [
             {
               "question": "test🤣",
               "answers": [
                 "1",
                 "2",
-                "3"
+                "3",
+                "4"
               ],
               "correctAnswers": [
                 3
@@ -799,51 +426,7 @@
             }
           ],
           "executionTime": 45,
-          "id": 2
-        },
-        {
-          "theme": "control3",
-          "tests": [
-            {
-              "question": "test🤣",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 1
-            },
-            {
-              "question": "test2",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1
-              ],
-              "id": 2
-            },
-            {
-              "question": "test3",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1,
-                2
-              ],
-              "id": 3
-            }
-          ],
-          "executionTime": 45,
-          "id": 3
+          "id": 1
         },
         {
           "theme": "control4",
@@ -863,63 +446,6 @@
           ],
           "executionTime": 20,
           "id": 4
-        },
-        {
-          "theme": "ggfdgdfgd",
-          "tests": [
-            {
-              "question": "test🤣",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 1
-            },
-            {
-              "question": "bjhbjhbjh",
-              "answers": [
-                "bhjh",
-                "yujbjhb",
-                "bjjnjkbj"
-              ],
-              "correctAnswers": [
-                2
-              ],
-              "id": 4
-            },
-            {
-              "question": "hdhdfhfdhfdhdfhd",
-              "answers": [
-                "111",
-                "222",
-                "333",
-                "444"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 5
-            },
-            {
-              "question": "jbjhbjkbddf",
-              "answers": [
-                "111",
-                "2266",
-                "333",
-                "443"
-              ],
-              "correctAnswers": [
-                2
-              ],
-              "id": 6
-            }
-          ],
-          "executionTime": 35,
-          "id": 6
         }
       ],
       "id": 3

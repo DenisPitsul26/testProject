@@ -53,8 +53,6 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
                 }
               }
             }
-            console.log('rrr: ', this.loginedUser);
-            console.log('ccc: ', this.controlWorks);
           }
           if (this.controlWorks.length > 0) {
             this.isExpectedControlWorkEmpty = false;

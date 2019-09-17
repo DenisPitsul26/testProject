@@ -31,7 +31,7 @@
               <tr *ngFor="let controlWork of controlWorks let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td colspan="1">{{controlWork.theme}}</td>
-                <td colspan="3">{{controlWork.executionTime}}</td>
+                <td align="center" colspan="3">{{controlWork.executionTime}}</td>
                 <td colspan="1">
                 <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateControlForm(controlWork)"></i></button>
                 <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-trash" (click)="deleteControl(controlWork.id)"></i></button>
