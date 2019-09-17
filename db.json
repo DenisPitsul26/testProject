@@ -41,10 +41,10 @@
       "password": "ddddddd",
       "name": "bdfv",
       "isAdmin": 0,
-      "groupId": 4,
+      "groupId": 5,
       "resultsOfControlWorks": [],
       "id": 5,
-      "numberOfGroup": "143C"
+      "numberOfGroup": "243(1)"
     },
     {
       "email": "evhenia.k.you@gmail.com",
@@ -70,10 +70,9 @@
       "password": "123456",
       "name": "xcvbnkl;",
       "isAdmin": 0,
-      "groupId": 2,
+      "groupId": 1,
       "resultsOfControlWorks": [],
-      "id": 8,
-      "numberOfGroup": "143A"
+      "id": 8
     },
     {
       "email": "test2@gmail.com",
@@ -99,10 +98,9 @@
       "password": "cPWkz95YSRGuSNC",
       "name": "qwerty",
       "isAdmin": 0,
-      "groupId": 3,
+      "groupId": 1,
       "resultsOfControlWorks": [],
-      "id": 11,
-      "numberOfGroup": "143A"
+      "id": 11
     },
     {
       "email": "kill@gmail.com",
