@@ -376,6 +376,66 @@
           },
           "score": 2,
           "maxScore": 4
+        },
+        {
+          "controlWork": {
+            "theme": "ggfdgdfgd",
+            "tests": [
+              {
+                "question": "test🤣",
+                "answers": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "correctAnswers": [
+                  3
+                ],
+                "id": 1
+              },
+              {
+                "question": "bjhbjhbjh",
+                "answers": [
+                  "bhjh",
+                  "yujbjhb",
+                  "bjjnjkbj"
+                ],
+                "correctAnswers": [
+                  2
+                ],
+                "id": 4
+              },
+              {
+                "question": "hdhdfhfdhfdhdfhd",
+                "answers": [
+                  "111",
+                  "222",
+                  "333",
+                  "444"
+                ],
+                "correctAnswers": [
+                  3
+                ],
+                "id": 5
+              },
+              {
+                "question": "jbjhbjkbddf",
+                "answers": [
+                  "111",
+                  "2266",
+                  "333",
+                  "443"
+                ],
+                "correctAnswers": [
+                  2
+                ],
+                "id": 6
+              }
+            ],
+            "id": 6
+          },
+          "score": 1,
+          "maxScore": 4
         }
       ],
       "id": 13
@@ -587,7 +647,7 @@
           "theme": "control2",
           "tests": [
             {
-              "question": "test1",
+              "question": "test🤣",
               "answers": [
                 "1",
                 "2",
@@ -624,13 +684,14 @@
               "id": 3
             }
           ],
+          "executionTime": 45,
           "id": 2
         },
         {
           "theme": "control3",
           "tests": [
             {
-              "question": "test1",
+              "question": "test🤣",
               "answers": [
                 "1",
                 "2",
@@ -667,7 +728,27 @@
               "id": 3
             }
           ],
+          "executionTime": 45,
           "id": 3
+        },
+        {
+          "theme": "control4",
+          "tests": [
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            }
+          ],
+          "executionTime": 20,
+          "id": 4
         }
       ],
       "id": 2
@@ -717,6 +798,7 @@
               "id": 3
             }
           ],
+          "executionTime": 45,
           "id": 2
         },
         {
@@ -760,7 +842,84 @@
               "id": 3
             }
           ],
+          "executionTime": 45,
           "id": 3
+        },
+        {
+          "theme": "control4",
+          "tests": [
+            {
+              "question": "test2",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                1
+              ],
+              "id": 2
+            }
+          ],
+          "executionTime": 20,
+          "id": 4
+        },
+        {
+          "theme": "ggfdgdfgd",
+          "tests": [
+            {
+              "question": "test🤣",
+              "answers": [
+                "1",
+                "2",
+                "3"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 1
+            },
+            {
+              "question": "bjhbjhbjh",
+              "answers": [
+                "bhjh",
+                "yujbjhb",
+                "bjjnjkbj"
+              ],
+              "correctAnswers": [
+                2
+              ],
+              "id": 4
+            },
+            {
+              "question": "hdhdfhfdhfdhdfhd",
+              "answers": [
+                "111",
+                "222",
+                "333",
+                "444"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 5
+            },
+            {
+              "question": "jbjhbjkbddf",
+              "answers": [
+                "111",
+                "2266",
+                "333",
+                "443"
+              ],
+              "correctAnswers": [
+                2
+              ],
+              "id": 6
+            }
+          ],
+          "executionTime": 35,
+          "id": 6
         }
       ],
       "id": 3
@@ -808,7 +967,8 @@
       "answers": [
         "1",
         "2",
-        "3"
+        "3",
+        "4"
       ],
       "correctAnswers": [
         3
@@ -864,6 +1024,19 @@
         3
       ],
       "id": 5
+    },
+    {
+      "question": "jbjhbjkbddf",
+      "answers": [
+        "111",
+        "2266",
+        "333",
+        "443"
+      ],
+      "correctAnswers": [
+        2
+      ],
+      "id": 6
     }
   ],
   "controlWorks": [
@@ -875,7 +1048,8 @@
           "answers": [
             "1",
             "2",
-            "3"
+            "3",
+            "4"
           ],
           "correctAnswers": [
             3
@@ -908,6 +1082,7 @@
           "id": 3
         }
       ],
+      "executionTime": 45,
       "id": 1
     },
     {
@@ -951,6 +1126,7 @@
           "id": 3
         }
       ],
+      "executionTime": 45,
       "id": 2
     },
     {
@@ -994,6 +1170,7 @@
           "id": 3
         }
       ],
+      "executionTime": 45,
       "id": 3
     },
     {
@@ -1012,6 +1189,7 @@
           "id": 2
         }
       ],
+      "executionTime": 20,
       "id": 4
     },
     {
@@ -1067,7 +1245,8 @@
           "id": 4
         }
       ],
-      "id": 5
+      "id": 5,
+      "executionTime": 38
     },
     {
       "theme": "ggfdgdfgd",
@@ -1108,9 +1287,68 @@
             3
           ],
           "id": 5
+        },
+        {
+          "question": "jbjhbjkbddf",
+          "answers": [
+            "111",
+            "2266",
+            "333",
+            "443"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "id": 6
         }
       ],
+      "executionTime": 35,
       "id": 6
+    },
+    {
+      "theme": "fdgdf",
+      "tests": [
+        {
+          "question": "test2",
+          "answers": [
+            "1",
+            "2",
+            "3"
+          ],
+          "correctAnswers": [
+            1
+          ],
+          "id": 2
+        },
+        {
+          "question": "test3",
+          "answers": [
+            "1",
+            "2",
+            "3"
+          ],
+          "correctAnswers": [
+            1,
+            2
+          ],
+          "id": 3
+        },
+        {
+          "question": "jbjhbjkbddf",
+          "answers": [
+            "111",
+            "2266",
+            "333",
+            "443"
+          ],
+          "correctAnswers": [
+            2
+          ],
+          "id": 6
+        }
+      ],
+      "executionTime": 48,
+      "id": 7
     }
   ]
 }

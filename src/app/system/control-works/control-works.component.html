@@ -22,19 +22,21 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Question</th>
-                <th class="text-lg-center" colspan="2">Action</th>
+                <th colspan="1">Question</th>
+                <th colspan="3">Execution time(minutes)</th>
+                <th class="text-lg-center" colspan="2" style="align-content: center">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let controlWork of controlWorks let idx = index">
                 <th scope="row">{{idx+1}}</th>
-                <td>{{controlWork.theme}}</td>
-                <td>
+                <td colspan="1">{{controlWork.theme}}</td>
+                <td colspan="3">{{controlWork.executionTime}}</td>
+                <td colspan="1">
                 <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateControlForm(controlWork)"></i></button>
                 <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-trash" (click)="deleteControl(controlWork.id)"></i></button>
                 </td>
-                <td class="text-lg-center">
+                <td colspan="1" class="text-lg-center">
                   <a [routerLink]="['/control-work', controlWork.id]" class="btn btn-primary-outline">Open</a>
                 </td>
               </tr>

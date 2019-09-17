@@ -40,7 +40,7 @@ export class WriteControlWorkComponent implements OnInit {
   private loginedUser: User;
   resultsOfControlWorks: ResultOfControlWork[];
   counterTime$: Observable<number>;
-  countTime = 70;
+  countTime = 80;
   countTimeMinutes = 30;
   countTimeMinutesCheck = this.countTimeMinutes;
   constructor(private controlWorkService: ControlWorksService,
@@ -48,10 +48,10 @@ export class WriteControlWorkComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) {
       // --this.countTimeMinutes;
-      this.counterTime$ = timer(0, 1000).pipe(
-        take(this.countTime),
-        map(() => --this.countTime)
-        );
+      // this.counterTime$ = timer(0, 1000).pipe(
+      //   take(this.countTime),
+      //   map(() => --this.countTime)
+      //   );
       // if (this.countTime <= 0) {
       //   --this.countTimeMinutes;
       //   this.countTime = 60;
@@ -64,6 +64,7 @@ export class WriteControlWorkComponent implements OnInit {
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
     this.isLoaded = false;
     this.completedTest = false;
+
     setTimeout(() => {
       this.sub1 = this.route.params.pipe(mergeMap((params: Params) => this.controlWorkService.getControlWorkById(params.id)))
         .subscribe((controlWork: ControlWork) => {
@@ -75,6 +76,14 @@ export class WriteControlWorkComponent implements OnInit {
           this.numberOfTests = this.currentControlWork.tests.length;
           this.question = this.currentControlWork.tests[this.count].question;
           this.answers = this.currentControlWork.tests[this.count].answers;
+
+          this.countTime = this.currentControlWork.executionTime;
+          this.countTime *= 60;
+          this.counterTime$ = timer(0, 1000).pipe(
+            take(this.countTime),
+            map(() => --this.countTime)
+          );
+
           this.isLoaded = true;
           // document.getElementById('answer');
           this.userAnswers = new Array(this.numberOfTests);

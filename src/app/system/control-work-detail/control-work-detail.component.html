@@ -23,6 +23,7 @@
           <div class="card-block">
             <ul>
               <li>Topic: <strong>{{controlWork.theme}}</strong></li>
+              <li>Execution time: <strong>{{controlWork.executionTime}} minutes</strong></li>
               <li *ngFor="let test of controlWork.tests" class = "main">
                   <ul>
                     <li class = "question">Question: <strong>{{test.question}}</strong></li>

@@ -19,14 +19,16 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th colspan="2">Name</th>
+                <th colspan="1">Name</th>
+                <th colspan="1">Execution time(minutes)</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let controlWork of controlWorks let idx = index">
                 <th scope="row">{{idx+1}}</th>
-                <td>{{controlWork.theme}}</td>
-                <td class="text-lg-center">
+                <td colspan="1">{{controlWork.theme}}</td>
+                <td colspan="1">{{controlWork.executionTime}}</td>
+                <td colspan="1" class="text-lg-center">
                   <a (click)="start(controlWork)" class="btn btn-primary-outline">Start</a>
                 </td>
               </tr>
