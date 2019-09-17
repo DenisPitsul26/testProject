@@ -31,23 +31,23 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Faculty</th>
-                <th>Group</th>
-                <th class="text-lg-center" colspan="2">Action</th>
+                <th colspan="1">Faculty</th>
+                <th colspan="1">Group</th>
+                <th class="text-lg-center" colspan="3">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let group of groups let idx = index">
                 <th scope="row">{{idx+1}}</th>
-                <td>{{group.faculty}}</td>
-                <td>{{group.group}}</td>
-                <td><button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateGroupForm(group) "></i></button>
+                <td colspan="1">{{group.faculty}}</td>
+                <td colspan="1">{{group.group}}</td>
+                <td colspan="1"><button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateGroupForm(group) "></i></button>
                 <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-trash" (click)="deleteGroup(group.id)"></i></button>
                 </td>
-                <td class="text-lg-center" >
+                <td class="text-lg-center" colspan="1">
                   <button *ngIf="loginedUser.isAdmin === 1" (click)="toAppointForm(group)" class="btn btn-primary-outline">Appoint</button>
                 </td>
-                <td class="text-lg-center" >
+                <td class="text-lg-center" colspan="1">
                   <a [routerLink]="['/group', group.id]" class="btn btn-primary-outline">Open</a>
                 </td>
               </tr>

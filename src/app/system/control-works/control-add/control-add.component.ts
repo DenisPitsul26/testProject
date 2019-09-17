@@ -29,6 +29,7 @@ export class ControlAddComponent implements OnInit {
   @Output() addFormIsVisible = new EventEmitter<boolean>();
   @Input() currentControlWork: ControlWork;
   @Output() currentControlUpdated = new EventEmitter<TestModel>();
+  private executionTime: number;
   constructor(private testsService: TestsService, private controlService: ControlWorksService) { }
 
   ngOnInit() {
@@ -41,6 +42,7 @@ export class ControlAddComponent implements OnInit {
       if (this.currentControlWork !== undefined) {
         this.updateTestsLength = this.currentControlWork.tests.length;
         this.cwName = this.currentControlWork.theme;
+        this.executionTime = this.currentControlWork.executionTime;
         // this.checkedTests = this.currentControlWork.tests;
         // console.log(this.updateTestsLength);
         // console.log(this.checkId);
@@ -48,6 +50,7 @@ export class ControlAddComponent implements OnInit {
         console.log(this.currentControlWork.tests);
         setTimeout(() => {
           (document.getElementById('cwName') as HTMLInputElement).value = this.cwName;
+          (document.getElementById('executionTime') as HTMLInputElement).value = String(this.executionTime);
           for (let i = 0; i < this.updateTestsLength; i++) {
             for (let j = 0; j < this.checkId; j++) {
               if (this.tests[j].id === this.currentControlWork.tests[i].id) {
@@ -71,8 +74,12 @@ export class ControlAddComponent implements OnInit {
           }
         }
         this.cwName = (<HTMLInputElement> document.getElementById('cwName')).value;
+        this.executionTime = +(<HTMLInputElement> document.getElementById('executionTime')).value;
+        if (this.executionTime < 0) {
+          this.executionTime *= -1;
+        }
         if (this.cwName !== '' && this.checkedTest) {
-          this.controlModel = new ControlWork(this.cwName, this.checkedTests);
+          this.controlModel = new ControlWork(this.cwName, this.checkedTests, this.executionTime);
           this.controlService.addControlWork(this.controlModel).subscribe((control: ControlWork) => {
             this.cancel();
           });
@@ -88,8 +95,12 @@ export class ControlAddComponent implements OnInit {
           }
         }
         this.cwName = (<HTMLInputElement> document.getElementById('cwName')).value;
+        this.executionTime = +(<HTMLInputElement> document.getElementById('executionTime')).value;
+        if (this.executionTime < 0) {
+          this.executionTime *= -1;
+        }
         if (this.cwName !== '' && this.checkedTest) {
-          this.controlModel = new ControlWork(this.cwName, this.checkedTests, this.currentControlWork.id);
+          this.controlModel = new ControlWork(this.cwName, this.checkedTests, this.executionTime, this.currentControlWork.id);
           this.controlService.updateControl(this.controlModel).subscribe((control: ControlWork) => {
             this.cancel();
           });

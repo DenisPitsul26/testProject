@@ -1,7 +1,7 @@
 <div *ngIf="!isLoaded" class="text-center1">
   <app-loader></app-loader>
 </div>
-<div @fage *ngIf="isLoaded">
+<div @fade *ngIf="isLoaded">
   <div class="card-block">
     <div class="form-group">
       <label>Appoint control work for {{currentGroup.group}} group</label>
@@ -10,17 +10,15 @@
       <thead>
       <tr>
         <th>#</th>
-        <th>Topic</th>
-        <th class="text-lg-center">Appoint</th>
+        <th colspan="1">Topic</th>
+        <th colspan="1" class="text-lg-center">Appoint</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let control of controlWorks let idx = index">
         <th scope="row">{{idx+1}}</th>
-        <td>{{control.theme}}</td>
-        <td><input type="checkbox" class="form-check" [id]="(idx+1)"></td>
-        <td class="text-lg-center">
-        </td>
+        <td colspan="1">{{control.theme}}</td>
+        <td colspan="1"><input type="checkbox" class="form-check" [id]="(idx+1)"></td>
       </tr>
       </tbody>
     </table>
