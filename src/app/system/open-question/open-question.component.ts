@@ -50,4 +50,8 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   cancelForm(flag: boolean) {
     this.isAddFormVisible = flag;
   }
+  updateQuestion(question: OpenQuestionModel) {
+    this.isAddFormVisible = true;
+    this.currentQuestion = question;
+  }
 }
