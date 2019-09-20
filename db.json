@@ -180,7 +180,7 @@
           "theme": "control1",
           "tests": [
             {
-              "question": "test🤣",
+              "question": "test11",
               "answers": [
                 "1",
                 "2",
@@ -225,11 +225,12 @@
           "theme": "control2",
           "tests": [
             {
-              "question": "test🤣",
+              "question": "test11",
               "answers": [
                 "1",
                 "2",
-                "3"
+                "3",
+                "4"
               ],
               "correctAnswers": [
                 3
@@ -269,11 +270,12 @@
           "theme": "control3",
           "tests": [
             {
-              "question": "test🤣",
+              "question": "test11",
               "answers": [
                 "1",
                 "2",
-                "3"
+                "3",
+                "4"
               ],
               "correctAnswers": [
                 3
@@ -435,7 +437,7 @@
           "theme": "control1",
           "tests": [
             {
-              "question": "test🤣",
+              "question": "test11",
               "answers": [
                 "1",
                 "2",
@@ -927,38 +929,6 @@
       ],
       "executionTime": 48,
       "id": 7
-    },
-    {
-      "theme": "hg",
-      "tests": [
-        {
-          "question": "test2",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1
-          ],
-          "id": 2
-        },
-        {
-          "question": "test3",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1,
-            2
-          ],
-          "id": 3
-        }
-      ],
-      "executionTime": 2,
-      "id": 8
     }
   ],
   "openQuestions": [
