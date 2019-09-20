@@ -29,6 +29,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NumberToTimePipe } from './shared/pipes/number-to-time.pipe';
 import {SharedModule} from '../shared/shared.module';
 import { UsersUpdateComponent } from './users/users-update/users-update.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
+import { OpenQuestionComponent } from './open-question/open-question.component';
+import { OpenQuestionAddComponent } from './open-question/open-question-add/open-question-add.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule, SharedModule],
@@ -59,7 +62,10 @@ import { UsersUpdateComponent } from './users/users-update/users-update.componen
     ScoresComponent,
     ScoreComponent,
     NumberToTimePipe,
-    UsersUpdateComponent
+    UsersUpdateComponent,
+    FilterPipe,
+    OpenQuestionComponent,
+    OpenQuestionAddComponent
   ]
 })
 export class SystemModule {}

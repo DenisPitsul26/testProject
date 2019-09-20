@@ -17,6 +17,7 @@ import {ScoresComponent} from './scores/scores.component';
 import {AccessRoutingStudentGuard} from '../shared/services/access-routing-student.guard';
 import {AccessRoutingTeacherGuard} from '../shared/services/access-routing-teacher.guard';
 import {AccessControlWorkGuard} from '../shared/services/access-control-work.guard';
+import {OpenQuestionComponent} from './open-question/open-question.component';
 
 const routes: Routes = [
   // {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
@@ -28,11 +29,12 @@ const routes: Routes = [
     {path: 'tests/:id', canActivate: [AccessRoutingStudentGuard], component: TestingDetailComponent},
     {path: 'control-work/:id', canActivate: [AccessRoutingStudentGuard], component: ControlWorkDetailComponent},
     {path: 'group/:id', canActivate: [AccessRoutingStudentGuard], component: GroupDetailComponent},
-      {path: 'user/:id', canActivate: [AccessRoutingStudentGuard], component: UserDetailComponent},
-      {path: 'write_control_work/:id', canActivate: [AccessRoutingTeacherGuard, AccessControlWorkGuard], component: WriteControlWorkComponent},
+    {path: 'user/:id', canActivate: [AccessRoutingStudentGuard], component: UserDetailComponent},
+    {path: 'write_control_work/:id', canActivate: [AccessRoutingTeacherGuard, AccessControlWorkGuard], component: WriteControlWorkComponent},
     {path: 'choose_control_work', canActivate: [AccessRoutingTeacherGuard], component: ChooseControlWorkComponent},
     {path: 'user_profile', component: UserProfileComponent},
-      {path: 'scores', component: ScoresComponent}
+      {path: 'scores', component: ScoresComponent},
+      {path: 'open-question', component: OpenQuestionComponent}
     ]
   }
 ];

@@ -16,6 +16,9 @@ import {fadeStateTrigger} from '../../../shared/animations/fade.animation';
 })
 export class ControlAddComponent implements OnInit {
   isLoaded = false;
+  searchText: string;
+  testName: string[] = [];
+  testNameText: string;
   tests: TestModel[];
   checkedTests: TestModel[] = [];
   controlModel: ControlWork;
@@ -39,6 +42,12 @@ export class ControlAddComponent implements OnInit {
       this.checkId = this.tests.length;
     });
     setTimeout(() => {
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.checkId; i++) {
+        this.testNameText = this.tests[i].question;
+        console.log(this.testNameText + ' ');
+        this.testName.push(this.testNameText);
+      }
       if (this.currentControlWork !== undefined) {
         this.updateTestsLength = this.currentControlWork.tests.length;
         this.cwName = this.currentControlWork.theme;

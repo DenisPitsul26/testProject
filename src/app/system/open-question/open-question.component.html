@@ -1,0 +1,45 @@
+<div *ngIf="!isLoaded" class="text-center1">
+  <app-loader></app-loader>
+</div>
+<div @fade *ngIf="isLoaded">
+  <div *ngIf="isAddFormVisible">
+    <app-open-question-add (addFormIsVisible)="cancelForm($event)"
+                           (newQuestionAdd)="newQuestionAdd($event)"></app-open-question-add>
+  </div>
+  <section class="section">
+    <button class="btn btn-success" (click)="addQuestionForm()" *ngIf="!isAddFormVisible">Add</button>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header bordered">
+            <div class="header-block">
+              <h3 class="title">Open Questions</h3>
+            </div>
+          </div>
+          <div class="card-block">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th colspan="1">Question</th>
+                <th class="text-lg-center" colspan="2">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let question of questions let idx = index">
+                <th scope="row">{{idx+1}}</th>
+                <td colspan="1">{{question.question}}</td>
+                <td colspan="1">
+                  <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateQuestionForm(question)"></i></button>
+                  <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteQuestion(question.id)"></i></button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

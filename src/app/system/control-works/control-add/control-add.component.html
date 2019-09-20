@@ -11,6 +11,10 @@
       <label>Execution time(minutes)</label>
       <input type="number" class="form-control" placeholder="Input execution time of control work" id="executionTime" required="true">
     </div>
+<!--    <div class="form-group">-->
+<!--      <label>Search: </label>-->
+<!--      <input type="text" class="form-control" [(ngModel)]="searchText" required="true" placeholder="Input search text">-->
+<!--    </div>-->
     <table class="table table-striped">
       <thead>
       <tr>
@@ -20,9 +24,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let test of tests let idx = index">
+<!--      <tr *ngFor="let test of testName | filter : searchText let idx = index ">-->
+      <tr *ngFor="let test of testName let idx = index ">
         <th scope="row">{{idx+1}}</th>
-        <td>{{test.question}}</td>
+        <td>{{test}}</td>
         <td><input type="checkbox" class="form-check" [id]="(idx+1) + 'c'"></td>
         <td class="text-lg-center">
         </td>

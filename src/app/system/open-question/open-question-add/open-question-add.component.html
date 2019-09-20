@@ -1,0 +1,16 @@
+<div @fade class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-sm-12 col-xs-12">
+      <form #form="ngForm">
+        <div class="form-group">
+          <label>Question: </label>
+          <input type="text" class="form-control" placeholder="Input question" id="question"
+                 ngModel name="question" required>
+        </div>
+        <button class="btn btn-success" type="submit" [disabled]="form.invalid" (click)="addUpdateQuestion()"> Save </button>
+        <button class="btn btn-danger" type="submit" (click)="cancel()"> Cancel </button>
+        <p *ngIf="form.invalid">All field have not to be empty</p>
+      </form>
+    </div>
+  </div>
+</div>

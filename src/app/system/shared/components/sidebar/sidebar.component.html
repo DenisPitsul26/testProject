@@ -25,6 +25,9 @@
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">
           <a [routerLink]="['/system', 'tests']"> <i class="fa fa-flash"></i> Tests </a>
         </li>
+        <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">
+          <a [routerLink]="['/system', 'open-question']"> <i class="fa fa-flash"></i> Question</a>
+        </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
           <a [routerLink]="['/system', 'groups']"> <i class="fa fa-archive"></i> Groups </a>
         </li>
