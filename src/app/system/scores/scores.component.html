@@ -3,10 +3,12 @@
 </div>
 <div @fade style="margin: 10px" *ngIf="isLoaded">
   <section class="section">
-    <div class="row">
-      <div *ngFor="let group of groups">
-        <div class="card">
-          <app-score [group]="group"></app-score>
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let group of groups" style="margin: 20px">
+          <div class="card">
+            <app-score class="col-md-12" [group]="group"></app-score>
+          </div>
         </div>
       </div>
     </div>
