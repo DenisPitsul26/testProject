@@ -24,7 +24,57 @@
       "name": "sfsd111",
       "isAdmin": 0,
       "groupId": 1,
-      "resultsOfControlWorks": [],
+      "resultsOfControlWorks": [
+        {
+          "controlWork": {
+            "theme": "control1",
+            "tests": [
+              {
+                "question": "test🤣",
+                "answers": [
+                  "1",
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "correctAnswers": [
+                  3
+                ],
+                "id": 1
+              },
+              {
+                "question": "test2",
+                "answers": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "correctAnswers": [
+                  1
+                ],
+                "id": 2
+              },
+              {
+                "question": "test3",
+                "answers": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "correctAnswers": [
+                  1,
+                  2
+                ],
+                "id": 3
+              }
+            ],
+            "executionTime": 45,
+            "id": 1
+          },
+          "score": 2,
+          "maxScore": 4
+        }
+      ],
       "id": 3
     },
     {
