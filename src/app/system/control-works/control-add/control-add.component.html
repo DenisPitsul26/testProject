@@ -19,16 +19,35 @@
       <thead>
       <tr>
         <th>#</th>
-        <th>Question</th>
+        <th>Test</th>
         <th class="text-lg-center">Include</th>
       </tr>
       </thead>
       <tbody>
 <!--      <tr *ngFor="let test of testName | filter : searchText let idx = index ">-->
-      <tr *ngFor="let test of testName let idx = index ">
+      <tr *ngFor="let test of tests let idx = index ">
         <th scope="row">{{idx+1}}</th>
-        <td>{{test}}</td>
+        <td>{{test.question}}</td>
         <td><input type="checkbox" class="form-check" [id]="(idx+1) + 'c'"></td>
+        <td class="text-lg-center">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Open Question</th>
+        <th class="text-lg-center">Include</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!--      <tr *ngFor="let test of testName | filter : searchText let idx = index ">-->
+      <tr *ngFor="let question of questions let idq = index ">
+        <th scope="row">{{idq+1}}</th>
+        <td>{{question.question}}</td>
+        <td><input type="checkbox" class="form-check" [id]="(idq+1) + 'q'"></td>
         <td class="text-lg-center">
         </td>
       </tr>

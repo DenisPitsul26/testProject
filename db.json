@@ -24,57 +24,7 @@
       "name": "sfsd111",
       "isAdmin": 0,
       "groupId": 1,
-      "resultsOfControlWorks": [
-        {
-          "controlWork": {
-            "theme": "control1",
-            "tests": [
-              {
-                "question": "test🤣",
-                "answers": [
-                  "1",
-                  "2",
-                  "3",
-                  "4"
-                ],
-                "correctAnswers": [
-                  3
-                ],
-                "id": 1
-              },
-              {
-                "question": "test2",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1
-                ],
-                "id": 2
-              },
-              {
-                "question": "test3",
-                "answers": [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                "correctAnswers": [
-                  1,
-                  2
-                ],
-                "id": 3
-              }
-            ],
-            "executionTime": 45,
-            "id": 1
-          },
-          "score": 2,
-          "maxScore": 4
-        }
-      ],
+      "resultsOfControlWorks": [],
       "id": 3
     },
     {
@@ -176,51 +126,6 @@
       "group": "143A",
       "faculty": "IFTKN",
       "expectedControlWorks": [
-        {
-          "theme": "control1",
-          "tests": [
-            {
-              "question": "test11",
-              "answers": [
-                "1",
-                "2",
-                "3",
-                "4"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 1
-            },
-            {
-              "question": "test2",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1
-              ],
-              "id": 2
-            },
-            {
-              "question": "test3",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1,
-                2
-              ],
-              "id": 3
-            }
-          ],
-          "executionTime": 45,
-          "id": 1
-        },
         {
           "theme": "control2",
           "tests": [
@@ -338,51 +243,6 @@
       "faculty": "IFTKN",
       "expectedControlWorks": [
         {
-          "theme": "control1",
-          "tests": [
-            {
-              "question": "test🤣",
-              "answers": [
-                "1",
-                "2",
-                "3",
-                "4"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 1
-            },
-            {
-              "question": "test2",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1
-              ],
-              "id": 2
-            },
-            {
-              "question": "test3",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1,
-                2
-              ],
-              "id": 3
-            }
-          ],
-          "executionTime": 45,
-          "id": 1
-        },
-        {
           "theme": "control2",
           "tests": [
             {
@@ -433,51 +293,6 @@
       "group": "143C",
       "faculty": "IFTKN",
       "expectedControlWorks": [
-        {
-          "theme": "control1",
-          "tests": [
-            {
-              "question": "test11",
-              "answers": [
-                "1",
-                "2",
-                "3",
-                "4"
-              ],
-              "correctAnswers": [
-                3
-              ],
-              "id": 1
-            },
-            {
-              "question": "test2",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1
-              ],
-              "id": 2
-            },
-            {
-              "question": "test3",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1,
-                2
-              ],
-              "id": 3
-            }
-          ],
-          "executionTime": 45,
-          "id": 1
-        },
         {
           "theme": "control4",
           "tests": [
@@ -617,7 +432,7 @@
   ],
   "controlWorks": [
     {
-      "theme": "control1",
+      "theme": "testmaster",
       "tests": [
         {
           "question": "test11",
@@ -645,69 +460,30 @@
           "id": 2
         },
         {
-          "question": "test3",
+          "question": "jbjhbjkbddf",
           "answers": [
-            "1",
-            "2",
-            "3"
+            "111",
+            "2266",
+            "333",
+            "443"
           ],
           "correctAnswers": [
-            1,
             2
           ],
-          "id": 3
+          "id": 6
         }
       ],
-      "executionTime": 45,
-      "id": 1
-    },
-    {
-      "theme": "control2",
-      "tests": [
+      "questions": [
         {
-          "question": "test11",
-          "answers": [
-            "1",
-            "2",
-            "3",
-            "4"
-          ],
-          "correctAnswers": [
-            3
-          ],
+          "question": "first test question",
           "id": 1
-        },
-        {
-          "question": "test2",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1
-          ],
-          "id": 2
-        },
-        {
-          "question": "test3",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1,
-            2
-          ],
-          "id": 3
         }
       ],
-      "executionTime": 45,
+      "executionTime": 7,
       "id": 2
     },
     {
-      "theme": "control3",
+      "theme": "name",
       "tests": [
         {
           "question": "test11",
@@ -721,39 +497,33 @@
             3
           ],
           "id": 1
-        },
-        {
-          "question": "test2",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1
-          ],
-          "id": 2
-        },
-        {
-          "question": "test3",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1,
-            2
-          ],
-          "id": 3
         }
       ],
-      "executionTime": 45,
+      "questions": [
+        {
+          "question": "dsdfh lets try ad",
+          "id": 2
+        }
+      ],
+      "executionTime": 4,
       "id": 3
     },
     {
-      "theme": "control4",
+      "theme": "control work name",
       "tests": [
+        {
+          "question": "test11",
+          "answers": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswers": [
+            3
+          ],
+          "id": 1
+        },
         {
           "question": "test2",
           "answers": [
@@ -765,13 +535,32 @@
             1
           ],
           "id": 2
+        },
+        {
+          "question": "test3",
+          "answers": [
+            "1",
+            "2",
+            "3"
+          ],
+          "correctAnswers": [
+            1,
+            2
+          ],
+          "id": 3
         }
       ],
-      "executionTime": 20,
+      "questions": [
+        {
+          "question": "first test question",
+          "id": 1
+        }
+      ],
+      "executionTime": 2,
       "id": 4
     },
     {
-      "theme": "jhbjhbjh",
+      "theme": "control work 1",
       "tests": [
         {
           "question": "test11",
@@ -810,125 +599,20 @@
             2
           ],
           "id": 3
-        },
-        {
-          "question": "bjhbjhbjh",
-          "answers": [
-            "bhjh",
-            "yujbjhb",
-            "bjjnjkbj"
-          ],
-          "correctAnswers": [
-            2
-          ],
-          "id": 4
         }
       ],
-      "id": 5,
-      "executionTime": 38
-    },
-    {
-      "theme": "ggfdgdfgd",
-      "tests": [
+      "questions": [
         {
-          "question": "test11",
-          "answers": [
-            "1",
-            "2",
-            "3",
-            "4"
-          ],
-          "correctAnswers": [
-            3
-          ],
+          "question": "first test question",
           "id": 1
         },
         {
-          "question": "bjhbjhbjh",
-          "answers": [
-            "bhjh",
-            "yujbjhb",
-            "bjjnjkbj"
-          ],
-          "correctAnswers": [
-            2
-          ],
-          "id": 4
-        },
-        {
-          "question": "hdhdfhfdhfdhdfhd",
-          "answers": [
-            "111",
-            "222",
-            "333",
-            "444"
-          ],
-          "correctAnswers": [
-            3
-          ],
-          "id": 5
-        },
-        {
-          "question": "jbjhbjkbddf",
-          "answers": [
-            "111",
-            "2266",
-            "333",
-            "443"
-          ],
-          "correctAnswers": [
-            2
-          ],
-          "id": 6
-        }
-      ],
-      "executionTime": 35,
-      "id": 6
-    },
-    {
-      "theme": "fdgdf",
-      "tests": [
-        {
-          "question": "test2",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1
-          ],
+          "question": "dsdfh lets try ad",
           "id": 2
-        },
-        {
-          "question": "test3",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1,
-            2
-          ],
-          "id": 3
-        },
-        {
-          "question": "jbjhbjkbddf",
-          "answers": [
-            "111",
-            "2266",
-            "333",
-            "443"
-          ],
-          "correctAnswers": [
-            2
-          ],
-          "id": 6
         }
       ],
-      "executionTime": 48,
-      "id": 7
+      "executionTime": 45,
+      "id": 5
     }
   ],
   "openQuestions": [

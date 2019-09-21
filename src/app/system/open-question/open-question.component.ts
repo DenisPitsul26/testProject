@@ -4,6 +4,8 @@ import {TestModel} from '../../shared/models/test.model';
 import {OpenQuestionModel} from '../../shared/models/open-question.model';
 import {Subscription} from 'rxjs';
 import {OpenQuestionService} from '../../shared/services/open-question.service';
+import {ControlWork} from '../../shared/models/controlWork.model';
+import {ControlWorksService} from '../../shared/services/control-works.service';
 
 @Component({
   selector: 'app-open-question',
@@ -17,7 +19,10 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   questions: OpenQuestionModel[];
   currentQuestion: OpenQuestionModel;
   sub1: Subscription;
-  constructor(private questionService: OpenQuestionService) { }
+  sub2: Subscription;
+  sub3: Subscription;
+  controls: ControlWork[];
+  constructor(private questionService: OpenQuestionService, private controlWorksService: ControlWorksService) { }
 
   ngOnInit() {
     this.getQuestions();
@@ -42,6 +47,21 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   deleteQuestion(id: number) {
     this.sub1 = this.questionService.deleteQuestion(id).subscribe(() => {
       this.getQuestions();
+    });
+    this.sub2 = this.controlWorksService.getControlWorks().subscribe((controlWorks: ControlWork[]) => {
+      this.controls = controlWorks;
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.controls.length; i++) {
+        // tslint:disable-next-line:prefer-for-of
+        for (let j = 0; j < this.controls[i].questions.length; j++) {
+          if (this.controls[i].questions[j].id === id) {
+            this.controls[i].questions.splice(j, 1);
+            this.sub3 = this.controlWorksService.updateControl(this.controls[i]).subscribe( (control: ControlWork) => {
+              console.log(control);
+            });
+          }
+        }
+      }
     });
   }
   newQuestionAdd(quest: OpenQuestionModel) {
