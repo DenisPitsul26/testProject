@@ -3,11 +3,19 @@
     <div class="col-md-8 col-sm-12 col-xs-12">
       <form #form="ngForm">
         <div class="form-group">
-          <label>Question: </label>
-          <input type="text" class="form-control" placeholder="Input question" id="question"
-                 ngModel name="question" required>
+          <input type="text" class="form-control" placeholder="Input question or caption for image" id="question"
+                 ngModel name="question" required #question="ngModel">
         </div>
-        <button class="btn btn-success" type="submit" [disabled]="form.invalid" (click)="addUpdateQuestion()"> Save </button>
+        <div class="form-group container" style="padding: 20px">
+          <div class="row">
+            <img [src]="imageUrl"  style="width:auto; max-width: 500px; height:auto; max-height:300px">
+          </div>
+          <div class="row">
+            <input type="file" #image="ngModel" accept="image/*" class="form-control" id="file" ngModel name="image"
+                   (change)="handleFileInput($event.target.files)">
+          </div>
+        </div>
+        <button class="btn btn-success" type="submit" [disabled]="question.invalid" (click)="addUpdateQuestion()"> Save </button>
         <button class="btn btn-danger" type="submit" (click)="cancel()"> Cancel </button>
         <p *ngIf="form.invalid">All field have not to be empty</p>
       </form>

@@ -12,6 +12,7 @@ import {log} from 'util';
 import {take, map} from 'rxjs/operators';
 import {Observable, timer} from 'rxjs';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
+import {AnswerInOpenQuestions} from '../../shared/models/answer-in-open-questions';
 
 
 @Component({
@@ -43,6 +44,9 @@ export class WriteControlWorkComponent implements OnInit {
   countTime = 80;
   countTimeMinutes = 30;
   countTimeMinutesCheck = this.countTimeMinutes;
+  answersInOpenQuestions: AnswerInOpenQuestions[];
+  isCloseTest = true;
+  imageUrl: string;
   constructor(private controlWorkService: ControlWorksService,
               private usersService: UserService,
               private route: ActivatedRoute,
@@ -73,7 +77,7 @@ export class WriteControlWorkComponent implements OnInit {
             // this.resultsOfControlWorks = this.loginedUser.resultsOfControlWorks.map(x => Object.assign({}, x));
           });
           this.currentControlWork = controlWork;
-          this.numberOfTests = this.currentControlWork.tests.length;
+          this.numberOfTests = this.currentControlWork.tests.length + this.currentControlWork.questions.length;
           this.question = this.currentControlWork.tests[this.count].question;
           this.answers = this.currentControlWork.tests[this.count].answers;
 
@@ -86,8 +90,8 @@ export class WriteControlWorkComponent implements OnInit {
 
           this.isLoaded = true;
           // document.getElementById('answer');
-          this.userAnswers = new Array(this.numberOfTests);
-          for (let i = 0; i < this.numberOfTests; i++) {
+          this.userAnswers = new Array(this.currentControlWork.tests.length);
+          for (let i = 0; i < this.currentControlWork.tests.length; i++) {
             this.userAnswers[i] = new Array(this.currentControlWork.tests[i].answers.length);
             for (let j = 0; j < this.currentControlWork.tests[i].answers.length; j++) {
               this.userAnswers[i][j] = false;
@@ -96,6 +100,10 @@ export class WriteControlWorkComponent implements OnInit {
             for (let j = 0; j < this.currentControlWork.tests[i].correctAnswers.length; j++) {
               this.maxScore++;
             }
+          }
+          this.answersInOpenQuestions = new Array(this.currentControlWork.questions.length);
+          for (let i = 0; i < this.currentControlWork.questions.length; i++) {
+            this.answersInOpenQuestions[i] = new AnswerInOpenQuestions(this.currentControlWork.questions[i], '');
           }
         });
     }, 1000);
@@ -109,6 +117,7 @@ export class WriteControlWorkComponent implements OnInit {
       if (this.loginedUser.isAdmin === 0) {
         this.loginedUser.resultsOfControlWorks.push({
           controlWork: this.currentControlWork,
+          answersOfOpenQuestion: this.answersInOpenQuestions,
           score: this.userScore,
           maxScore: this.maxScore
         });
@@ -123,47 +132,73 @@ export class WriteControlWorkComponent implements OnInit {
 
   Ok() {
     this.saveAnswer();
-    if ((this.count + 1) < this.currentControlWork.tests.length) {
+    if ((this.count + 1) < (this.currentControlWork.tests.length + this.currentControlWork.questions.length)) {
       this.count++;
+      if (this.count < this.currentControlWork.tests.length) {
+        this.isCloseTest = true;
+      } else {
+        this.isCloseTest = false;
+      }
       this.loadQuestion();
     } else {
       this.completeTest();
-      if (this.loginedUser.isAdmin === 0) {
-        this.loginedUser.resultsOfControlWorks.push({
-          controlWork: this.currentControlWork,
-          score: this.userScore,
-          maxScore: this.maxScore
-        });
-        setTimeout(() => {
-          this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
-            // console.log(user);
-          });
-        }, 1000);
-      }
     }
   }
   loadQuestion() {
-    this.question = this.currentControlWork.tests[this.count].question;
-    this.answers = this.currentControlWork.tests[this.count].answers;
-    this.required = false;
-    setTimeout(() => {
-      for (let i = 1; i <= this.currentControlWork.tests[this.count].answers.length; i++) {
-        (document.getElementById(String(i)) as HTMLInputElement).checked = this.userAnswers[this.count][i - 1];
-        if (this.userAnswers[this.count][i - 1]) {
-          this.required = true;
+    if (this.isCloseTest) {
+      this.imageUrl = '';
+      this.question = this.currentControlWork.tests[this.count].question;
+      this.answers = this.currentControlWork.tests[this.count].answers;
+      this.required = false;
+      setTimeout(() => {
+        for (let i = 1; i <= this.currentControlWork.tests[this.count].answers.length; i++) {
+          (document.getElementById(String(i)) as HTMLInputElement).checked = this.userAnswers[this.count][i - 1];
+          if (this.userAnswers[this.count][i - 1]) {
+            this.required = true;
+          }
         }
+      }, 10);
+    } else {
+      const x = this.count - this.currentControlWork.tests.length;
+      this.question = this.currentControlWork.questions[x].question;
+      if (this.currentControlWork.questions[x].url === '') {
+        this.imageUrl = '';
+      } else {
+        this.imageUrl = this.currentControlWork.questions[x].url;
       }
-    }, 10);
+      setTimeout(() => {
+        (document.getElementById('openAnswer') as HTMLInputElement).value = this.answersInOpenQuestions[x].answersOfOpenQuestion;
+      }, 10);
+      // if (this.answersInOpenQuestions[x] === null) {
+      //   (document.getElementById('openAnswer') as HTMLInputElement).value  = '';
+      // } else {
+      //   (document.getElementById('openAnswer') as HTMLInputElement).value = this.answersInOpenQuestions[x];
+      // }
+    }
   }
   saveAnswer() {
-    for (let i = 1; i <= this.currentControlWork.tests[this.count].answers.length; i++) {
-      this.userAnswer = (document.getElementById(String(i)) as HTMLInputElement).checked;
-      this.userAnswers[this.count][i - 1] = this.userAnswer;
+    if (this.count < this.currentControlWork.tests.length) {
+      for (let i = 1; i <= this.currentControlWork.tests[this.count].answers.length; i++) {
+        this.userAnswer = (document.getElementById(String(i)) as HTMLInputElement).checked;
+        this.userAnswers[this.count][i - 1] = this.userAnswer;
+      }
+    } else {
+      const x = this.count - this.currentControlWork.tests.length;
+      if ((document.getElementById('openAnswer') as HTMLInputElement).value === null) {
+        this.answersInOpenQuestions[x].answersOfOpenQuestion = '';
+      } else {
+        this.answersInOpenQuestions[x].answersOfOpenQuestion = (document.getElementById('openAnswer') as HTMLInputElement).value;
+      }
     }
   }
   changeQuestion(number1: number) {
     this.saveAnswer();
     this.count = number1;
+    if (this.count < this.currentControlWork.tests.length) {
+      this.isCloseTest = true;
+    } else {
+      this.isCloseTest = false;
+    }
     this.loadQuestion();
   }
   completeTest() {
@@ -183,6 +218,19 @@ export class WriteControlWorkComponent implements OnInit {
     }
     // window.localStorage.setItem('user', JSON.stringify(this.loginedUser));
     // console.log(this.userScore);
+    if (this.loginedUser.isAdmin === 0) {
+      this.loginedUser.resultsOfControlWorks.push({
+        controlWork: this.currentControlWork,
+        answersOfOpenQuestion: this.answersInOpenQuestions,
+        score: this.userScore,
+        maxScore: this.maxScore
+      });
+      setTimeout(() => {
+        this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
+          // console.log(user);
+        });
+      }, 1000);
+    }
   }
 
   onTestChecked($event: Event) {
