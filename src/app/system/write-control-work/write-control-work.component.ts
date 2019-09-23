@@ -118,8 +118,9 @@ export class WriteControlWorkComponent implements OnInit {
         this.loginedUser.resultsOfControlWorks.push({
           controlWork: this.currentControlWork,
           answersOfOpenQuestion: this.answersInOpenQuestions,
-          score: this.userScore,
-          maxScore: this.maxScore
+          scoreForTestPart: this.userScore,
+          score: 0,
+          isChecked: false
         });
         setTimeout(() => {
           this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
@@ -129,6 +130,7 @@ export class WriteControlWorkComponent implements OnInit {
       }
     }, this.countTime * 1000);
   }
+
 
   Ok() {
     this.saveAnswer();
@@ -222,8 +224,9 @@ export class WriteControlWorkComponent implements OnInit {
       this.loginedUser.resultsOfControlWorks.push({
         controlWork: this.currentControlWork,
         answersOfOpenQuestion: this.answersInOpenQuestions,
-        score: this.userScore,
-        maxScore: this.maxScore
+        scoreForTestPart: this.userScore,
+        score: 0,
+        isChecked: false
       });
       setTimeout(() => {
         this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
