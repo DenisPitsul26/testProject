@@ -33,7 +33,7 @@
               </span>
             </ng-template>
           </ng-template>
-          <button *ngIf="loginedUser.isAdmin === 1 && scoresForAllControlWorksOfAllUsers[idx][idx1] !== -1"
+          <button *ngIf="(loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2) && scoresForAllControlWorksOfAllUsers[idx][idx1] !== -1"
                   class="btn fa fa-check-circle-o" (click)="checkControlWork(idx, idx1)"></button>
         </td>
       </tr>

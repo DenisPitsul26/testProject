@@ -34,6 +34,7 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
     this.getControlWorks();
+    console.log(this.loginedUser);
   }
 
   getControlWorks() {
@@ -43,6 +44,8 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
         this.loginedUser = user;
         this.sub1 = this.groupsService.getGroupById(this.loginedUser.groupId).subscribe((group: Group) => {
           this.controlWorks = group.expectedControlWorks;
+          console.log(this.loginedUser.resultsOfControlWorks.length);
+          console.log(this.controlWorks.length);
           if (this.loginedUser.resultsOfControlWorks.length > 0) {
             // tslint:disable-next-line:prefer-for-of
             for (let i = 0; i < this.controlWorks.length; i++) {

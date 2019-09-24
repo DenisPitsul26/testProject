@@ -31,6 +31,7 @@ export class EvaluateTestComponent implements OnInit, OnDestroy {
               private router: Router) { }
 
   ngOnInit() {
+
     this.isLoaded = false;
     this.sub1 = this.route.queryParams
       .pipe(mergeMap((params: Params) => combineLatest(
