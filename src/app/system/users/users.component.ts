@@ -7,6 +7,7 @@ import {GroupService} from '../../shared/services/group.service';
 import {combineLatest, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
+import {ControlWork} from '../../shared/models/controlWork.model';
 
 
 @Component({
@@ -24,6 +25,8 @@ export class UsersComponent implements OnInit, OnDestroy {
   loginedUser: User;
   currentUser: User;
   isUpdateFormVisible = false;
+  modal: any;
+  temp: number;
 
   constructor(private userService: UserService, private groupService: GroupService, private router: Router) { }
 
@@ -35,6 +38,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     }
     this.isLoaded = false;
     this.getUsers();
+    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
 
   getUsers() {
@@ -66,9 +70,18 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   deleteUser(id: number) {
-    this.sub1 = this.userService.deleteUser(id).subscribe((user: User) => {
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temp = id;
+  }
+  confirmDialog() {
+    this.sub1 = this.userService.deleteUser(this.temp).subscribe((user: User) => {
       this.getUsers();
     });
+    this.modal.style.display = 'none';
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
   }
 
   userUpdated(user: User) {

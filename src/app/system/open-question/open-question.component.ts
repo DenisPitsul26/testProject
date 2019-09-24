@@ -22,10 +22,13 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   sub2: Subscription;
   sub3: Subscription;
   controls: ControlWork[];
+  modal: any;
+  temp: number;
   constructor(private questionService: OpenQuestionService, private controlWorksService: ControlWorksService) { }
 
   ngOnInit() {
     this.getQuestions();
+    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
   getQuestions() {
    this.isLoaded = false;
@@ -44,8 +47,8 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
     this.isAddFormVisible = true;
     this.currentQuestion = undefined;
   }
-  deleteQuestion(id: number) {
-    this.sub1 = this.questionService.deleteQuestion(id).subscribe(() => {
+  confirmDialog() {
+    this.sub1 = this.questionService.deleteQuestion(this.temp).subscribe(() => {
       this.getQuestions();
     });
     this.sub2 = this.controlWorksService.getControlWorks().subscribe((controlWorks: ControlWork[]) => {
@@ -54,7 +57,7 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
       for (let i = 0; i < this.controls.length; i++) {
         // tslint:disable-next-line:prefer-for-of
         for (let j = 0; j < this.controls[i].questions.length; j++) {
-          if (this.controls[i].questions[j].id === id) {
+          if (this.controls[i].questions[j].id === this.temp) {
             this.controls[i].questions.splice(j, 1);
             this.sub3 = this.controlWorksService.updateControl(this.controls[i]).subscribe( (control: ControlWork) => {
               console.log(control);
@@ -63,6 +66,15 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
         }
       }
     });
+    this.modal.style.display = 'none';
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
+  }
+  deleteQuestion(id: number) {
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temp = id;
   }
   newQuestionAdd(quest: OpenQuestionModel) {
     this.getQuestions();

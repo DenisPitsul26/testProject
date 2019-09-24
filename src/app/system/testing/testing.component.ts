@@ -22,11 +22,14 @@ export class TestingComponent implements OnInit, OnDestroy {
   sub3: Subscription;
   controls: ControlWork[];
   isAddFormVisible = false;
+  modal: any;
+  temp: number;
 
   constructor(private testsService: TestsService, private controlWorksService: ControlWorksService) { }
 
   ngOnInit() {
     this.getTests();
+    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
   getTests() {
     this.isLoaded = false;
@@ -75,13 +78,18 @@ export class TestingComponent implements OnInit, OnDestroy {
   // }
 
   deleteTest(id: number) {
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temp = id;
+  }
+  confirmDialog() {
     this.sub2 = this.controlWorksService.getControlWorks().subscribe((controlWorks: ControlWork[]) => {
       this.controls = controlWorks;
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < this.controls.length; i++) {
         // tslint:disable-next-line:prefer-for-of
         for (let j = 0; j < this.controls[i].tests.length; j++) {
-          if (this.controls[i].tests[j].id === id) {
+          if (this.controls[i].tests[j].id === this.temp) {
             this.controls[i].tests.splice(j, 1);
             this.sub3 = this.controlWorksService.updateControl(this.controls[i]).subscribe( (control: ControlWork) => {
               console.log(control);
@@ -90,8 +98,12 @@ export class TestingComponent implements OnInit, OnDestroy {
         }
       }
     });
-    this.sub1 = this.testsService.deleteTest(id).subscribe(() => {
+    this.sub1 = this.testsService.deleteTest(this.temp).subscribe(() => {
       this.getTests();
     });
+    this.modal.style.display = 'none';
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
   }
 }

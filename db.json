@@ -594,61 +594,6 @@
       ],
       "executionTime": 2,
       "id": 4
-    },
-    {
-      "theme": "control work 1",
-      "tests": [
-        {
-          "question": "test11",
-          "answers": [
-            "1",
-            "2",
-            "3",
-            "4"
-          ],
-          "correctAnswers": [
-            3
-          ],
-          "id": 1
-        },
-        {
-          "question": "test2",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1
-          ],
-          "id": 2
-        },
-        {
-          "question": "test3",
-          "answers": [
-            "1",
-            "2",
-            "3"
-          ],
-          "correctAnswers": [
-            1,
-            2
-          ],
-          "id": 3
-        }
-      ],
-      "questions": [
-        {
-          "question": "first test question",
-          "id": 1
-        },
-        {
-          "question": "dsdfh lets try ad",
-          "id": 2
-        }
-      ],
-      "executionTime": 45,
-      "id": 5
     }
   ],
   "openQuestions": [

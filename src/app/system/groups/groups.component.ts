@@ -22,7 +22,8 @@ export class GroupsComponent implements OnInit, OnDestroy {
   isAppointFormVisible = false;
   currentGroup: Group;
   loginedUser: User;
-
+  modal: any;
+  temp: number;
   constructor(private groupService: GroupService) { }
 
   ngOnInit() {
@@ -60,11 +61,19 @@ export class GroupsComponent implements OnInit, OnDestroy {
   newGroupAdded(group1: Group) {
     this.getGroups();
   }
-
-  deleteGroup(id: number) {
-    this.sub1 = this.groupService.deleteGroup(id).subscribe(() => {
+  confirmDialog() {
+    this.sub1 = this.groupService.deleteGroup(this.temp).subscribe(() => {
       this.getGroups();
     });
+    this.modal.style.display = 'none';
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
+  }
+  deleteGroup(id: number) {
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temp = id;
   }
 
   toAppointForm(group1: Group) {

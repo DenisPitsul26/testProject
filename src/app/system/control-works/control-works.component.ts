@@ -29,6 +29,8 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   sub3: Subscription;
   sub4: Subscription;
   allUsers: User[];
+  modal: any;
+  temp: number;
   private sub5: Subscription;
 
   constructor(private controlWorksService: ControlWorksService,
@@ -40,6 +42,7 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getControlWorks();
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
+    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
 
   getControlWorks() {
@@ -94,16 +97,16 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
     }
   }
 
-  deleteControl(id: number) {
+  confirmDialog() {
     this.sub2 = this.groupsService.getGroups().subscribe((groups: Group[]) => {
       this.allGroups = groups;
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < this.allGroups.length; i++) {
         // tslint:disable-next-line:prefer-for-of
         for (let j = 0; j < this.allGroups[i].expectedControlWorks.length; j++) {
-          if (this.allGroups[i].expectedControlWorks[j].id === id) {
+          if (this.allGroups[i].expectedControlWorks[j].id === this.temp) {
             this.allGroups[i].expectedControlWorks.splice(j, 1);
-            this.sub3 = this.groupsService.updateGroup(this.allGroups[i]).subscribe( (group1: Group) => {
+            this.sub3 = this.groupsService.updateGroup(this.allGroups[i]).subscribe((group1: Group) => {
               console.log(group1);
             });
           }
@@ -116,17 +119,26 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
       for (let i = 0; i < this.allUsers.length; i++) {
         // tslint:disable-next-line:prefer-for-of
         for (let j = 0; j < this.allUsers[i].resultsOfControlWorks.length; j++) {
-          if (this.allUsers[i].resultsOfControlWorks[j].controlWork.id === id) {
+          if (this.allUsers[i].resultsOfControlWorks[j].controlWork.id === this.temp) {
             this.allUsers[i].resultsOfControlWorks.splice(j, 1);
-            this.sub5 = this.usersService.updateUser(this.allUsers[i]).subscribe( (user: User) => {
+            this.sub5 = this.usersService.updateUser(this.allUsers[i]).subscribe((user: User) => {
               console.log(user);
             });
           }
         }
       }
     });
-    this.sub1 = this.controlWorksService.deleteControlWork(id).subscribe(() => {
+    this.sub1 = this.controlWorksService.deleteControlWork(this.temp).subscribe(() => {
       this.getControlWorks();
     });
+    this.modal.style.display = 'none';
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
+  }
+  deleteControl(id: number) {
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temp = id;
   }
 }

@@ -20,7 +20,9 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
   isLoaded = false;
   controlWorks: ControlWork[];
   sub1: Subscription;
+  modal: any;
   conWork: ControlWork;
+  temporaryCW: ControlWork;
   currentControlWork: ControlWork;
   isAddFormVisible = false;
   private loginedUser: User;
@@ -34,6 +36,7 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
     this.getControlWorks();
+    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
 
   getControlWorks() {
@@ -68,10 +71,23 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
       });
     }
   }
+  spanOnClick() {
+    this.modal.style.display = 'none';
+  }
   ngOnDestroy(): void {
     this.sub1.unsubscribe();
   }
   start(control: ControlWork) {
-    this.router.navigate(['/write_control_work', control.id], { queryParams: { topic: control.theme } });
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temporaryCW = control;
+    // this.router.navigate(['/write_control_work', control.id], { queryParams: { topic: control.theme } });
+  }
+  confirmDialog() {
+    this.modal.style.display = 'none';
+    this.router.navigate(['/write_control_work', this.temporaryCW.id], { queryParams: { topic: this.temporaryCW.theme } });
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
   }
 }
