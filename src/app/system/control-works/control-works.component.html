@@ -2,14 +2,28 @@
   <app-loader></app-loader>
 </div>
 <div @fade *ngIf="isLoaded">
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Warning!</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Are you sure you want to do this?</h3>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success btn-dialog" type="submit" (click)="confirmDialog()">Yes</button>
+        <button class="btn btn-danger btn-dialog" type="submit" (click)="cancelDialog()">No</button>
+      </div>
+    </div>
+  </div>
   <div *ngIf="isAddFormVisible">
     <app-control-add (addFormIsVisible)="cancelForm($event)"
                      [currentControlWork]="currentControlWork"
                      (currentControlUpdated)="currentControlUpdated($event)"></app-control-add>
   </div>
   <section class="section">
-    <button class="btn btn-success" (click)="createControlWork()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Create</button>
-    <div class="row">
+    <button class="btn btn-success btn-success1" (click)="createControlWork()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Create</button>
+    <div *ngIf="!isAddFormVisible" class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header bordered">

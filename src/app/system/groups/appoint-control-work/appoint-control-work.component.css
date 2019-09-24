@@ -1,0 +1,17 @@
+form {
+  width: max-content;
+  height: max-content;
+  border-radius: 25px;
+  padding: 25px;
+  margin: 15px auto;
+}
+
+
+input.form-control.box {
+  padding: 0;
+  display: inline;
+  width: 15px;
+  bottom: 0;
+  margin-left: 5px;
+  float: right;
+}

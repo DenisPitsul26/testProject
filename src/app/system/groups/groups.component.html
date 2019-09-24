@@ -1,23 +1,56 @@
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Warning!</h2>
+    </div>
+    <div class="modal-body">
+      <h3>Are you sure you want to do this?</h3>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success btn-dialog" type="submit" (click)="confirmDialog()">Yes</button>
+      <button class="btn btn-danger btn-dialog" type="submit" (click)="cancelDialog()">No</button>
+    </div>
+  </div>
+</div>
+<div id="myModalAdd" class="modal">
+  <div class="modal-contentAdd">
+    <div class="modal-bodyAdd">
+      <div *ngIf="isAddFormVisible">
+        <app-groups-add [groups]="groups"
+                        [currentGroup]="currentGroup"
+                        (addFormIsVisible)="cancelForm($event)"
+                        (newGroupAdded)="newGroupAdded($event)"
+        ></app-groups-add>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModalAddApp" class="modal">
+  <div class="modal-contentAddApp">
+    <div class="modal-bodyAdd">
+      <div *ngIf="isAppointFormVisible">
+        <app-appoint-control-work [groups]="groups"
+                                  [currentGroup]="currentGroup"
+                                  (appointFormIsVisible)="cancelAppointForm($event)"
+                                  (groupAppointed)="groupAppointed($event)"
+        ></app-appoint-control-work>
+      </div>
+    </div>
+  </div>
+</div>
 <div *ngIf="!isLoaded" class="text-center1">
   <app-loader></app-loader>
 </div>
 <div @fade *ngIf="isLoaded">
-  <div *ngIf="isAddFormVisible">
-    <app-groups-add [groups]="groups"
-                    [currentGroup]="currentGroup"
-                    (addFormIsVisible)="cancelForm($event)"
-                    (newGroupAdded)="newGroupAdded($event)"
-    ></app-groups-add>
-  </div>
-  <div *ngIf="isAppointFormVisible">
-    <app-appoint-control-work [groups]="groups"
-                    [currentGroup]="currentGroup"
-                    (appointFormIsVisible)="cancelAppointForm($event)"
-                    (groupAppointed)="groupAppointed($event)"
-    ></app-appoint-control-work>
-  </div>
+<!--  <div *ngIf="isAppointFormVisible">-->
+<!--    <app-appoint-control-work [groups]="groups"-->
+<!--                    [currentGroup]="currentGroup"-->
+<!--                    (appointFormIsVisible)="cancelAppointForm($event)"-->
+<!--                    (groupAppointed)="groupAppointed($event)"-->
+<!--    ></app-appoint-control-work>-->
+<!--  </div>-->
   <section class="section">
-    <button class="btn btn-success" (click)="addGroupForm()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Add</button>
+    <button class="btn btn-success btn btn-success1" (click)="addGroupForm()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Add</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

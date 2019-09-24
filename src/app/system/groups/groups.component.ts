@@ -22,7 +22,10 @@ export class GroupsComponent implements OnInit, OnDestroy {
   isAppointFormVisible = false;
   currentGroup: Group;
   loginedUser: User;
-
+  modal: any;
+  modalAdd: any;
+  modalAddApp: any;
+  temp: number;
   constructor(private groupService: GroupService) { }
 
   ngOnInit() {
@@ -46,37 +49,55 @@ export class GroupsComponent implements OnInit, OnDestroy {
   addGroupForm() {
     this.isAddFormVisible = true;
     this.currentGroup = undefined;
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDivElement);
+    this.modalAdd.style.display = 'block';
   }
 
   cancelForm(flag: boolean) {
     this.isAddFormVisible = flag;
+    this.modalAdd.style.display = 'none';
   }
 
   updateGroupForm(group1: Group) {
     this.isAddFormVisible = true;
     this.currentGroup = group1;
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDialogElement);
+    this.modalAdd.style.display = 'block';
   }
 
   newGroupAdded(group1: Group) {
     this.getGroups();
+    this.modalAdd.style.display = 'none';
   }
-
-  deleteGroup(id: number) {
-    this.sub1 = this.groupService.deleteGroup(id).subscribe(() => {
+  confirmDialog() {
+    this.sub1 = this.groupService.deleteGroup(this.temp).subscribe(() => {
       this.getGroups();
     });
+    this.modal.style.display = 'none';
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
+  }
+  deleteGroup(id: number) {
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temp = id;
   }
 
   toAppointForm(group1: Group) {
     this.isAppointFormVisible = true;
     this.currentGroup = group1;
+    this.modalAddApp = (document.getElementById('myModalAddApp') as HTMLDivElement);
+    this.modalAddApp.style.display = 'block';
   }
 
   cancelAppointForm(flag: boolean) {
     this.isAppointFormVisible = flag;
+    this.modalAddApp.style.display = 'none';
   }
 
   groupAppointed(group1: Group) {
     this.getGroups();
+    this.modalAddApp.style.display = 'none';
   }
 }
