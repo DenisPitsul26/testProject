@@ -26,6 +26,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   currentUser: User;
   isUpdateFormVisible = false;
   modal: any;
+  modalAdd: any;
   temp: number;
 
   constructor(private userService: UserService, private groupService: GroupService, private router: Router) { }
@@ -38,7 +39,6 @@ export class UsersComponent implements OnInit, OnDestroy {
     }
     this.isLoaded = false;
     this.getUsers();
-    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
 
   getUsers() {
@@ -62,11 +62,14 @@ export class UsersComponent implements OnInit, OnDestroy {
       }
       this.isLoaded = true;
     });
+    this.modalAdd.style.display = 'none';
   }
 
   updateUserForm(user: User) {
     this.isUpdateFormVisible = true;
     this.currentUser = user;
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDialogElement);
+    this.modalAdd.style.display = 'block';
   }
 
   deleteUser(id: number) {
@@ -86,10 +89,12 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   userUpdated(user: User) {
     this.getUsers();
+    this.modalAdd.style.display = 'none';
   }
 
   cancelForm(flag: boolean) {
     this.isUpdateFormVisible = flag;
+    this.modalAdd.style.display = 'none';
   }
 
   ngOnDestroy(): void {

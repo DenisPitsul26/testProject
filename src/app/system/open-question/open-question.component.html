@@ -12,15 +12,21 @@
     </div>
   </div>
 </div>
+<div id="myModalAdd" class="modal">
+  <div class="modal-contentAdd">
+    <div class="modal-bodyAdd">
+      <div *ngIf="isAddFormVisible">
+        <app-open-question-add [currentQuestion]="currentQuestion"
+                               (addFormIsVisible)="cancelForm($event)"
+                               (newQuestionAdd)="newQuestionAdd($event)"></app-open-question-add>
+      </div>
+    </div>
+  </div>
+</div>
 <div *ngIf="!isLoaded" class="text-center1">
   <app-loader></app-loader>
 </div>
 <div @fade *ngIf="isLoaded">
-  <div *ngIf="isAddFormVisible">
-    <app-open-question-add [currentQuestion]="currentQuestion"
-                           (addFormIsVisible)="cancelForm($event)"
-                           (newQuestionAdd)="newQuestionAdd($event)"></app-open-question-add>
-  </div>
   <section class="section">
     <button class="btn btn-success1 btn btn-success" (click)="addQuestionForm()" *ngIf="!isAddFormVisible">Add</button>
     <div class="row">

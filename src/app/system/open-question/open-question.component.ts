@@ -23,12 +23,12 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   sub3: Subscription;
   controls: ControlWork[];
   modal: any;
+  modalAdd: any;
   temp: number;
   constructor(private questionService: OpenQuestionService, private controlWorksService: ControlWorksService) { }
 
   ngOnInit() {
     this.getQuestions();
-    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
   getQuestions() {
    this.isLoaded = false;
@@ -46,6 +46,8 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   addQuestionForm() {
     this.isAddFormVisible = true;
     this.currentQuestion = undefined;
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDivElement);
+    this.modalAdd.style.display = 'block';
   }
   confirmDialog() {
     this.sub1 = this.questionService.deleteQuestion(this.temp).subscribe(() => {
@@ -78,12 +80,16 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   }
   newQuestionAdd(quest: OpenQuestionModel) {
     this.getQuestions();
+    this.modalAdd.style.display = 'none';
   }
   cancelForm(flag: boolean) {
     this.isAddFormVisible = flag;
+    this.modalAdd.style.display = 'none';
   }
   updateQuestion(question: OpenQuestionModel) {
     this.isAddFormVisible = true;
     this.currentQuestion = question;
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDialogElement);
+    this.modalAdd.style.display = 'block';
   }
 }

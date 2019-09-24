@@ -12,18 +12,24 @@
     </div>
   </div>
 </div>
+<div id="myModalAdd" class="modal">
+  <div class="modal-contentAdd">
+    <div class="modal-bodyAdd">
+      <div *ngIf="isUpdateFormVisible">
+        <app-users-update [users]="users"
+                          [currentUser]="currentUser"
+                          (updateFormIsVisible)="cancelForm($event)"
+                          (userUpdated)="userUpdated($event)"
+        ></app-users-update>
+      </div>
+    </div>
+  </div>
+</div>
 <div *ngIf="!isLoaded" class="text-center1">
   <app-loader></app-loader>
 </div>
 <div @fade *ngIf="isLoaded">
   <section class="section">
-    <div *ngIf="isUpdateFormVisible">
-      <app-users-update [users]="users"
-                        [currentUser]="currentUser"
-                        (updateFormIsVisible)="cancelForm($event)"
-                        (userUpdated)="userUpdated($event)"
-      ></app-users-update>
-    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

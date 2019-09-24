@@ -23,13 +23,13 @@ export class TestingComponent implements OnInit, OnDestroy {
   controls: ControlWork[];
   isAddFormVisible = false;
   modal: any;
+  modalAdd: any;
   temp: number;
 
   constructor(private testsService: TestsService, private controlWorksService: ControlWorksService) { }
 
   ngOnInit() {
     this.getTests();
-    this.modal = (document.getElementById('myModal') as HTMLDialogElement);
   }
   getTests() {
     this.isLoaded = false;
@@ -52,21 +52,27 @@ export class TestingComponent implements OnInit, OnDestroy {
   }
 
   addTestForm() {
-    this.isAddFormVisible = true;
     this.currentTest = undefined;
+    this.isAddFormVisible = true;
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDivElement);
+    this.modalAdd.style.display = 'block';
   }
 
   cancelForm(flag: boolean) {
+    this.modalAdd.style.display = 'none';
     this.isAddFormVisible = flag;
   }
 
   updateTestForm(test: TestModel) {
     this.isAddFormVisible = true;
     this.currentTest = test;
-    this.getTests();
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDialogElement);
+    this.modalAdd.style.display = 'block';
+    // this.getTests();
   }
   newTestAdded(testModel: TestModel) {
     this.getTests();
+    this.modalAdd.style.display = 'none';
   }
 
   // currentTestUpdated(testModel) {

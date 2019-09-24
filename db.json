@@ -163,7 +163,7 @@
       "faculty": "IFTKN",
       "expectedControlWorks": [
         {
-          "theme": "control2",
+          "theme": "testmaster",
           "tests": [
             {
               "question": "test11",
@@ -191,24 +191,56 @@
               "id": 2
             },
             {
-              "question": "test3",
+              "question": "jbjhbjkbddf",
               "answers": [
-                "1",
-                "2",
-                "3"
+                "111",
+                "2266",
+                "333",
+                "443"
               ],
               "correctAnswers": [
-                1,
                 2
               ],
-              "id": 3
+              "id": 6
             }
           ],
-          "executionTime": 45,
+          "questions": [
+            {
+              "question": "first test question",
+              "id": 1
+            }
+          ],
+          "executionTime": 7,
           "id": 2
         },
         {
-          "theme": "control3",
+          "theme": "name",
+          "tests": [
+            {
+              "question": "test11",
+              "answers": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "correctAnswers": [
+                3
+              ],
+              "id": 1
+            }
+          ],
+          "questions": [
+            {
+              "question": "dsdfh lets try ad",
+              "id": 2
+            }
+          ],
+          "executionTime": 4,
+          "id": 3
+        },
+        {
+          "theme": "control work name",
           "tests": [
             {
               "question": "test11",
@@ -249,26 +281,13 @@
               "id": 3
             }
           ],
-          "executionTime": 45,
-          "id": 3
-        },
-        {
-          "theme": "control4",
-          "tests": [
+          "questions": [
             {
-              "question": "test2",
-              "answers": [
-                "1",
-                "2",
-                "3"
-              ],
-              "correctAnswers": [
-                1
-              ],
-              "id": 2
+              "question": "first test question",
+              "id": 1
             }
           ],
-          "executionTime": 20,
+          "executionTime": 2,
           "id": 4
         }
       ],
@@ -464,6 +483,17 @@
         2
       ],
       "id": 6
+    },
+    {
+      "question": "test",
+      "answers": [
+        "mnbmn",
+        "ghnm"
+      ],
+      "correctAnswers": [
+        1
+      ],
+      "id": 7
     }
   ],
   "controlWorks": [

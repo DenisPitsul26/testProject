@@ -12,16 +12,28 @@
     </div>
   </div>
 </div>
+<div id="myModalAdd" class="modal">
+  <div class="modal-contentAdd">
+    <div class="modal-bodyAdd">
+      <div *ngIf="isAddFormVisible">
+      <app-testing-add [currentTest]="currentTest"
+                       (addFormIsVisible)="cancelForm($event)"
+                       (newTestAdded)="newTestAdded($event)"
+      ></app-testing-add>
+      </div>
+    </div>
+  </div>
+</div>
 <div *ngIf="!isLoaded" class="text-center1">
   <app-loader></app-loader>
 </div>
 <div @fade *ngIf="isLoaded">
-  <div *ngIf="isAddFormVisible">
-    <app-testing-add [currentTest]="currentTest"
-                     (addFormIsVisible)="cancelForm($event)"
-                     (newTestAdded)="newTestAdded($event)"
-    ></app-testing-add>
-  </div>
+<!--  <div *ngIf="isAddFormVisible">-->
+<!--    <app-testing-add [currentTest]="currentTest"-->
+<!--                     (addFormIsVisible)="cancelForm($event)"-->
+<!--                     (newTestAdded)="newTestAdded($event)"-->
+<!--    ></app-testing-add>-->
+<!--  </div>-->
   <section class="section">
     <button class="btn btn-success btn btn-success1" (click)="addTestForm()" *ngIf="!isAddFormVisible">Add</button>
     <div class="row">

@@ -23,7 +23,7 @@
   </div>
   <section class="section">
     <button class="btn btn-success btn-success1" (click)="createControlWork()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Create</button>
-    <div class="row">
+    <div *ngIf="!isAddFormVisible" class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header bordered">
