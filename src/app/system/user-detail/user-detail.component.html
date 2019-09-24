@@ -25,7 +25,7 @@
               <li>Name: <strong>{{user.name}}</strong></li>
               <li>Email: <strong>{{user.email}}</strong></li>
               <li *ngIf="loginedUser.isAdmin === 1">Password: <strong>{{user.password}}</strong></li>
-              <li *ngIf="loginedUser.isAdmin === 1">isAdmin: <strong>{{user.isAdmin}}</strong></li>
+              <li *ngIf="loginedUser.isAdmin === 1">Role: <strong>{{role}}</strong></li>
               <li>Group: <strong>{{user.numberOfGroup}}</strong></li>
             </ul>
           </div>

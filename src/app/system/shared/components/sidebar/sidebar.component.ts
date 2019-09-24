@@ -21,7 +21,6 @@ export class SidebarComponent implements OnInit {
     if (this.router.url.includes('/write_control_work')) {
      this.isWriteControlWork = true;
     }
-    console.log(this.isWriteControlWork);
   }
 
 }

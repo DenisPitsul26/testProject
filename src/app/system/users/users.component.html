@@ -55,8 +55,8 @@
                 <td colspan="1" *ngIf="loginedUser.isAdmin === 1">{{user.isAdmin === 1 ? 'Admin' : user.isAdmin === 2 ? 'Teacher': 'Student'}}</td>
                 <td colspan="1">{{user.numberOfGroup}}</td>
                 <td colspan="1">
-                  <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateUserForm(user)"></i></button>
-                  <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteUser(user.id)"></i></button>
+                  <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-refresh" (click)="updateUserForm(user)"></i></button>
+                  <button *ngIf="loginedUser.isAdmin === 1" type="button" class="btn"><i class="fa fa-trash" (click)="deleteUser(user.id)"></i></button>
                 </td>
                 <td colspan="1" class="text-lg-center">
                   <a [routerLink]="['/user', user.id]" class="btn btn-primary-outline">Open</a>

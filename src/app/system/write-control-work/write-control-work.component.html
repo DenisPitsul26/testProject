@@ -6,8 +6,7 @@
     <div class="card-block">
       <div class="card-header">
       <div class="form-group">
-        <h2 style="margin: 10px">{{question}}</h2>
-        <h2 style="margin: 10px">{{ counterTime$ | async | numberToTime}}</h2>
+        <h2 style="margin: 8px">{{ counterTime$ | async | numberToTime}}</h2>
       </div>
       <div class="form-group horizontal">
         <div style="margin: 8px" *ngFor="let number of numberOfTests | myCount; let idx = index" class="switch">
@@ -16,24 +15,41 @@
         <!--<hr>-->
       </div>
       </div>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>Answers</th>
-          <th class="text-lg-center" colspan="2">Correct</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let answer of answers let idx = index">
-          <th scope="row">{{idx+1}}</th>
-          <td>{{answer}}</td>
-          <td><input (change)="onTestChecked($event)" type="checkbox" class="form-check" [id]="(idx+1)"></td>
-          <td class="text-lg-center">
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div>
+        <h3 style="margin: 10px">{{question}}</h3>
+      </div>
+      <div *ngIf="isCloseTest">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Answers</th>
+            <th class="text-lg-center" colspan="2">Correct</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let answer of answers let idx = index">
+            <th scope="row">{{idx+1}}</th>
+            <td>{{answer}}</td>
+            <td><input (change)="onTestChecked($event)" type="checkbox" class="form-check" [id]="(idx+1)"></td>
+            <td class="text-lg-center">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="!isCloseTest">
+        <div class="form-group container" style="padding: 20px">
+          <div class="row">
+            <img class="first" *ngIf="imageUrl !== ''" [src]="imageUrl"
+                 style="width:auto; max-width: 500px; height:auto; max-height:300px">
+          </div>
+          <div class="row">
+            <textarea class="second" style="width:500px; height:300px;" id="openAnswer"></textarea>
+          </div>
+        </div>
+      </div>
+
       <div class="buttons">
       <button class="btn btn-primary" type="submit" id="answer" [disabled]="!required" (click)="Ok()">Answer</button>
       <button style="margin-left: 10px" class="btn btn-success" type="submit" [disabled]="!required" (click)="completeTest()">Сomplete</button>

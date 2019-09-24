@@ -23,6 +23,7 @@
               <tr>
                 <th>#</th>
                 <th colspan="1">Question</th>
+                <th colspan="1">Type</th>
                 <th class="text-lg-center" colspan="2">Action</th>
               </tr>
               </thead>
@@ -30,6 +31,7 @@
               <tr *ngFor="let question of questions let idx = index">
                 <th scope="row">{{idx+1}}</th>
                 <td colspan="1">{{question.question}}</td>
+                <td colspan="1">{{isImageQuestion[idx] ? 'image' : 'text'}}</td>
                 <td colspan="1">
                   <button type="button" class="btn"><i class="fa fa-refresh" (click)="updateQuestion(question)"></i></button>
                   <button type="button" class="btn"><i class="fa fa-trash" (click)="deleteQuestion(question.id)"></i></button>

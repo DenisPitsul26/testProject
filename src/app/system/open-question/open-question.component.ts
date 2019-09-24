@@ -22,6 +22,8 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   sub2: Subscription;
   sub3: Subscription;
   controls: ControlWork[];
+  isImageQuestion: boolean[] = [];
+
   constructor(private questionService: OpenQuestionService, private controlWorksService: ControlWorksService) { }
 
   ngOnInit() {
@@ -31,6 +33,13 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
    this.isLoaded = false;
    this.sub1 = this.questionService.getQuestions().subscribe((questions: OpenQuestionModel[]) => {
      this.questions = questions;
+     for (let i = 0; i < this.questions.length; i++) {
+       if (this.questions[i].url === '') {
+         this.isImageQuestion[i] = false;
+       } else {
+         this.isImageQuestion[i] = true;
+       }
+     }
      this.isLoaded = true;
    });
   }

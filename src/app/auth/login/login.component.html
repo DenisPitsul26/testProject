@@ -1,13 +1,14 @@
 <article class="card-body mx-auto" style="max-width: 400px;">
   <h4 class="card-title mt-3 text-center">Log In</h4>
 <!--  <p class="text-center">You have to login</p>-->
-  <p>
-    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Log in using Google Accounts</a>
-    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Log in using Facebook</a>
-  </p>
-  <p class="divider-text">
-    <span class="bg-white">OR</span>
-  </p>
+<!--  <p>-->
+<!--    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Log in using Google Accounts</a>-->
+<!--    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Log in using Facebook</a>-->
+<!--  </p>-->
+<!--  <p class="divider-text">-->
+<!--    <span class="bg-white">OR</span>-->
+<!--  </p>-->
+  <hr>
   <div @fade class="alert alert-{{message.type}}" *ngIf="message.text">{{message.text}}</div>
   <form [formGroup]="form" (ngSubmit)="login()">
     <div class="form-group input-group">

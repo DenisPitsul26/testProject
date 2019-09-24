@@ -19,12 +19,15 @@ export class OpenQuestionAddComponent implements OnInit, OnDestroy {
   sub2: Subscription;
   sub3: Subscription;
   questionModel: OpenQuestionModel;
+  imageUrl = '';
+  fileToUpload: File = null;
   constructor(private questionService: OpenQuestionService) { }
 
   ngOnInit() {
     setTimeout( () => {
     if (this.currentQuestion !== undefined) {
       (document.getElementById('question') as HTMLInputElement).value = this.currentQuestion.question;
+      this.imageUrl = this.currentQuestion.url;
     }
     }, 5);
   }
@@ -43,19 +46,31 @@ export class OpenQuestionAddComponent implements OnInit, OnDestroy {
     console.log(this.openQuestion);
     setTimeout( () => {
       if (this.currentQuestion === undefined) {
-        this.questionModel = new OpenQuestionModel(this.openQuestion);
+        this.questionModel = new OpenQuestionModel(this.openQuestion, this.imageUrl);
         this.sub2 = this.questionService.addQuestion(this.questionModel).subscribe( (questions: OpenQuestionModel) => {
           this.newQuestionAdd.emit(questions);
           this.addFormIsVisible.emit(false);
         });
       } else {
-        this.questionModel = new OpenQuestionModel(this.openQuestion, this.currentQuestion.id);
+        this.questionModel = new OpenQuestionModel(this.openQuestion, this.imageUrl, this.currentQuestion.id);
         this.sub3 = this.questionService.updateQuestion(this.questionModel).subscribe( (questions: OpenQuestionModel) => {
           this.newQuestionAdd.emit(questions);
           this.addFormIsVisible.emit(false);
         });
       }
     }, 10);
+  }
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+
+    // Show image preview
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    };
+    reader.readAsDataURL(this.fileToUpload);
+    console.log(this.fileToUpload);
   }
 
   ngOnDestroy(): void {

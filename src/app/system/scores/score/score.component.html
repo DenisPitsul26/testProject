@@ -10,7 +10,8 @@
         <th>#</th>
         <th>Name</th>
         <th *ngFor="let controlWork of groupOfLoginedUser.expectedControlWorks; let idx = index">
-          {{controlWork.theme}}: {{maxScores[idx]}}
+<!--          {{controlWork.theme}}: {{maxScores[idx]}}-->
+          {{controlWork.theme}}
         </th>
       </tr>
       </thead>
@@ -19,7 +20,21 @@
         <th scope="row">{{idx+1}}</th>
         <td>{{user.name}}</td>
         <td *ngFor="let controlWork of groupOfLoginedUser.expectedControlWorks; let idx1 = index">
-          {{scoresForAllControlWorksOfAllUsers[idx][idx1] === -1 ? 'no score' : scoresForAllControlWorksOfAllUsers[idx][idx1]}}
+          <span *ngIf="scoresForAllControlWorksOfAllUsers[idx][idx1] === -1;else second">
+            didn`t write
+          </span>
+          <ng-template #second>
+            <span *ngIf="scoresForAllControlWorksOfAllUsers[idx][idx1] === -2;else third">
+              not verified
+            </span>
+            <ng-template #third>
+              <span>
+                {{scoresForAllControlWorksOfAllUsers[idx][idx1]}}
+              </span>
+            </ng-template>
+          </ng-template>
+          <button *ngIf="(loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2) && scoresForAllControlWorksOfAllUsers[idx][idx1] !== -1"
+                  class="btn fa fa-check-circle-o" (click)="checkControlWork(idx, idx1)"></button>
         </td>
       </tr>
       </tbody>

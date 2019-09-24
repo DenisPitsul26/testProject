@@ -32,6 +32,7 @@ import { UsersUpdateComponent } from './users/users-update/users-update.componen
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { OpenQuestionComponent } from './open-question/open-question.component';
 import { OpenQuestionAddComponent } from './open-question/open-question-add/open-question-add.component';
+import { EvaluateTestComponent } from './evaluate-test/evaluate-test.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SystemRoutingModule, FormsModule, ReactiveFormsModule, SharedModule],
@@ -65,7 +66,8 @@ import { OpenQuestionAddComponent } from './open-question/open-question-add/open
     UsersUpdateComponent,
     FilterPipe,
     OpenQuestionComponent,
-    OpenQuestionAddComponent
+    OpenQuestionAddComponent,
+    EvaluateTestComponent
   ]
 })
 export class SystemModule {}

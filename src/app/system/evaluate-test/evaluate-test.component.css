@@ -1,0 +1,9 @@
+.question {
+  width: auto;
+  max-width: 970px;
+  height: max-content;
+  border: solid rgb(87, 87, 87) 1px;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px auto;
+}

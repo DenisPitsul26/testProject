@@ -18,6 +18,7 @@ import {AccessRoutingStudentGuard} from '../shared/services/access-routing-stude
 import {AccessRoutingTeacherGuard} from '../shared/services/access-routing-teacher.guard';
 import {AccessControlWorkGuard} from '../shared/services/access-control-work.guard';
 import {OpenQuestionComponent} from './open-question/open-question.component';
+import {EvaluateTestComponent} from './evaluate-test/evaluate-test.component';
 
 const routes: Routes = [
   // {path: '', component: SystemComponent, canActivate: [AuthGuard], children: [
@@ -34,7 +35,8 @@ const routes: Routes = [
     {path: 'choose_control_work', canActivate: [AccessRoutingTeacherGuard], component: ChooseControlWorkComponent},
     {path: 'user_profile', component: UserProfileComponent},
       {path: 'scores', component: ScoresComponent},
-      {path: 'open-question', component: OpenQuestionComponent}
+      {path: 'open-question', component: OpenQuestionComponent},
+      {path: 'evaluate-test', component: EvaluateTestComponent}
     ]
   }
 ];

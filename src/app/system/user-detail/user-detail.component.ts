@@ -21,18 +21,27 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   user: User;
   sub1: Subscription;
   loginedUser: User;
+  private role: string;
 
   constructor(private usersService: UserService, private groupsService: GroupService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getUser();
+    this.isLoaded = false;
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
+    this.getUser();
   }
   getUser() {
     this.isLoaded = false;
     this.sub1 = this.route.params.pipe(mergeMap((params: Params) => this.usersService.getUserById(params.id)))
       .subscribe((user: User) => {
         this.user = user;
+        if (this.user.isAdmin === 1) {
+          this.role = 'admin';
+        } else if (this.user.isAdmin === 2) {
+          this.role = 'teacher';
+        } else {
+          this.role = 'student';
+        }
         this.groupsService.getGroupById(this.user.groupId).subscribe((group1: Group) => {
           this.user.numberOfGroup = group1.group;
           this.isLoaded = true;

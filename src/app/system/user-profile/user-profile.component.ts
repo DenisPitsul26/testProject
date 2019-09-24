@@ -3,9 +3,11 @@ import {User} from '../../shared/models/user.model';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../shared/services/user.service';
 import {GroupService} from '../../shared/services/group.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {loggedIn} from '@angular/fire/auth-guard';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
+import {mergeMap} from 'rxjs/operators';
+import {Group} from '../../shared/models/group.model';
 
 
 @Component({
@@ -22,11 +24,15 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   oldPassword = '';
   newPassword = '';
   errorMessage = '';
-  constructor(private usersService: UserService) { }
+  constructor(private usersService: UserService, private groupService: GroupService) { }
 
   ngOnInit() {
+    this.isLoaded = false;
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
-    this.isLoaded = true;
+    this.sub1 = this.groupService.getGroupById(this.loginedUser.groupId).subscribe((group1: Group) => {
+      this.loginedUser.numberOfGroup = group1.group;
+      this.isLoaded = true;
+    });
   }
 
   ngOnDestroy(): void {
