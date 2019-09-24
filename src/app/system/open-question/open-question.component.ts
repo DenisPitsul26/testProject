@@ -66,7 +66,7 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
           if (this.controls[i].questions[j].id === id) {
             this.controls[i].questions.splice(j, 1);
             this.sub3 = this.controlWorksService.updateControl(this.controls[i]).subscribe( (control: ControlWork) => {
-              console.log(control);
+              // console.log(control);
             });
           }
         }
