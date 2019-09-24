@@ -119,6 +119,42 @@
       "groupId": 3,
       "resultsOfControlWorks": [],
       "id": 13
+    },
+    {
+      "email": "testtesttest@gmail.com",
+      "password": "testTest",
+      "name": "test",
+      "isAdmin": 0,
+      "groupId": 6,
+      "resultsOfControlWorks": [],
+      "id": 14
+    },
+    {
+      "email": "testtesttestestt@gmail.com",
+      "password": "testTest",
+      "name": "test",
+      "isAdmin": 0,
+      "groupId": 1,
+      "resultsOfControlWorks": [],
+      "id": 15
+    },
+    {
+      "email": "testtesttesttest@gmail.com",
+      "password": "testTest",
+      "name": "test",
+      "isAdmin": 0,
+      "groupId": 1,
+      "resultsOfControlWorks": [],
+      "id": 16
+    },
+    {
+      "email": "qwerty123@gmail.com",
+      "password": "testTest",
+      "name": "test",
+      "isAdmin": 0,
+      "groupId": 7,
+      "resultsOfControlWorks": [],
+      "id": 17
     }
   ],
   "groups": [

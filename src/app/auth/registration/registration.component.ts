@@ -17,8 +17,10 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private usersService: UserService, private groupService: GroupService, private router: Router) { }
 
+  groupsName: string[] = [];
   form: FormGroup;
   groups: Group[];
+  groupsFake: Group[];
   errorMessage = '';
 
   // passwordsDoNotMatch(controls: FormControl[]) {
@@ -34,6 +36,16 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     this.groupService.getGroups().subscribe((group: Group[]) => {
       this.groups = group;
+      this.groupsFake = this.groups;
+
+      for (let i = 0; i < this.groupsFake.length; i++) {
+        if (this.groupsFake[i].group === 'Admins') {
+          this.groupsFake.splice( i, 1);
+        }
+        if (this.groupsFake[i].group === 'Teachers') {
+          this.groupsFake.splice( i, 1);
+        }
+      }
     });
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this)),

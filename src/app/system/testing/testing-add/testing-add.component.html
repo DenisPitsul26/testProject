@@ -24,8 +24,8 @@
       <form #form="ngForm">
         <div class="form-group" #question>
           <label>Question</label>
-          <input type="text" class="form-control" placeholder="Input question" id="question"
-                 ngModel name="question" required>
+          <textarea type="text" class="form-control" placeholder="Input question" id="question"
+                    ngModel name="question" required></textarea>
         </div>
         <div class="form-group" *ngFor="let number of count | myCount; let idx = index" #answer>
           <label>Answer #{{number}}</label>
@@ -33,7 +33,7 @@
             <label>Correct answer </label>
             <input type="checkbox" class="form-control box" [id]="number+'c'">
           </div>
-          <input type="text" class="form-control" placeholder="Input answer" [id]="number" required>
+          <textarea  type="text" class="form-control" placeholder="Input answer" [id]="number" required></textarea>
         </div>
 <!--        <div class="form-group correct-answer" *ngFor="let number of count | myCount; let idx = index" #correctAnswer>-->
 <!--          <label>Correct answer #{{number}}</label>-->

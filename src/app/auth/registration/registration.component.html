@@ -37,7 +37,7 @@
       </div>
       <select required [ngModel]="1" formControlName="numberOfGroup" id="numberOfGroup" class="form-control"
               [ngClass]="{'has-error': form.get('numberOfGroup').invalid && form.get('numberOfGroup').touched}">
-        <option *ngFor="let g of groups" [value]="g.id">
+        <option *ngFor="let g of groupsFake" [value]="g.id">
           {{g.group}}
         </option>
       </select>

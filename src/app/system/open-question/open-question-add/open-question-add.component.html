@@ -4,8 +4,8 @@
       <form #form="ngForm">
         <div class="form-group">
           <label>Question: </label>
-          <input type="text" class="form-control" placeholder="Input question" id="question"
-                 ngModel name="question" required>
+          <textarea type="text" class="form-control" placeholder="Input question" id="question"
+                    ngModel name="question" required></textarea>
         </div>
         <button class="btn btn-success" type="submit" [disabled]="form.invalid" (click)="addUpdateQuestion()"> Save </button>
         <button class="btn btn-danger" type="submit" (click)="cancel()"> Cancel </button>
