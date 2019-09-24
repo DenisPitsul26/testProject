@@ -71,21 +71,34 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
           if (this.controls[i].questions[j].id === this.temp) {
             this.controls[i].questions.splice(j, 1);
             this.sub3 = this.controlWorksService.updateControl(this.controls[i]).subscribe( (control: ControlWork) => {
-              // console.log(control);
+              console.log(control);
             });
           }
         }
       }
     });
+    this.modal.style.display = 'none';
+  }
+  cancelDialog() {
+    this.modal.style.display = 'none';
+  }
+  deleteQuestion(id: number) {
+    this.modal = (document.getElementById('myModal') as HTMLDivElement);
+    this.modal.style.display = 'block';
+    this.temp = id;
   }
   newQuestionAdd(quest: OpenQuestionModel) {
     this.getQuestions();
+    this.modalAdd.style.display = 'none';
   }
   cancelForm(flag: boolean) {
     this.isAddFormVisible = flag;
+    this.modalAdd.style.display = 'none';
   }
   updateQuestion(question: OpenQuestionModel) {
     this.isAddFormVisible = true;
     this.currentQuestion = question;
+    this.modalAdd = (document.getElementById('myModalAdd') as HTMLDivElement);
+    this.modalAdd.style.display = 'block';
   }
 }

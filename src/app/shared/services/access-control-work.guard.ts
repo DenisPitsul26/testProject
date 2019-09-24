@@ -19,6 +19,10 @@ export class AccessControlWorkGuard implements CanActivate, CanActivateChild {
 
   constructor(private router: Router, private usersService: UserService, private groupsService: GroupService) {}
 
+  getCanActivateFlag() {
+    return this.canActivateFlag;
+  }
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
     if (this.loginedUser.isAdmin === 1) {

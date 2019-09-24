@@ -8,6 +8,8 @@ import {GroupService} from '../../shared/services/group.service';
 import {Group} from '../../shared/models/group.model';
 import {UserService} from '../../shared/services/user.service';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
+import {AccessDuringControlWorkService} from '../../shared/services/access-during-control-work.service';
+import {AccessControlWorkGuard} from '../../shared/services/access-control-work.guard';
 
 
 @Component({
@@ -31,7 +33,9 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
   constructor(private controlWorksService: ControlWorksService,
               private groupsService: GroupService,
               private usersService: UserService,
-              private router: Router) { }
+              private router: Router,
+              private accessDuringControlWorkService: AccessDuringControlWorkService,
+              private accessControlWorkGuard: AccessControlWorkGuard) { }
 
   ngOnInit() {
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
@@ -78,13 +82,18 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
     this.sub1.unsubscribe();
   }
   start(control: ControlWork) {
-    this.modal = (document.getElementById('myModal') as HTMLDivElement);
-    this.modal.style.display = 'block';
-    this.temporaryCW = control;
-    // this.router.navigate(['/write_control_work', control.id], { queryParams: { topic: control.theme } });
+    if (this.accessControlWorkGuard.getCanActivateFlag()) {
+      this.modal = (document.getElementById('myModal') as HTMLDivElement);
+      this.modal.style.display = 'block';
+      this.temporaryCW = control;
+    } else {
+      // для того CanActivateFlag був вже true на другий раз
+      this.router.navigate(['/write_control_work', control.id], { queryParams: { topic: control.theme } });
+    }
   }
   confirmDialog() {
     this.modal.style.display = 'none';
+    this.accessDuringControlWorkService.setIsWriteControlWork(true);
     this.router.navigate(['/write_control_work', this.temporaryCW.id], { queryParams: { topic: this.temporaryCW.theme } });
   }
   cancelDialog() {

@@ -13,6 +13,7 @@ import {take, map} from 'rxjs/operators';
 import {Observable, timer} from 'rxjs';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
 import {AnswerInOpenQuestions} from '../../shared/models/answer-in-open-questions';
+import {AccessDuringControlWorkService} from '../../shared/services/access-during-control-work.service';
 
 export let browserRefresh = false;
 
@@ -50,42 +51,27 @@ export class WriteControlWorkComponent implements OnInit {
   imageUrl: string;
   private subscription: Subscription;
   private allTime: number;
+  isConrtolWorlWithOpenQuestion = false;
   constructor(private controlWorkService: ControlWorksService,
               private usersService: UserService,
               private route: ActivatedRoute,
-              private router: Router) {
-    this.subscription = router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        browserRefresh = !router.navigated;
-      }
-    });
-      // --this.countTimeMinutes;
-      // this.counterTime$ = timer(0, 1000).pipe(
-      //   take(this.countTime),
-      //   map(() => --this.countTime)
-      //   );
-      // if (this.countTime <= 0) {
-      //   --this.countTimeMinutes;
-      //   this.countTime = 60;
-      // }
+              private router: Router,
+              private accessDuringControlWorkService: AccessDuringControlWorkService) {}
+
+  @HostListener('window:beforeunload', ['$event']) unloadHandler(event: Event) {
+    console.log('Processing beforeunload...');
+    // Do more processing...
+    event.returnValue = false;
   }
 
   ngOnInit() {
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
     this.isLoaded = false;
     this.completedTest = false;
-    // tslint:disable-next-line:only-arrow-functions
     history.pushState(null, null, document.URL);
     window.addEventListener('popstate', () => {
       history.pushState(null, null, document.URL);
     });
-    // window.addEventListener('beforeunload', (event) => {
-    //   // event.returnValue = false;
-    //   event.returnValue = false;
-    // });
-    // window.addEventListener('unload', () => {
-    //   event.returnValue = false;
-    // });
     this.sub1 = this.route.params.pipe(mergeMap((params: Params) => this.controlWorkService.getControlWorkById(params.id)))
         .subscribe((controlWork: ControlWork) => {
           this.usersService.getUserById(this.loginedUser.id).subscribe((user: User) => {
@@ -93,6 +79,8 @@ export class WriteControlWorkComponent implements OnInit {
             // this.resultsOfControlWorks = this.loginedUser.resultsOfControlWorks.map(x => Object.assign({}, x));
           });
           this.currentControlWork = controlWork;
+          this.isConrtolWorlWithOpenQuestion = this.currentControlWork.questions.length > 0;
+
           this.numberOfTests = this.currentControlWork.tests.length + this.currentControlWork.questions.length;
           this.question = this.currentControlWork.tests[this.count].question;
           this.answers = this.currentControlWork.tests[this.count].answers;
@@ -113,7 +101,7 @@ export class WriteControlWorkComponent implements OnInit {
             take(this.countTime),
             map(() => --this.countTime)
           );
-
+          this.accessDuringControlWorkService.setIsWriteControlWork(true);
           this.isLoaded = true;
           // document.getElementById('answer');
           this.userAnswers = new Array(this.currentControlWork.tests.length);
@@ -221,21 +209,37 @@ export class WriteControlWorkComponent implements OnInit {
         }
       }
     }
-    // window.localStorage.setItem('user', JSON.stringify(this.loginedUser));
     // console.log(this.userScore);
     if (this.loginedUser.isAdmin === 0) {
-      this.loginedUser.resultsOfControlWorks.push({
-        controlWork: this.currentControlWork,
-        answersOfOpenQuestion: this.answersInOpenQuestions,
-        scoreForTestPart: this.userScore,
-        score: 0,
-        isChecked: false
-      });
-      setTimeout(() => {
-        this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
-          localStorage.setItem('user', JSON.stringify(user));
+      if (this.isConrtolWorlWithOpenQuestion) {
+        this.loginedUser.resultsOfControlWorks.push({
+          controlWork: this.currentControlWork,
+          answersOfOpenQuestion: this.answersInOpenQuestions,
+          scoreForTestPart: this.userScore,
+          score: 0,
+          isChecked: false
         });
-      }, 1000);
+        setTimeout(() => {
+          this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
+            localStorage.setItem('user', JSON.stringify(user));
+            this.accessDuringControlWorkService.setIsWriteControlWork(false);
+          });
+        }, 1000);
+      } else {
+        this.loginedUser.resultsOfControlWorks.push({
+          controlWork: this.currentControlWork,
+          answersOfOpenQuestion: this.answersInOpenQuestions,
+          scoreForTestPart: this.userScore,
+          score: this.userScore,
+          isChecked: true
+        });
+        setTimeout(() => {
+          this.usersService.updateUser(this.loginedUser).subscribe((user: User) => {
+            localStorage.setItem('user', JSON.stringify(user));
+            this.accessDuringControlWorkService.setIsWriteControlWork(false);
+          });
+        }, 1000);
+      }
     }
   }
 
@@ -256,15 +260,4 @@ export class WriteControlWorkComponent implements OnInit {
       // tslint:disable-next-line:only-arrow-functions
     }
   }
-
-  @HostListener('window:beforeunload', ['$event']) unloadHandler(event: Event) {
-    console.log('Processing beforeunload...');
-    // Do more processing...
-    event.returnValue = false;
-  }
-  // @HostListener('window:unload', ['$event']) unloadHandler1(event: Event) {
-  //   this.completeTest();
-  //   // Do more processing...
-  //   // event.returnValue = false;
-  // }
 }

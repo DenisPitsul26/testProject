@@ -14,7 +14,7 @@
     <nav class="menu">
       <ul class="nav metismenu">
         <li routerLinkActive="active">
-          <a [class.disabled]="isWriteControlWork ? true: null"
+          <a [class.disabled]="(this.accessDuringControlWorkService.getIsWriteControlWork() && loginedUser.isAdmin !== 1) ? true: null"
             [routerLink]="['/system', 'user_profile']"> <i class="fa fa-building-o"></i> Your profile </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
@@ -33,11 +33,11 @@
           <a [routerLink]="['/system', 'groups']"> <i class="fa fa-archive"></i> Groups </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 0">
-          <a [class.disabled]="isWriteControlWork ? true: null"
+          <a [class.disabled]="(this.accessDuringControlWorkService.getIsWriteControlWork() && loginedUser.isAdmin !== 1) ? true: null"
              [routerLink]="['/system', 'choose_control_work']"> <i class="fa fa-archive"></i> Choose </a>
         </li>
         <li routerLinkActive="active">
-          <a [class.disabled]="isWriteControlWork ? true: null"
+          <a [class.disabled]="(this.accessDuringControlWorkService.getIsWriteControlWork() && loginedUser.isAdmin !== 1) ? true: null"
             [routerLink]="['/system', 'scores']"> <i class="fa fa-archive"></i> Scores </a>
         </li>
       </ul>

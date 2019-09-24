@@ -2,9 +2,14 @@
   <app-loader></app-loader>
 </div>
 <div @fade *ngIf="isLoaded">
-  <div style="padding: 20px">
+  <div *ngIf="isConrtolWorlWithOpenQuestion">
     <a [routerLink]="['/scores']"><i class="fa fa-arrow-left"></i></a>
     <div class="container" style="width: auto; max-width: 970px; margin-bottom: 10px">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Topic: {{currentControlWork.theme}}.</h4>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-6">
           <h4>{{currentStudent.name}} scored {{currentResultOfConrtolWork.scoreForTestPart}} points for the test part from {{maxScoreForTestPart}}.</h4>
@@ -13,35 +18,50 @@
           <input type="number" class="form-control" placeholder="Enter points for open-ended questions" [(ngModel)]="scoreForQuestion">
         </div>
         <div class="col-md-1">
-          <button class="btn btn-success" (click)="toEvaluate(scoreForQuestion)"
+          <button class="btn btn-success" (click)="toEvaluate()"
                   [disabled]="scoreForQuestion < 0">Evaluate</button>
         </div>
       </div>
     </div>
     <div class="form-group container question" style="padding: 20px">
-        <div *ngFor="let question of currentResultOfConrtolWork.controlWork.questions; let idx = index">
-          <div class="row" style="margin: 10px">
-            <h4>{{idx + 1}}</h4>
-            <div class="container">
-              <div class="row" style="background-color: #f3f4f5; margin-bottom: 10px; padding: 10px">
-                <h6>Question:</h6>
-                <pre>{{'\n'}}{{question.question}}</pre>
-              </div>
-              <div class="row">
-                <img class="first" *ngIf="question.url !== ''" [src]="question.url"
-                     style="width:auto; max-width: 500px; height:auto; max-height:300px">
-              </div>
-              <div class="row" style="background-color: #e9eaeb; margin-top: 10px; padding: 10px">
-                <h6>Answer:</h6>
-                <pre>{{'\n'}}{{currentResultOfConrtolWork.answersOfOpenQuestion[idx].answersOfOpenQuestion}}</pre>
-              </div>
-              <div class="row">
-                <hr>
-              </div>
+      <div *ngFor="let question of currentResultOfConrtolWork.controlWork.questions; let idx = index">
+        <div class="row" style="margin: 10px">
+          <h4>{{idx + 1}}</h4>
+          <div class="container">
+            <div class="row" style="background-color: #f3f4f5; margin-bottom: 10px; padding: 10px">
+              <h6>Question:</h6>
+              <pre>{{'\n'}}{{question.question}}</pre>
             </div>
-            <hr>
+            <div class="row">
+              <img class="first" *ngIf="question.url !== ''" [src]="question.url"
+                   style="width:auto; max-width: 500px; height:auto; max-height:300px">
+            </div>
+            <div class="row" style="background-color: #e9eaeb; margin-top: 10px; padding: 10px">
+              <h6>Answer:</h6>
+              <pre>{{'\n'}}{{currentResultOfConrtolWork.answersOfOpenQuestion[idx].answersOfOpenQuestion}}</pre>
+            </div>
+            <div class="row">
+              <hr>
+            </div>
           </div>
+          <hr>
         </div>
+      </div>
+    </div>
+  </div>
+  <div  *ngIf="!isConrtolWorlWithOpenQuestion">
+    <a [routerLink]="['/scores']"><i class="fa fa-arrow-left"></i></a>
+    <div class="container" style="width: auto; max-width: 970px; margin-bottom: 10px">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Topic: {{currentControlWork.theme}}.</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>{{currentStudent.name}} scored {{currentResultOfConrtolWork.scoreForTestPart}} points for the control work from {{maxScoreForTestPart}}.</h4>
+        </div>
+      </div>
     </div>
   </div>
 </div>

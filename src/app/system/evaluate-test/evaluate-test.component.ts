@@ -24,6 +24,7 @@ export class EvaluateTestComponent implements OnInit, OnDestroy {
   private maxScoreForTestPart = 0;
   private sub2: Subscription;
   scoreForQuestion = 0;
+  private isConrtolWorlWithOpenQuestion = false;
 
   constructor(private route: ActivatedRoute,
               private controlWorkService: ControlWorksService,
@@ -31,7 +32,6 @@ export class EvaluateTestComponent implements OnInit, OnDestroy {
               private router: Router) { }
 
   ngOnInit() {
-
     this.isLoaded = false;
     this.sub1 = this.route.queryParams
       .pipe(mergeMap((params: Params) => combineLatest(
@@ -42,11 +42,11 @@ export class EvaluateTestComponent implements OnInit, OnDestroy {
       .subscribe((data: [User, ControlWork]) => {
         this.currentStudent = data[0];
         this.currentControlWork = data[1];
+        this.isConrtolWorlWithOpenQuestion = this.currentControlWork.questions.length > 0;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.currentStudent.resultsOfControlWorks.length; i++) {
           if (this.currentStudent.resultsOfControlWorks[i].controlWork.id === this.currentControlWork.id) {
             this.currentResultOfConrtolWork = this.currentStudent.resultsOfControlWorks[i];
-            console.log('ddddddd', this.currentResultOfConrtolWork.scoreForTestPart);
             break;
           }
         }

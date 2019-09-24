@@ -1,5 +1,13 @@
-<div class="text-lg-center">
-  <h2>Your score for the test part - {{userScore}} from {{maxScore}}.</h2>
-  <h2>Wait for your teacher to evaluate the whole test.</h2>
-  <button class="btn btn-primary" [routerLink]="'/choose_control_work'">Go home</button>
+<div *ngIf="isConrtolWorlWithOpenQuestion">
+  <div class="text-lg-center">
+    <h2>Your score for the test part - {{userScore}} from {{maxScore}}.</h2>
+    <h2>Wait for your teacher to evaluate the whole test.</h2>
+    <button class="btn btn-primary" [routerLink]="'/choose_control_work'">Go home</button>
+  </div>
+</div>
+<div *ngIf="!isConrtolWorlWithOpenQuestion">
+  <div class="text-lg-center">
+    <h2>Your score for the control work - {{userScore}} from {{maxScore}}.</h2>
+    <button class="btn btn-primary" [routerLink]="'/choose_control_work'">Go home</button>
+  </div>
 </div>

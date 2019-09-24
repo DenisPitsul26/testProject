@@ -8,7 +8,9 @@
             <span class="name">
               Hello, {{user.name}}
             </span>
-            <button type="button" class="btn"><i class="fa fa-trash" (click)="onLogout()"></i></button>
+            <button [disabled]="this.accessDuringControlWorkService.getIsWriteControlWork() ? true: null" type="button" class="btn" (click)="onLogout()">
+              <i class="fa fa-trash"></i>
+            </button>
         <!--  </a> -->
           <div class="dropdown-menu profile-dropdown-menu">
             <a class="dropdown-item" [routerLink]="['/users']">

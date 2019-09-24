@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Subscription} from 'rxjs';
 import {User} from '../../../../shared/models/user.model';
 import {Router} from '@angular/router';
+import {AccessDuringControlWorkService} from '../../../../shared/services/access-during-control-work.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,16 +12,16 @@ import {Router} from '@angular/router';
 export class SidebarComponent implements OnInit {
   sub1: Subscription;
   loginedUser: User;
-  isWriteControlWork = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private accessDuringControlWorkService: AccessDuringControlWorkService) { }
 
   ngOnInit() {
-    this.isWriteControlWork = false;
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
-    if (this.router.url.includes('/write_control_work')) {
-     this.isWriteControlWork = true;
-    }
+    // if (this.router.url.includes('/write_control_work')) {
+    //  this.isWriteControlWork = true;
+    // } else {
+    //   this.isWriteControlWork = false;
+    // }
   }
 
 }

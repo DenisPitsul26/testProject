@@ -1,3 +1,7 @@
+section div {
+  margin-left: 0;
+}
+
 .checked {
   font-size:20px;
   position:relative;
