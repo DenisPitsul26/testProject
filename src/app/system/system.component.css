@@ -5,7 +5,7 @@ article.dashboard-page {
   width: max-content;
   height: max-content;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: flex-start;
   background-color: white;
   text-align: left;
