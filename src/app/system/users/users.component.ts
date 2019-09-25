@@ -62,7 +62,7 @@ export class UsersComponent implements OnInit, OnDestroy {
       }
       this.isLoaded = true;
     });
-    this.modalAdd.style.display = 'none';
+    // this.modalAdd.style.display = 'none';
   }
 
   updateUserForm(user: User) {

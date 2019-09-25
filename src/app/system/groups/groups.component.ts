@@ -5,6 +5,7 @@ import {GroupService} from '../../shared/services/group.service';
 import {group} from '@angular/animations';
 import {User} from '../../shared/models/user.model';
 import {fadeStateTrigger} from '../../shared/animations/fade.animation';
+import {UserService} from '../../shared/services/user.service';
 
 
 @Component({
@@ -26,7 +27,9 @@ export class GroupsComponent implements OnInit, OnDestroy {
   modalAdd: any;
   modalAddApp: any;
   temp: number;
-  constructor(private groupService: GroupService) { }
+  private sub2: Subscription;
+  private studentsOfCurrentGroup: User[];
+  constructor(private groupService: GroupService, private userService: UserService) { }
 
   ngOnInit() {
     this.getGroups();
@@ -79,9 +82,18 @@ export class GroupsComponent implements OnInit, OnDestroy {
     this.modal.style.display = 'none';
   }
   deleteGroup(id: number) {
-    this.modal = (document.getElementById('myModal') as HTMLDivElement);
-    this.modal.style.display = 'block';
-    this.temp = id;
+    this.sub2 = this.userService.getUsersByGroupId(id).subscribe((users: User[]) => {
+      this.studentsOfCurrentGroup = users;
+      if (users.length > 0) {
+        this.modal = (document.getElementById('myModal') as HTMLDivElement);
+        this.modal.style.display = 'block';
+        this.temp = id;
+      } else {
+        this.modal = (document.getElementById('myModal1Forbidden') as HTMLDivElement);
+        this.modal.style.display = 'block';
+        this.temp = id;
+      }
+    });
   }
 
   toAppointForm(group1: Group) {

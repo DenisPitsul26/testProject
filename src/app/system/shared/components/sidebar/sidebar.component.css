@@ -8,7 +8,7 @@ aside.sidebar {
 
 nav.menu {
   height: 100%;
-  background-color: rgba(254, 94, 62, 0.65);
+  background-color: #f1841b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,10 +25,8 @@ ul {
 
 
 div.sidebar-header {
-  background-image: url("https://pbs.twimg.com/profile_images/875212307810230272/RsXnUQ-5.jpg");
   height: 10vh;
   background-size: 100% 100%;
-
 }
 
 li {
@@ -40,13 +38,13 @@ li {
 .metismenu a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #ffffff;
   display: block;
 }
 
 .metismenu li:hover{
-  background-color: #d30d0e;
+  background-color: #d33200;
 
 }
 

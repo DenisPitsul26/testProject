@@ -5,7 +5,7 @@
   <div class="title-block">
     <h3 class="title">
       <a [routerLink]="['/users']"><i class="fa fa-arrow-left"></i></a>
-      User № {{loginedUser.id}}
+      {{loginedUser.name}}
       <span class="sparkline bar"></span>
     </h3>
   </div>
@@ -16,13 +16,12 @@
           <div class="card-header">
             <div class="header-block">
               <p class="title">
-                User
+                <strong>{{role}}</strong>
               </p>
             </div>
           </div>
           <div class="card-block">
             <ul>
-              <li>Name: <strong>{{loginedUser.name}}</strong></li>
               <li>Email: <strong>{{loginedUser.email}}</strong></li>
               <li>Password: <strong class="checked">{{loginedUser.password}}</strong></li>
               <li>Group: <strong>{{loginedUser.numberOfGroup}}</strong></li>

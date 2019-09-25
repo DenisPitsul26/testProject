@@ -12,6 +12,17 @@ div {
   margin-left: 0;
 }
 
+td {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+}
+th {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+}
+
 div .input-group-prepend {
   height: 38px;
 }

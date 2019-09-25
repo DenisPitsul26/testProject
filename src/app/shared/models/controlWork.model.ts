@@ -8,5 +8,11 @@ export class ControlWork {
               public executionTime?: number,
               public id?: number
   ) {}
+  start() {
+    console.log('started');
+  }
+  finish() {
+    console.log('finished');
+  }
 
 }

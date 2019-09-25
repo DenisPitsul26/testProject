@@ -39,11 +39,14 @@ export class AccessControlWorkGuard implements CanActivate, CanActivateChild {
                   for (let j = 0; j < this.loginedUser.resultsOfControlWorks.length; j++) {
                     if (this.controlWork[i].id === this.loginedUser.resultsOfControlWorks[j].controlWork.id) {
                       this.canActivateFlag = true;
+                      return this.canActivateFlag;
                     }
                   }
                 }
               } else {
+                console.log('fssdfds');
                 this.canActivateFlag = true;
+                return this.canActivateFlag;
               }
             });
           });
@@ -58,7 +61,9 @@ export class AccessControlWorkGuard implements CanActivate, CanActivateChild {
             }
           });
     }
-    return this.canActivateFlag;
+    setTimeout(() => {
+      return this.canActivateFlag;
+    }, 1000);
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

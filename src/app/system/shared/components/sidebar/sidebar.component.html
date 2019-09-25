@@ -1,7 +1,8 @@
 <aside class="sidebar">
   <div class="sidebar-container">
     <div class="sidebar-header">
-      <div class="brand">
+      <img src="../../../../../assets/quiz1.PNG" height="65" width="200"/>
+      <!--      <div class="brand">-->
        <!--<div class="logo">
           <span class="l l1"></span>
          <span class="l l2"></span>
@@ -9,36 +10,37 @@
          <span class="l l4"></span>
           <span class="l l5"></span>
        </div> -->
-      </div>
+<!--      </div>-->
     </div>
     <nav class="menu">
       <ul class="nav metismenu">
         <li routerLinkActive="active">
           <a [class.disabled]="(this.accessDuringControlWorkService.getIsWriteControlWork() && loginedUser.isAdmin !== 1) ? true: null"
-            [routerLink]="['/system', 'user_profile']"> <i class="fa fa-building-o"></i> Your profile </a>
+            [routerLink]="['/system', 'user_profile']"> <i class="fa fa-user"></i> Your profile </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
-          <a [routerLink]="['/system', 'users']"> <i class="fa fa-building-o"></i> Users </a>
+          <a [routerLink]="['/system', 'users']"> <i class="fa fa-users"></i> User </a>
         </li>
+<!--        fa fa-mail-reply-->
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
-          <a [routerLink]="['/system', 'control_works']"> <i class="fa fa-flash"></i> Control works </a>
+          <a [routerLink]="['/system', 'control_works']"> <i class="fa fa-server"></i> Test </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">
-          <a [routerLink]="['/system', 'tests']"> <i class="fa fa-flash"></i> Tests </a>
+          <a [routerLink]="['/system', 'tests']"> <i class="fa fa-check-square-o"></i> Close Question </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1">
-          <a [routerLink]="['/system', 'open-question']"> <i class="fa fa-flash"></i> Question</a>
+          <a [routerLink]="['/system', 'open-question']"> <i class="fa fa-edit"></i> Open Question</a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 2">
-          <a [routerLink]="['/system', 'groups']"> <i class="fa fa-archive"></i> Groups </a>
+          <a [routerLink]="['/system', 'groups']"> <i class="fa fa-group"></i> Group </a>
         </li>
         <li routerLinkActive="active" *ngIf="loginedUser.isAdmin === 1 || loginedUser.isAdmin === 0">
           <a [class.disabled]="(this.accessDuringControlWorkService.getIsWriteControlWork() && loginedUser.isAdmin !== 1) ? true: null"
-             [routerLink]="['/system', 'choose_control_work']"> <i class="fa fa-archive"></i> Choose </a>
+             [routerLink]="['/system', 'choose_control_work']"> <i class="fa fa-pencil"></i> Write test </a>
         </li>
         <li routerLinkActive="active">
           <a [class.disabled]="(this.accessDuringControlWorkService.getIsWriteControlWork() && loginedUser.isAdmin !== 1) ? true: null"
-            [routerLink]="['/system', 'scores']"> <i class="fa fa-archive"></i> Scores </a>
+            [routerLink]="['/system', 'scores']"> <i class="fa fa-sort-numeric-desc"></i> Scores </a>
         </li>
       </ul>
     </nav>

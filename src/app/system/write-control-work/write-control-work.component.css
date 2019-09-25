@@ -9,6 +9,28 @@
   height: 10px;
 }
 
+.text1 {
+  width: auto;
+  height: auto;
+  min-width: 150px;
+  max-width: 300px;
+}
+
+.question {
+  width: auto;
+  height: auto;
+  max-width: 500px;
+  margin: 10px;
+}
+
+.timer {
+  width: auto;
+  height: auto;
+  max-width: 150px;
+  min-width: 100px;
+  margin: 10px;
+}
+
 .card-block {
   width: max-content;
   height: max-content;

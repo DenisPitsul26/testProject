@@ -1,15 +1,15 @@
 <header class="header">
   <div class="header-block header-block-search col-md-12">
-    {{date | date: 'dd.MM.yyyy'}}
+    <a>{{date | date: 'dd.MM.yyyy'}}</a>
     <div class="header-block header-block-nav">
       <ul class="nav-profile">
         <li class="profile dropdown" appDropdown [ngClass]="{'open': true}">
          <!-- <a class="nav-link dropdown-toggle" role="button"> -->
-            <span class="name">
+            <a class="name">
               Hello, {{user.name}}
-            </span>
+            </a>
             <button [disabled]="this.accessDuringControlWorkService.getIsWriteControlWork() ? true: null" type="button" class="btn" (click)="onLogout()">
-              <i class="fa fa-trash"></i>
+              <i class="fa fa-sign-out"></i>
             </button>
         <!--  </a> -->
           <div class="dropdown-menu profile-dropdown-menu">

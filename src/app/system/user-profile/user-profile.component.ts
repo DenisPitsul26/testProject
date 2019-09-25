@@ -24,6 +24,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   oldPassword = '';
   newPassword = '';
   errorMessage = '';
+  role = '';
   constructor(private usersService: UserService, private groupService: GroupService) { }
 
   ngOnInit() {
@@ -31,6 +32,13 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.loginedUser = JSON.parse(localStorage.getItem('user'));
     this.sub1 = this.groupService.getGroupById(this.loginedUser.groupId).subscribe((group1: Group) => {
       this.loginedUser.numberOfGroup = group1.group;
+      if (this.loginedUser.isAdmin === 1) {
+        this.role = 'Admin';
+      } else if (this.loginedUser.isAdmin === 2) {
+        this.role = 'Teacher';
+      } else {
+        this.role = 'Student';
+      }
       this.isLoaded = true;
     });
   }
