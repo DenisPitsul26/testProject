@@ -21,7 +21,7 @@
       <h3>You cannot delete this group until it contains at least 1 student.</h3>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-success btn-dialog" type="submit" (click)="cancelDialog()">Ok</button>
+      <button class="btn btn-success btn-dialog" type="submit" (click)="cancelDialogF()">Ok</button>
     </div>
   </div>
 </div>
@@ -63,7 +63,7 @@
 <!--    ></app-appoint-control-work>-->
 <!--  </div>-->
   <section class="section">
-    <button class="btn btn-success btn btn-success1" (click)="addGroupForm()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Add</button>
+    <button class="btn btn-success btn btn-success1" (click)="addGroupForm()" *ngIf="(!isAddFormVisible && loginedUser.isAdmin === 1) && !isAppointFormVisible">Add</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

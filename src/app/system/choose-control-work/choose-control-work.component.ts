@@ -75,9 +75,6 @@ export class ChooseControlWorkComponent implements OnInit, OnDestroy {
       });
     }
   }
-  spanOnClick() {
-    this.modal.style.display = 'none';
-  }
   ngOnDestroy(): void {
     this.sub1.unsubscribe();
   }

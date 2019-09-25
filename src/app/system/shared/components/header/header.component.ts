@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   date: Date = new Date();
   user: User;
+  modalSide: any;
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -26,10 +27,16 @@ export class HeaderComponent implements OnInit {
     //   this.isWriteControlWork = false;
     // }
   }
-
-  onLogout() {
+  cancelDialog() {
+    this.modalSide.style.display = 'none';
+  }
+  confirmDialog() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+  onLogout() {
+    this.modalSide = (document.getElementById('myModalSide') as HTMLDivElement);
+    this.modalSide.style.display = 'block';
   }
 
 }

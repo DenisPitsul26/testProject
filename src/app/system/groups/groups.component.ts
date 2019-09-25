@@ -24,6 +24,7 @@ export class GroupsComponent implements OnInit, OnDestroy {
   currentGroup: Group;
   loginedUser: User;
   modal: any;
+  modalF: any;
   modalAdd: any;
   modalAddApp: any;
   temp: number;
@@ -81,16 +82,20 @@ export class GroupsComponent implements OnInit, OnDestroy {
   cancelDialog() {
     this.modal.style.display = 'none';
   }
+  cancelDialogF() {
+    this.modalF.style.display = 'none';
+  }
   deleteGroup(id: number) {
     this.sub2 = this.userService.getUsersByGroupId(id).subscribe((users: User[]) => {
-      this.studentsOfCurrentGroup = users;
+      this.studentsOfCurrentGroup = users
+      this.modal = (document.getElementById('myModal') as HTMLDivElement);
       if (users.length > 0) {
         this.modal = (document.getElementById('myModal') as HTMLDivElement);
         this.modal.style.display = 'block';
         this.temp = id;
       } else {
-        this.modal = (document.getElementById('myModal1Forbidden') as HTMLDivElement);
-        this.modal.style.display = 'block';
+        this.modalF = (document.getElementById('myModal1Forbidden') as HTMLDivElement);
+        this.modalF.style.display = 'block';
         this.temp = id;
       }
     });
