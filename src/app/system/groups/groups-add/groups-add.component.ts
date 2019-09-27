@@ -75,33 +75,46 @@ export class GroupsAddComponent implements OnInit, OnDestroy {
         });
       }
     } else {
+      this.flag = false;
       this.group = new Group(this.form1.value.numberOfGroup, this.form1.value.faculty,
         this.appointedControlWorks, this.currentGroup.id);
-      this.sub1 = this.groupsService.updateGroup(this.group).subscribe((group1) => {
-        this.newGroupAdded.emit(group1);
-        this.form1.reset();
-        this.addFormIsVisible.emit(false);
-      });
-      this.sub2 = this.userService.getAllUsers().subscribe((users: User[]) => {
-        // tslint:disable-next-line:prefer-for-of
-        for (let i = 0; i < users.length; i++) {
-          for (let j = 0; j < users[i].resultsOfControlWorks.length; j++) {
-            let flag = false;
-            // tslint:disable-next-line:prefer-for-of
-            for (let k = 0; k < this.appointedControlWorks.length; k++) {
-              if (users[i].resultsOfControlWorks[j].controlWork.id === this.appointedControlWorks[k].id) {
-                 flag = true;
+      for (const group1 of this.groups) {
+        if (this.group.group === group1.group) {
+          this.flag = true;
+        }
+      }
+      if (!this.flag) {
+        this.sub1 = this.groupsService.updateGroup(this.group).subscribe((group1) => {
+          this.newGroupAdded.emit(group1);
+          this.form1.reset();
+          this.addFormIsVisible.emit(false);
+        });
+        this.sub2 = this.userService.getAllUsers().subscribe((users: User[]) => {
+          // tslint:disable-next-line:prefer-for-of
+          for (let i = 0; i < users.length; i++) {
+            for (let j = 0; j < users[i].resultsOfControlWorks.length; j++) {
+              let flag = false;
+              // tslint:disable-next-line:prefer-for-of
+              for (let k = 0; k < this.appointedControlWorks.length; k++) {
+                if (users[i].resultsOfControlWorks[j].controlWork.id === this.appointedControlWorks[k].id) {
+                  flag = true;
+                }
+              }
+              if (!flag) {
+                users[i].resultsOfControlWorks.splice(j, 1);
+                this.userService.updateUser(users[i]).subscribe((user: User) => {
+                  // console.log('user', user);
+                });
               }
             }
-            if (!flag) {
-              users[i].resultsOfControlWorks.splice(j, 1);
-              this.userService.updateUser(users[i]).subscribe((user: User) => {
-                // console.log('user', user);
-              });
-            }
           }
-        }
-      });
+        });
+      } else {
+        this.showMessage({
+          text: 'This group already exists',
+          type: 'warning'
+        });
+      }
     }
   }
   cancel() {

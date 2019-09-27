@@ -8,7 +8,6 @@ import {RouterModule} from '@angular/router';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {LoaderComponent} from '../shared/components/loader/loader.component';
 import {SharedModule} from '../shared/shared.module';
 
 @NgModule({

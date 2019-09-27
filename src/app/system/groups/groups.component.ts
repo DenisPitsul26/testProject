@@ -89,7 +89,7 @@ export class GroupsComponent implements OnInit, OnDestroy {
     this.sub2 = this.userService.getUsersByGroupId(id).subscribe((users: User[]) => {
       this.studentsOfCurrentGroup = users
       this.modal = (document.getElementById('myModal') as HTMLDivElement);
-      if (users.length > 0) {
+      if (users.length === 0) {
         this.modal = (document.getElementById('myModal') as HTMLDivElement);
         this.modal.style.display = 'block';
         this.temp = id;

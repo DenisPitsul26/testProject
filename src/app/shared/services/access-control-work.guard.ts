@@ -61,9 +61,7 @@ export class AccessControlWorkGuard implements CanActivate, CanActivateChild {
             }
           });
     }
-    setTimeout(() => {
-      return this.canActivateFlag;
-    }, 1000);
+    return this.canActivateFlag;
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

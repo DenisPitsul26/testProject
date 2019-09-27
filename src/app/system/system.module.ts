@@ -7,8 +7,8 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { UsersComponent } from './users/users.component';
 import { GroupsComponent } from './groups/groups.component';
 import { ControlWorksComponent } from './control-works/control-works.component';
-import {RouterModule} from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestingComponent } from './testing/testing.component';
 import { TestingDetailComponent } from './testing-detail/testing-detail.component';
 import { ControlWorkDetailComponent } from './control-work-detail/control-work-detail.component';

@@ -28,6 +28,16 @@ export class ScoresComponent implements OnInit, OnDestroy {
     if (this.loginedUser.isAdmin === 1 || this.loginedUser.isAdmin === 2) {
       this.sub1 = this.groupService.getGroups().subscribe((groups1: Group[]) => {
         this.groups = groups1;
+        for (let i = 0; i < this.groups.length; i++) {
+          if (this.groups[i].group === 'Teachers') {
+            this.groups.splice(i, 1);
+          }
+        }
+        for (let i = 0; i < this.groups.length; i++) {
+          if (this.groups[i].group === 'Admins') {
+            this.groups.splice(i, 1);
+          }
+        }
         this.isLoaded = true;
       });
     } else {
