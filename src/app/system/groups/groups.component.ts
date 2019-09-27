@@ -28,6 +28,7 @@ export class GroupsComponent implements OnInit, OnDestroy {
   modalAdd: any;
   modalAddApp: any;
   temp: number;
+  isDeleteAvailable = false;
   private sub2: Subscription;
   private studentsOfCurrentGroup: User[];
   constructor(private groupService: GroupService, private userService: UserService) { }
@@ -78,25 +79,30 @@ export class GroupsComponent implements OnInit, OnDestroy {
       this.getGroups();
     });
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   cancelDialog() {
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   cancelDialogF() {
     this.modalF.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   deleteGroup(id: number) {
     this.sub2 = this.userService.getUsersByGroupId(id).subscribe((users: User[]) => {
-      this.studentsOfCurrentGroup = users
+      this.studentsOfCurrentGroup = users;
       this.modal = (document.getElementById('myModal') as HTMLDivElement);
       if (users.length > 0) {
         this.modal = (document.getElementById('myModal') as HTMLDivElement);
         this.modal.style.display = 'block';
         this.temp = id;
+        this.isDeleteAvailable = true;
       } else {
         this.modalF = (document.getElementById('myModal1Forbidden') as HTMLDivElement);
         this.modalF.style.display = 'block';
         this.temp = id;
+        this.isDeleteAvailable = true;
       }
     });
   }

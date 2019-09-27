@@ -1,5 +1,5 @@
-<div id="myModal" class="modal">
-  <div class="modal-content">
+<div id="myModal" class="modal" >
+  <div class="modal-content" >
     <div class="modal-header">
       <h2>Warning!</h2>
     </div>
@@ -63,7 +63,7 @@
 <!--    ></app-appoint-control-work>-->
 <!--  </div>-->
   <section class="section">
-    <button class="btn btn-success btn btn-success1" (click)="addGroupForm()" *ngIf="(!isAddFormVisible && loginedUser.isAdmin === 1) && !isAppointFormVisible">Add</button>
+    <button class="btn btn-success btn btn-success1" (click)="addGroupForm()" *ngIf="(!isAddFormVisible && loginedUser.isAdmin === 1) && !isAppointFormVisible && !isDeleteAvailable">Add</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

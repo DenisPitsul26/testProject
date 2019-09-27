@@ -32,6 +32,7 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
   modal: any;
   temp: number;
   private sub5: Subscription;
+  isDeleteAvailable = false;
 
   constructor(private controlWorksService: ControlWorksService,
               private testsService: TestsService,
@@ -132,13 +133,16 @@ export class ControlWorksComponent implements OnInit, OnDestroy {
       this.getControlWorks();
     });
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   cancelDialog() {
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   deleteControl(id: number) {
     this.modal = (document.getElementById('myModal') as HTMLDivElement);
     this.modal.style.display = 'block';
     this.temp = id;
+    this.isDeleteAvailable = true;
   }
 }

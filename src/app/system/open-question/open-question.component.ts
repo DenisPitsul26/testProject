@@ -24,6 +24,7 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
   controls: ControlWork[];
   isImageQuestion: boolean[] = [];
 
+  isDeleteAvailable = false;
   modal: any;
   modalAdd: any;
   temp: number;
@@ -78,14 +79,17 @@ export class OpenQuestionComponent implements OnInit, OnDestroy {
       }
     });
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   cancelDialog() {
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   deleteQuestion(id: number) {
     this.modal = (document.getElementById('myModal') as HTMLDivElement);
     this.modal.style.display = 'block';
     this.temp = id;
+    this.isDeleteAvailable = true;
   }
   newQuestionAdd(quest: OpenQuestionModel) {
     this.getQuestions();

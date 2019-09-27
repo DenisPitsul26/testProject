@@ -28,7 +28,7 @@
 </div>
 <div @fade *ngIf="isLoaded">
   <section class="section">
-    <button class="btn btn-success1 btn btn-success" (click)="addQuestionForm()" *ngIf="!isAddFormVisible">Add</button>
+    <button class="btn btn-success1 btn btn-success" (click)="addQuestionForm()" *ngIf="!isAddFormVisible && !isDeleteAvailable">Add</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

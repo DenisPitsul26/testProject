@@ -22,6 +22,7 @@ export class TestingComponent implements OnInit, OnDestroy {
   sub3: Subscription;
   controls: ControlWork[];
   isAddFormVisible = false;
+  isDeleteAvailable = false;
   modal: any;
   modalAdd: any;
   temp: number;
@@ -87,6 +88,7 @@ export class TestingComponent implements OnInit, OnDestroy {
     this.modal = (document.getElementById('myModal') as HTMLDivElement);
     this.modal.style.display = 'block';
     this.temp = id;
+    this.isDeleteAvailable = true;
   }
   confirmDialog() {
     this.sub2 = this.controlWorksService.getControlWorks().subscribe((controlWorks: ControlWork[]) => {
@@ -108,8 +110,10 @@ export class TestingComponent implements OnInit, OnDestroy {
       this.getTests();
     });
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
   cancelDialog() {
     this.modal.style.display = 'none';
+    this.isDeleteAvailable = false;
   }
 }

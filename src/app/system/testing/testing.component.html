@@ -35,7 +35,7 @@
 <!--    ></app-testing-add>-->
 <!--  </div>-->
   <section class="section">
-    <button class="btn btn-success btn btn-success1" (click)="addTestForm()" *ngIf="!isAddFormVisible">Add</button>
+    <button class="btn btn-success btn btn-success1" (click)="addTestForm()" *ngIf="!isAddFormVisible && !isDeleteAvailable">Add</button>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

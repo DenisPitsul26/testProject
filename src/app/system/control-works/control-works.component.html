@@ -22,7 +22,7 @@
                      (currentControlUpdated)="currentControlUpdated($event)"></app-control-add>
   </div>
   <section class="section">
-    <button class="btn btn-success btn-success1" (click)="createControlWork()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1">Create</button>
+    <button class="btn btn-success btn-success1" (click)="createControlWork()" *ngIf="!isAddFormVisible && loginedUser.isAdmin === 1 && !isDeleteAvailable">Create</button>
     <div *ngIf="!isAddFormVisible" class="row">
       <div class="col-md-12">
         <div class="card">
